@@ -528,7 +528,7 @@
 
 @media (max-width: 1300px) {
   .heroCentered {
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 20rem);
     min-height: 500px;
     padding: 0.5rem 0;
     gap: 1px;
@@ -769,9 +769,9 @@
   }
 
   .heroCentered {
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 10rem);
     min-height: 400px;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     gap: 0.8rem;
   }
 
@@ -858,7 +858,7 @@
 
 @media (min-width: 1024px) and (max-width: 1300px) {
   .mainContainer {
-    padding-top: 7.5rem;
+    padding-top: 2.5rem;
   }
 
   .heroCentered {
