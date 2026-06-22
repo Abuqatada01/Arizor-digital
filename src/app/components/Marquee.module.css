@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   cursor: grab;
   perspective: 1200px;
   /* Crucial for 3D perspective depth */
@@ -41,7 +41,7 @@
   width: 350px;
   height: 450px;
   margin: 0 0.35rem;
-  border-radius: 24px;
+  border-radius: 2px;
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -93,22 +93,8 @@
 
 @media (min-width: 1024px) and (max-width: 1300px) {
   .card {
-    width: 260px;
-    height: 340px;
-  }
-
-  .topCurveMask,
-  .bottomCurveMask {
-    height: 110px;
-  }
-}
-
-@media (max-width: 992px) {
-  .card {
-    width: 240px;
+    width: 250px;
     height: 300px;
-    margin: 0 0.5rem;
-    border-radius: 24px;
   }
 
   .topCurveMask,
@@ -117,16 +103,38 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 992px) {
+  .marqueeContainer {
+    padding: 1.5rem 0;
+  }
+
   .card {
-    width: 170px;
-    height: 220px;
-    margin: 0 0.35rem;
+    width: 240px;
+    height: 300px;
+    margin: 0 0.25rem;
     border-radius: 24px;
   }
 
   .topCurveMask,
   .bottomCurveMask {
-    height: 120px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marqueeContainer {
+    padding: 1rem 0;
+  }
+
+  .card {
+    width: 170px;
+    height: 220px;
+    margin: 0 0.15rem;
+    border-radius: 24px;
+  }
+
+  .topCurveMask,
+  .bottomCurveMask {
+    height: 90px;
   }
 }
