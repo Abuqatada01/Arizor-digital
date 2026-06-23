@@ -4,7 +4,7 @@
   flex-direction: column;
   background-color: var(--background);
   color: var(--foreground);
-  padding-top: 6rem;
+  padding-top: 1rem;  /* ← THIS KEEPS NAVBAR VISIBLE */
 }
 
 /* Common Section Layout */
@@ -49,21 +49,21 @@
   line-height: 1.6;
 }
 
-/* Centered Hero Section (Fits 100vh screen height, safe min-height) */
+/* ============================================================
+   HERO SECTION - MODERATE TOP SPACING
+   ============================================================ */
 .heroCentered {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 0;
-  /* Removed horizontal padding so marquee stretches edge-to-edge */
+  padding: 2rem 0 3rem 0;  /* ← REDUCED further */
   width: 100%;
   overflow-x: hidden;
-  height: calc(100vh - 6rem);
-  min-height: 650px;
+  min-height: 70vh;
   box-sizing: border-box;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .heroCenterTitle {
@@ -77,12 +77,10 @@
   max-width: 1200px;
   word-break: break-word;
   padding: 0 2rem;
-  /* Keep text padded inside the screen */
 }
 
 .heroMarqueeWrapper {
   width: 100%;
-  /* Spans 100% of parent width edge-to-edge */
   margin: 0;
   position: relative;
   display: flex;
@@ -98,7 +96,6 @@
   text-transform: uppercase;
   margin: 0 auto;
   padding: 0 2rem;
-  /* Keep text padded inside the screen */
 }
 
 .heroCenterActions {
@@ -148,7 +145,7 @@
   border-color: rgba(18, 18, 18, 0.2);
 }
 
-/* About Agency Restructured Section (Matches Screenshot 1) */
+/* About Agency Restructured Section */
 .aboutHeaderRow {
   display: flex;
   justify-content: space-between;
@@ -526,12 +523,16 @@
   font-weight: 600;
 }
 
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Large Screens (1300px - 1400px) */
 @media (max-width: 1300px) {
   .heroCentered {
-    height: calc(100vh - 20rem);
     min-height: 500px;
-    padding: 0.5rem 0;
-    gap: 1px;
+    padding: 2rem 0 2rem 0;
+    gap: 1rem;
   }
 
   .heroCenterTitle {
@@ -588,26 +589,23 @@
 
   .visualCard {
     border-radius: 20px;
-    /* Reduced from 32px */
   }
 
   .serviceCard,
   .aboutStatCard {
     border-radius: 16px;
-    /* Reduced from 24px */
   }
 
   .trustPill {
     border-radius: 14px;
-    /* Reduced from 20px */
   }
 }
 
+/* Tablets & Small Laptops (992px) */
 @media (max-width: 992px) {
   .heroCentered {
-    height: calc(100vh - 6rem);
     min-height: 500px;
-    padding: 2.5rem 0;
+    padding: 2rem 0 2rem 0;
     gap: 1.5rem;
   }
 
@@ -665,21 +663,19 @@
 
   .visualCard {
     border-radius: 20px;
-    /* Reduced from 32px */
   }
 
   .serviceCard,
   .aboutStatCard {
     border-radius: 16px;
-    /* Reduced from 24px */
   }
 
   .trustPill {
     border-radius: 14px;
-    /* Reduced from 20px */
   }
 }
 
+/* Tablets (768px) */
 @media (max-width: 768px) {
   .section {
     padding: 4rem 1.5rem;
@@ -690,9 +686,8 @@
   }
 
   .heroCentered {
-    height: calc(100vh - 6rem);
     min-height: 450px;
-    padding: 2rem 0;
+    padding: 1.5rem 0 1.5rem 0;
     gap: 1.2rem;
   }
 
@@ -759,6 +754,7 @@
   }
 }
 
+/* Mobile Phones (480px) */
 @media (max-width: 480px) {
   .section {
     padding: 3rem 1rem;
@@ -769,9 +765,8 @@
   }
 
   .heroCentered {
-    height: calc(100vh - 10rem);
     min-height: 400px;
-    padding: 1rem 0;
+    padding: 1rem 0 1rem 0;
     gap: 0.8rem;
   }
 
@@ -856,6 +851,26 @@
   }
 }
 
+/* Extra Large Screens (1400px+) */
+@media (min-width: 1400px) {
+  .heroCentered {
+    padding: 3rem 0 4rem 0;  /* ← Very minimal top padding */
+    min-height: 65vh;
+    gap: 2rem;
+  }
+
+  .heroCenterTitle {
+    font-size: 3rem;
+    max-width: 1400px;
+  }
+
+  .heroCenterDescription {
+    font-size: 1.1rem;
+    max-width: 800px;
+  }
+}
+
+/* Fix for very wide screens */
 @media (min-width: 1024px) and (max-width: 1300px) {
   .mainContainer {
     padding-top: 2.5rem;

@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        Arizor<span className={styles.logoDot}>.</span>
+        Ariz<span className={styles.logoDot}>or</span>
       </div>
 
       <div className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`} onClick={toggleMenu} aria-label="Toggle Navigation">

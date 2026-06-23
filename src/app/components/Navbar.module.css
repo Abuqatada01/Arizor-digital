@@ -1,8 +1,9 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  height: 100px;
   align-items: center;
-  padding: 1.5rem 4rem;
+padding: 0.8rem 3rem;
   width: 100%;
   position: fixed;
   top: 0;
@@ -13,12 +14,30 @@
   border-bottom: 1px solid transparent;
 }
 
+/* ADDED: Subtle separation line between navbar and hero */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -0.1px;
+  left: 10%;
+  width: 80%;
+  height: 0.5px;
+  background: rgba(18, 18, 18, 0.08);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 .scrolled {
-  padding: 1rem 4rem;
+padding: 0.6rem 3rem;  
   background: rgba(242, 237, 228, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(18, 18, 18, 0.05);
+}
+
+/* Show separation line when scrolled */
+.scrolled::after {
+  opacity: 1;
 }
 
 .logo {
@@ -134,26 +153,35 @@
   transform-origin: 1px;
 }
 
-
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
 
 @media (min-width: 1024px) and (max-width: 1300px) {
   .navbar {
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 2rem;  /* Reduced padding */
+    height: 80px;  /* Slightly smaller */
   }
 
   .scrolled {
     padding: 0.6rem 2rem;
   }
+
+  .navbar::after {
+    left: 8%;
+    width: 84%;
+  }
 }
 
 @media (max-width: 992px) {
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
+ .navbar {
+  padding: 0.6rem 1.2rem;
+  height: 70px;
+}
 
-  .scrolled {
-    padding: 0.8rem 1.5rem;
-  }
+.scrolled {
+  padding: 0.5rem 1.2rem;
+}
 
   .burger {
     display: flex;
@@ -211,18 +239,41 @@
   .burgerActive .line3 {
     transform: rotate(-45deg);
   }
+
+  .navbar::after {
+    left: 5%;
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 0.8rem 1rem;
-  }
+  padding: 0.5rem 0.8rem;
+  height: 60px;
+}
 
-  .scrolled {
-    padding: 0.6rem 1rem;
-  }
+.scrolled {
+  padding: 0.4rem 0.8rem;
+}
 
   .logo {
-    font-size: 1.4rem;
+    font-size: 1.2rem;  /* Smaller logo */
   }
+
+  /* ADD THIS - Separation line below navbar */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 0.5px;
+  background: rgba(18, 18, 18, 0.08);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
+
+/* ADD THIS - Show line when scrolled */
+.scrolled::after {
+  opacity: 1;
+    }}

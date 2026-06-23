@@ -17,7 +17,9 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <Hero />
+      <div style={{ marginTop: '4rem' }}>
+  <Hero />
+</div>
 
       {/* About Section */}
       <About />

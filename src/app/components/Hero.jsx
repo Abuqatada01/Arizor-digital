@@ -5,7 +5,8 @@ import styles from "../page.module.css";
 export default function Hero() {
   return (
     <header className={`${styles.heroCentered} fade-in`}>
-      <h1 className={styles.heroCenterTitle}>
+      {/* Text below navbar - SMALLER SIZE */}
+      <h1 className={styles.heroCenterTitleSmall}>
         I Design Digital Experiences That Drive Business Growth
       </h1>
       

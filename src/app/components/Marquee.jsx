@@ -39,6 +39,12 @@ export default function Marquee() {
                 className={styles.image}
                 priority={idx < 5}
               />
+              {/* Text Overlay on Image */}
+              <div className={styles.imageOverlay}>
+                <span className={styles.overlayText}>
+                  I Design Digital Experiences That Drive Business Growth
+                </span>
+              </div>
             </div>
           </div>
         ))}
