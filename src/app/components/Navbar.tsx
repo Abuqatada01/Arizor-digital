@@ -13,7 +13,7 @@ export default function Navbar() {
         setScrolled(true);
       } else {
         setScrolled(false);
-      }a
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
