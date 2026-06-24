@@ -11,12 +11,12 @@
   z-index: 100;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* GLASS MORPHISM - Very transparent for blur to show */
-  background: rgba(236, 233, 228, 0.15);  /* ← REDUCED OPACITY */
+  /* GLASS MORPHISM - Stronger blur effect */
+  background: rgba(236, 233, 228, 0.35);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 /* ADDED: Subtle separation line between navbar and hero */
@@ -35,12 +35,12 @@
 .scrolled {
   padding: 0.6rem 3rem;
   
-  /* STRONGER BLUR ON SCROLL - but still transparent */
-  background: rgba(236, 233, 228, 0.35);  /* ← SLIGHTLY MORE ON SCROLL */
+  /* STRONGER BLUR ON SCROLL */
+  background: rgba(236, 233, 228, 0.75);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* Show separation line when scrolled */
@@ -169,14 +169,12 @@
   .navbar {
     padding: 0.8rem 2rem;
     height: 80px;
-    background: rgba(236, 233, 228, 0.12);
     backdrop-filter: blur(18px) saturate(1.2);
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
   }
 
   .scrolled {
     padding: 0.6rem 2rem;
-    background: rgba(236, 233, 228, 0.3);
     backdrop-filter: blur(22px) saturate(1.4);
     -webkit-backdrop-filter: blur(22px) saturate(1.4);
   }
@@ -191,14 +189,12 @@
   .navbar {
     padding: 0.6rem 1.2rem;
     height: 70px;
-    background: rgba(236, 233, 228, 0.1);
     backdrop-filter: blur(16px) saturate(1.2);
     -webkit-backdrop-filter: blur(16px) saturate(1.2);
   }
 
   .scrolled {
     padding: 0.5rem 1.2rem;
-    background: rgba(236, 233, 228, 0.25);
     backdrop-filter: blur(20px) saturate(1.4);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);
   }
@@ -214,7 +210,7 @@
     height: 100vh;
     width: 70%;
     max-width: 400px;
-    background: rgba(236, 233, 228, 0.92);
+    background: rgba(236, 233, 228, 0.95);
     backdrop-filter: blur(30px) saturate(1.4);
     -webkit-backdrop-filter: blur(30px) saturate(1.4);
     flex-direction: column;
@@ -272,14 +268,12 @@
   .navbar {
     padding: 0.5rem 0.8rem;
     height: 60px;
-    background: rgba(236, 233, 228, 0.08);
     backdrop-filter: blur(14px) saturate(1.2);
     -webkit-backdrop-filter: blur(14px) saturate(1.2);
   }
 
   .scrolled {
     padding: 0.4rem 0.8rem;
-    background: rgba(236, 233, 228, 0.2);
     backdrop-filter: blur(18px) saturate(1.4);
     -webkit-backdrop-filter: blur(18px) saturate(1.4);
   }
@@ -289,7 +283,7 @@
   }
 
   .navLinks {
-    background: rgba(236, 233, 228, 0.95);
+    background: rgba(236, 233, 228, 0.98);
     backdrop-filter: blur(30px) saturate(1.4);
     -webkit-backdrop-filter: blur(30px) saturate(1.4);
   }
