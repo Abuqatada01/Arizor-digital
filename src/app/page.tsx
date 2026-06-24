@@ -8,11 +8,10 @@ import InteractiveTimeline from "./components/InteractiveTimeline";
 import Philosophy from "./components/Philosophy";
 import ProjectPlanner from "./components/ProjectPlanner";
 import Footer from "./components/Footer";
-import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.mainContainer}>
+    <div className="min-h-screen flex flex-col bg-background text-foreground pt-20">
       {/* Fixed Navigation Header */}
       <Navbar />
 
@@ -29,14 +28,14 @@ export default function Home() {
       <Services />
 
       {/* Process/Approach Section */}
-      <section className={styles.section} id="approach">
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionBadge}>
-            <span className="redDot" style={{ marginRight: '8px' }}></span>
+      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-16 max-md:px-6 max-sm:py-12 max-sm:px-4" id="approach">
+        <div className="max-w-[700px] mb-16 max-md:mb-10 max-sm:mb-7">
+          <span className="text-xs font-bold tracking-[0.15em] text-foreground uppercase mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 bg-accent rounded-full inline-block animate-pulse-custom mr-2"></span>
             Methodology
           </span>
-          <h2 className={styles.sectionTitle}>Our Approach</h2>
-          <p className={styles.sectionSubtitle}>
+          <h2 className="font-[family-name:var(--font-display)] text-5xl max-md:text-4xl max-sm:text-3xl font-extrabold tracking-[-0.04em] leading-[1.1] uppercase mb-6">Our Approach</h2>
+          <p className="text-lg text-muted leading-relaxed">
             How we translate your business goals into high-impact digital products.
           </p>
         </div>
@@ -47,7 +46,7 @@ export default function Home() {
       <Philosophy />
 
       {/* Project Planner/Contact Form Section */}
-      <section className={styles.section}>
+      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-16 max-md:px-6 max-sm:py-12 max-sm:px-4">
         <ProjectPlanner />
       </section>
 

@@ -1,104 +1,71 @@
-:root {
-  --background: #ece9e4;
-  --foreground: #121212;
+@import "tailwindcss";
 
-  
-  /* Reference Design Color Palette */
-  --accent: #ff2a2a;
-  --muted: #6e6b64;
-  --card-bg: #ffffff;
-  --card-bg-off: #f7f4ed;
-  --card-border: rgba(18, 18, 18, 0.06);
-  --card-border-hover: rgba(255, 42, 42, 0.3);
+@theme {
+  --color-background: #ece9e4;
+  --color-foreground: #121212;
+  --color-accent: #ff2a2a;
+  --color-muted: #6e6b64;
+  --color-card-bg: #ffffff;
+  --color-card-bg-off: #f7f4ed;
+  --color-card-border: rgba(18, 18, 18, 0.06);
+  --color-card-border-hover: rgba(255, 42, 42, 0.3);
   
   --font-display: 'Helvetica', 'Arial', sans-serif;
---font-body: 'Helvetica', 'Arial', sans-serif;
+  --font-body: 'Helvetica', 'Arial', sans-serif;
+
+  --animate-pulse-custom: pulse 2s infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-marquee: marquee 35s linear infinite;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  :root {
+    --background: #ece9e4;
+    --foreground: #121212;
+    --accent: #ff2a2a;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Custom modern scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(18, 18, 18, 0.15);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-}
-
-/* Pulse animation for red indicators */
 @keyframes pulse {
-  0% {
-    transform: scale(0.9);
-    box-shadow: 0 0 0 0 rgba(255, 42, 42, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 8px rgba(255, 42, 42, 0);
-  }
-  100% {
-    transform: scale(0.9);
-    box-shadow: 0 0 0 0 rgba(255, 42, 42, 0);
-  }
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 42, 42, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 42, 42, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 42, 42, 0); }
 }
 
-/* Float animations for cards */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* Soft entry animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.redDot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulse 2s infinite;
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: rgba(18, 18, 18, 0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
