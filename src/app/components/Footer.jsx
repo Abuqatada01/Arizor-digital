@@ -7,7 +7,7 @@ export default function Footer() {
       <div className={styles.footerContent}>
         <div className={styles.footerBrand}>
           <div className={styles.footerLogo}>
-            Arizor<span>.</span>
+            L&Q GLOBAL<span>.</span>
           </div>
           <p className={styles.footerDesc}>
             Boutique digital agency delivering strategic web experiences, AI automations, and growth campaigns.
@@ -36,7 +36,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© {new Date().getFullYear()} Arizor Studio. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} L&Q GLOBAL. All rights reserved.</p>
         <p>Built for brands designed to grow.</p>
       </div>
     </footer>

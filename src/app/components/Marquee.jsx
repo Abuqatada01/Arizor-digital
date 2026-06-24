@@ -42,7 +42,7 @@ export default function Marquee() {
               {/* Text Overlay on Image */}
               <div className={styles.imageOverlay}>
                 <span className={styles.overlayText}>
-                  I Design Digital Experiences That Drive Business Growth
+                 We design and build AI-powered systems that drive real business growth.
                 </span>
               </div>
             </div>

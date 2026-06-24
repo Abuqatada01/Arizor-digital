@@ -3,15 +3,20 @@
   justify-content: space-between;
   height: 100px;
   align-items: center;
-padding: 0.8rem 3rem;
+  padding: 0.8rem 3rem;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  
+  /* GLASS MORPHISM - Very transparent for blur to show */
+  background: rgba(236, 233, 228, 0.15);  /* ← REDUCED OPACITY */
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
 }
 
 /* ADDED: Subtle separation line between navbar and hero */
@@ -28,11 +33,14 @@ padding: 0.8rem 3rem;
 }
 
 .scrolled {
-padding: 0.6rem 3rem;  
-  background: rgba(242, 237, 228, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(18, 18, 18, 0.05);
+  padding: 0.6rem 3rem;
+  
+  /* STRONGER BLUR ON SCROLL - but still transparent */
+  background: rgba(236, 233, 228, 0.35);  /* ← SLIGHTLY MORE ON SCROLL */
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* Show separation line when scrolled */
@@ -41,7 +49,7 @@ padding: 0.6rem 3rem;
 }
 
 .logo {
-  font-family: var(--font-display);
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -159,12 +167,18 @@ padding: 0.6rem 3rem;
 
 @media (min-width: 1024px) and (max-width: 1300px) {
   .navbar {
-    padding: 0.8rem 2rem;  /* Reduced padding */
-    height: 80px;  /* Slightly smaller */
+    padding: 0.8rem 2rem;
+    height: 80px;
+    background: rgba(236, 233, 228, 0.12);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
   }
 
   .scrolled {
     padding: 0.6rem 2rem;
+    background: rgba(236, 233, 228, 0.3);
+    backdrop-filter: blur(22px) saturate(1.4);
+    -webkit-backdrop-filter: blur(22px) saturate(1.4);
   }
 
   .navbar::after {
@@ -174,14 +188,20 @@ padding: 0.6rem 3rem;
 }
 
 @media (max-width: 992px) {
- .navbar {
-  padding: 0.6rem 1.2rem;
-  height: 70px;
-}
+  .navbar {
+    padding: 0.6rem 1.2rem;
+    height: 70px;
+    background: rgba(236, 233, 228, 0.1);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  }
 
-.scrolled {
-  padding: 0.5rem 1.2rem;
-}
+  .scrolled {
+    padding: 0.5rem 1.2rem;
+    background: rgba(236, 233, 228, 0.25);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  }
 
   .burger {
     display: flex;
@@ -194,7 +214,9 @@ padding: 0.6rem 3rem;
     height: 100vh;
     width: 70%;
     max-width: 400px;
-    background: var(--card-bg-off);
+    background: rgba(236, 233, 228, 0.92);
+    backdrop-filter: blur(30px) saturate(1.4);
+    -webkit-backdrop-filter: blur(30px) saturate(1.4);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -202,8 +224,8 @@ padding: 0.6rem 3rem;
     transform: translateX(100%);
     visibility: hidden;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
-    border-left: 1px solid var(--card-border);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .navActive {
@@ -248,32 +270,43 @@ padding: 0.6rem 3rem;
 
 @media (max-width: 480px) {
   .navbar {
-  padding: 0.5rem 0.8rem;
-  height: 60px;
-}
-
-.scrolled {
-  padding: 0.4rem 0.8rem;
-}
-
-  .logo {
-    font-size: 1.2rem;  /* Smaller logo */
+    padding: 0.5rem 0.8rem;
+    height: 60px;
+    background: rgba(236, 233, 228, 0.08);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
   }
 
-  /* ADD THIS - Separation line below navbar */
-.navbar::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  width: 80%;
-  height: 0.5px;
-  background: rgba(18, 18, 18, 0.08);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
+  .scrolled {
+    padding: 0.4rem 0.8rem;
+    background: rgba(236, 233, 228, 0.2);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  }
 
-/* ADD THIS - Show line when scrolled */
-.scrolled::after {
-  opacity: 1;
-    }}
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .navLinks {
+    background: rgba(236, 233, 228, 0.95);
+    backdrop-filter: blur(30px) saturate(1.4);
+    -webkit-backdrop-filter: blur(30px) saturate(1.4);
+  }
+
+  .navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 0.5px;
+    background: rgba(18, 18, 18, 0.08);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .scrolled::after {
+    opacity: 1;
+  }
+}

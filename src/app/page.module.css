@@ -4,7 +4,7 @@
   flex-direction: column;
   background-color: var(--background);
   color: var(--foreground);
-  padding-top: 1rem;  /* ← THIS KEEPS NAVBAR VISIBLE */
+  padding-top: 5rem;
 }
 
 /* Common Section Layout */
@@ -50,7 +50,7 @@
 }
 
 /* ============================================================
-   HERO SECTION - MODERATE TOP SPACING
+   HERO SECTION
    ============================================================ */
 .heroCentered {
   display: flex;
@@ -58,7 +58,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 0 3rem 0;  /* ← REDUCED further */
+  padding: 2rem 0 3rem 0;
   width: 100%;
   overflow-x: hidden;
   min-height: 70vh;
@@ -88,14 +88,15 @@
 }
 
 .heroCenterDescription {
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1.8vw, 1.05rem);
   font-weight: 700;
   color: var(--muted);
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 750px;
   text-transform: uppercase;
   margin: 0 auto;
   padding: 0 2rem;
+  letter-spacing: 0.05em;
 }
 
 .heroCenterActions {
@@ -854,7 +855,7 @@
 /* Extra Large Screens (1400px+) */
 @media (min-width: 1400px) {
   .heroCentered {
-    padding: 3rem 0 4rem 0;  /* ← Very minimal top padding */
+    padding: 3rem 0 4rem 0;
     min-height: 65vh;
     gap: 2rem;
   }

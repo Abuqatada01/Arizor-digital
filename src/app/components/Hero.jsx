@@ -6,10 +6,10 @@ export default function Hero() {
   return (
     <header className={`${styles.heroCentered} fade-in`}>
       {/* Text below navbar - SMALLER SIZE */}
-      <h1 className={styles.heroCenterTitleSmall}>
-        I Design Digital Experiences That Drive Business Growth
+      <h1 className={styles.heroCenterTitle}>
+        We design and build AI-powered systems that drive real business growth.
       </h1>
-      
+
       {/* Horizontal Image Marquee */}
       <div className={styles.heroMarqueeWrapper}>
         <Marquee />

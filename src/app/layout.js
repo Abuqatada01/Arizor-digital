@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Arizor | Boutique Digital Agency",
+  title: "L&Q GLOBAL",
   description: "We build websites that turn businesses into brands. Strategic web development, AI automation, and social media growth.",
 };
 

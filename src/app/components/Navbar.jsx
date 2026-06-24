@@ -13,7 +13,7 @@ export default function Navbar() {
         setScrolled(true);
       } else {
         setScrolled(false);
-      }
+      }a
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,7 +30,8 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        Ariz<span className={styles.logoDot}>or</span>
+        L&Q Global
+        {/* <span className={styles.logoDot}>{" "}.</span> */}
       </div>
 
       <div className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`} onClick={toggleMenu} aria-label="Toggle Navigation">

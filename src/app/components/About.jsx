@@ -20,7 +20,7 @@ export default function About() {
             We turn ideas into digital realities.
           </h2>
           <p className={styles.aboutDescription}>
-            Arizor is a digital agency built for web, social media, and AI automation. We shape each project with the precision of engineers and the instinct of strategists—moving from brief to launch with speed and clarity.
+            L&Q GLOBAL is a digital agency built for web, social media, and AI automation. We shape each project with the precision of engineers and the instinct of strategists—moving from brief to launch with speed and clarity.
           </p>
           
           {/* Stats Row */}
