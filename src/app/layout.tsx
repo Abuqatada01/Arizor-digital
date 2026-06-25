@@ -1,19 +1,38 @@
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans, Inter, Urbanist } from 'next/font/google'
+import './globals.css'
 
-export const metadata = {
-  title: "L&Q GLOBAL",
-  description: "We build websites that turn businesses into brands. Strategic web development, AI automation, and social media growth.",
-};
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+  display: 'swap',
+})
 
-export default function RootLayout({ children }) {
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const urbanist = Urbanist({
+  subsets: ['latin'],
+  variable: '--font-urbanist',
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: 'AntiGravity Portfolio',
+  description: 'A premium portfolio for AntiGravity',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${jakarta.variable} ${inter.variable} ${urbanist.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
-  );
+  )
 }

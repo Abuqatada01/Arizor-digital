@@ -2,50 +2,39 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111] text-white pt-24 pb-12 px-16 max-md:py-16 max-md:px-8 max-sm:px-4 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto relative z-10">
-
-        <div className="flex justify-between items-start flex-wrap gap-16 max-md:gap-12 mb-24">
-          <div className="flex flex-col gap-6 max-w-[350px]">
-            <div className="font-[family-name:var(--font-display)] text-[2rem] font-bold text-white uppercase tracking-tight">
-              L&Q GLOBAL<span className="text-accent">.</span>
-            </div>
-            <p className="text-[1rem] text-[#a0a0a0] leading-[1.6]">
-              A boutique digital agency delivering strategic web experiences, AI automations, and growth campaigns for ambitious brands.
-            </p>
+    <footer className="bg-[var(--color-black-soft)] text-[var(--color-white)] pt-20 pb-10 mt-auto">
+      <div className="container-custom flex flex-col items-center">
+        
+        {/* Brand */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-8 h-8 bg-[var(--color-primary)] rounded-full flex items-center justify-center text-white font-bold">
+            AG
           </div>
-
-          <div className="flex gap-24 max-md:gap-12 max-md:flex-wrap">
-            <div className="flex flex-col gap-6">
-              <span className="text-[0.85rem] font-bold tracking-widest text-white/50 uppercase">Navigation</span>
-              <ul className="flex flex-col gap-4 list-none">
-                <li><a href="#services" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-white">Services</a></li>
-                <li><a href="#approach" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-white">Our Approach</a></li>
-                <li><a href="#philosophy" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-white">Philosophy</a></li>
-                <li><a href="#about" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-white">About Us</a></li>
-              </ul>
-            </div>
-            <div className="flex flex-col gap-6">
-              <span className="text-[0.85rem] font-bold tracking-widest text-white/50 uppercase">Expertise</span>
-              <ul className="flex flex-col gap-4 list-none">
-                <li><a href="#services" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-accent">Web Development</a></li>
-                <li><a href="#services" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-accent">AI Automation</a></li>
-                <li><a href="#services" className="text-[#a0a0a0] no-underline text-[0.95rem] font-medium transition-colors duration-300 ease-in-out hover:text-accent">Social Media</a></li>
-              </ul>
-            </div>
-          </div>
+          <span className="font-[family-name:var(--font-display)] text-[24px] font-bold tracking-tight text-[var(--color-white)]">
+            AntiGravity
+          </span>
+        </div>
+        
+        <div className="text-small text-[var(--color-gray-400)] tracking-wide uppercase mb-12">
+          Modern Websites • AI Systems • Measurable Growth
         </div>
 
-        {/* Massive Typography Block */}
-        <div className="mb-12 text-center border-t border-white/10 pt-16">
-          <h2 className="font-[family-name:var(--font-display)] text-[12vw] font-bold tracking-tighter leading-[0.85] text-white/10 hover:text-white transition-colors duration-700 cursor-default select-none">
-            Let's Build.
-          </h2>
-        </div>
+        {/* Links */}
+        <ul className="flex flex-wrap gap-8 justify-center mb-16">
+          <li><a href="#services" className="text-body text-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors">Services</a></li>
+          <li><a href="#work" className="text-body text-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors">Portfolio</a></li>
+          <li><a href="#results" className="text-body text-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors">Case Studies</a></li>
+          <li><a href="#pricing" className="text-body text-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors">Pricing</a></li>
+          <li><a href="#contact" className="text-body text-[var(--color-white)] hover:text-[var(--color-primary)] transition-colors">Contact</a></li>
+        </ul>
 
-        <div className="flex justify-between items-center border-t border-white/10 pt-8 text-[0.85rem] text-[#666] flex-wrap gap-4 font-semibold">
-          <p>© {new Date().getFullYear()} L&Q GLOBAL. All rights reserved.</p>
-          <p className="tracking-wide text-white/40">Engineered for growth.</p>
+        {/* Copyright */}
+        <div className="w-full border-t border-[var(--color-gray-800)] pt-8 flex justify-between items-center max-sm:flex-col max-sm:gap-4 max-sm:text-center">
+          <p className="text-small text-[var(--color-gray-500)]">© {new Date().getFullYear()} AntiGravity. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="text-small text-[var(--color-gray-500)] hover:text-[var(--color-white)] transition-colors">Privacy Policy</a>
+            <a href="#" className="text-small text-[var(--color-gray-500)] hover:text-[var(--color-white)] transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

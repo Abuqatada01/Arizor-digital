@@ -26,7 +26,7 @@ export default function Marquee() {
       </div>
 
       {/* Marquee Track */}
-      <div className="flex w-max preserve-3d will-change-transform animate-marquee hover:[animation-play-state:paused]">
+      <div className="flex w-max preserve-3d will-change-transform animate-marquee">
         {duplicatedImages.map((img, idx) => (
           <div key={idx} className="shrink-0 w-[350px] h-[450px] max-[1300px]:w-[250px] max-[1300px]:h-[300px] max-md:w-[240px] max-md:h-[300px] max-md:rounded-3xl max-sm:w-[170px] max-sm:h-[220px] max-sm:rounded-3xl mx-[0.35rem] max-md:mx-[0.25rem] max-sm:mx-[0.15rem] rounded-sm overflow-hidden relative transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_10px_35px_rgba(0,0,0,0.05)] bg-card-bg border border-card-border preserve-3d will-change-transform">
             <div className="w-full h-full relative">
@@ -38,12 +38,6 @@ export default function Marquee() {
                 className="object-cover pointer-events-none"
                 priority={idx < 5}
               />
-              {/* Text Overlay on Image */}
-              <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] opacity-0 flex items-center justify-center p-8 transition-opacity duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-100 z-10 max-[1300px]:p-4 max-md:p-4 max-sm:p-2 backdrop-blur-[2px]">
-                <span className="text-white font-[family-name:var(--font-display)] text-[1.4rem] font-bold text-center leading-[1.3] tracking-[-0.01em] uppercase translate-y-5 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-y-0 max-[1300px]:text-[1rem] max-md:text-[0.95rem] max-sm:text-[0.75rem]">
-                 We design and build AI-powered systems that drive real business growth.
-                </span>
-              </div>
             </div>
           </div>
         ))}

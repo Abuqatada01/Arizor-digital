@@ -1,59 +1,55 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Trust from "./components/Trust";
 import Services from "./components/Services";
+import Pricing from "./components/Pricing";
+import Testimonial from "./components/Testimonial";
 import InteractiveTimeline from "./components/InteractiveTimeline";
-import Philosophy from "./components/Philosophy";
-import ProjectPlanner from "./components/ProjectPlanner";
+import CTABanner from "./components/CTABanner";
 import Footer from "./components/Footer";
+
+import About from "./components/About";
+import LogoTicker from "./components/LogoTicker";
+
+import FeaturedWorks from "./components/FeaturedWorks";
+import BenefitsFeatures from "./components/BenefitsFeatures";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground pt-20">
-      {/* Fixed Navigation Header */}
+    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-20">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* SECTION 1 — HERO */}
       <Hero />
 
-      {/* About Section */}
+      {/* SECTION 2 — ABOUT & LOGOS */}
       <About />
+      <LogoTicker />
 
-      {/* Trust Section */}
-      <Trust />
+      {/* MASSIVE WHITE WRAPPER */}
+      <div className="bg-[#ffffff] rounded-[64px] overflow-hidden max-w-[1440px] my-20 mx-8 mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+        {/* SECTION 3 — SERVICES */}
+        <Services />
 
-      {/* Services Section */}
-      <Services />
+        {/* SECTION 4 — FEATURED WORKS */}
+        <FeaturedWorks />
 
-      {/* Process/Approach Section */}
-      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-20 max-md:px-6" id="approach">
-        <div className="grid grid-cols-[1.2fr_1fr] gap-16 max-lg:grid-cols-1 items-end mb-16 relative z-10">
-          <div className="flex flex-col">
-            <span className="text-accent font-bold text-lg tracking-wide mb-4">Methodology</span>
-            <h2 className="font-[family-name:var(--font-display)] text-[4.5rem] max-xl:text-[3.5rem] max-md:text-[2.5rem] font-bold tracking-tight leading-[1.05] text-white">
-              How we translate goals into reality.
-            </h2>
-          </div>
-          <div className="flex flex-col items-start gap-8 max-lg:mt-8">
-            <p className="text-[1.2rem] text-[#f5f5f5] font-medium leading-[1.6] max-w-[500px]">
-              Our process is designed for precision and speed, ensuring every step adds measurable value to the final product.
-            </p>
-          </div>
-        </div>
+        {/* SECTION 5 — PROCESS */}
         <InteractiveTimeline />
-      </section>
 
-      {/* Philosophy Section */}
-      <Philosophy />
+        {/* SECTION 6 — BENEFITS / FEATURES */}
+        <BenefitsFeatures />
+      </div>
 
-      {/* Project Planner/Contact Form Section */}
-      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-16 max-md:px-6 max-sm:py-12 max-sm:px-4">
-        <ProjectPlanner />
-      </section>
+      {/* SECTION 7 — PRICING */}
+      <Pricing />
 
-      {/* Footer Section */}
+      {/* SECTION 8 — RESULTS */}
+      <Testimonial />
+
+      {/* SECTION 9 — FINAL CTA */}
+      <CTABanner />
+
       <Footer />
     </div>
   );

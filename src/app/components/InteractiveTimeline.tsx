@@ -1,102 +1,141 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 const STEPS = [
   {
     number: "01",
-    title: "Discover",
-    summary: "We understand your business, audience, and goals.",
-    details: "We start with deep research to align on key objectives, define target personas, map user journeys, and discover growth opportunities tailored specifically for your brand.",
+    title: "Discover & Scope",
+    desc: "Align on problems, data reality, and success metrics. Opportunity brief, KPI model, phased roadmap, effort/cost ranges.",
+    time: "3-7 DAYS",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    )
   },
   {
     number: "02",
-    title: "Strategize",
-    summary: "We create a digital roadmap focused on positioning and conversions.",
-    details: "We translate insights into a concrete action plan, outlining tech stacks, sitemaps, conversion funnels, brand voice direction, and social/automation integration plans.",
+    title: "Prototype",
+    desc: "De-risk unknowns and validate value quickly. Clickable UX, tech spike repo, initial eval rubric, demo.",
+    time: "1-2 WEEKS",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+    )
   },
   {
     number: "03",
-    title: "Design",
-    summary: "We craft modern experiences that communicate your value.",
-    details: "We create high-fidelity responsive UI designs that bring your brand identity to life. Every interaction is designed with high aesthetics and smooth user experiences in mind.",
-  },
-  {
-    number: "04",
-    title: "Develop",
-    summary: "We build fast, reliable websites using modern technology.",
-    details: "We convert approved designs into clean, performance-optimized, and SEO-friendly code. We build robust systems and automate repetitive tasks to support operations.",
-  },
-  {
-    number: "05",
-    title: "Launch & Improve",
-    summary: "We optimize the experience for long-term growth.",
-    details: "After thorough quality assurance, we launch your platform to the world. We monitor metrics, gather user feedback, and iterate on optimizations for continuous growth.",
-  },
+    title: "Build & Deploy",
+    desc: "Production-grade engineering, rigorous evaluation, and seamless deployment into your existing infrastructure.",
+    time: "4-8 WEEKS",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    )
+  }
 ];
 
 export default function InteractiveTimeline() {
-  const [activeStep, setActiveStep] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 400;
+      scrollRef.current.scrollBy({ 
+        left: direction === 'left' ? -scrollAmount : scrollAmount, 
+        behavior: 'smooth' 
+      });
+    }
+  };
 
   return (
-    <div className="grid grid-cols-[1fr_1.5fr] gap-12 w-full mt-16 items-start max-lg:grid-cols-1 max-lg:gap-8 relative z-10">
-
-      {/* Steps Selector list */}
-      <div className="flex flex-col gap-3 relative">
-        <div className="absolute left-8 top-10 bottom-10 w-[2px] bg-white/10 -z-10"></div>
-        {STEPS.map((step, idx) => {
-          const isActive = activeStep === idx;
-          return (
-            <button
-              key={idx}
-              className={`text-left p-6 rounded-3xl cursor-pointer flex items-center gap-6 transition-all duration-500 relative overflow-hidden group
-                ${isActive ? "bg-[#111] shadow-2xl border border-white/5" : "bg-transparent hover:bg-white/5"}
-              `}
-              onClick={() => setActiveStep(idx)}
-              onMouseEnter={() => setActiveStep(idx)}
-            >
-              {/* Step indicator circle */}
-              <div className={`w-4 h-4 rounded-full border-2 transition-all duration-500 flex-shrink-0 relative z-10
-                ${isActive ? "bg-accent border-accent scale-125 shadow-[0_0_15px_rgba(255,42,42,0.6)]" : "bg-[#1a1a1a] border-white/20 group-hover:border-white/50"}
-              `}></div>
-
-              <div className="flex flex-col relative z-10">
-                <span className={`text-sm font-bold tracking-[0.2em] uppercase transition-colors duration-500
-                  ${isActive ? "text-accent" : "text-[#888] group-hover:text-white/70"}
-                `}>Step {step.number}</span>
-                <span className={`font-[family-name:var(--font-display)] text-[1.5rem] font-bold tracking-tight transition-colors duration-500
-                  ${isActive ? "text-white" : "text-[#a0a0a0] group-hover:text-white"}
-                `}>{step.title}</span>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Active Step Details Panel */}
-      <div className="bg-[#111] border border-[#222] p-16 rounded-[32px] relative overflow-hidden shadow-2xl min-h-[450px] flex flex-col justify-center max-md:p-10 max-md:min-h-0" key={activeStep}>
-
-        <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-          <div>
-            <div className="flex items-baseline gap-6 mb-8">
-              <span className="font-[family-name:var(--font-display)] text-[5rem] font-bold text-white/5 leading-none select-none">
-                {STEPS[activeStep].number}
-              </span>
-              <h4 className="font-[family-name:var(--font-display)] text-[3rem] max-md:text-[2rem] font-bold tracking-tight text-white leading-none">
-                {STEPS[activeStep].title}.
-              </h4>
+    <section className="py-[120px] bg-transparent overflow-hidden" id="process">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 xl:grid-cols-[0.8fr_2fr] gap-12 items-center">
+          
+          {/* Left Fixed Column: Header & Controls */}
+          <div className="flex flex-col">
+            <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-lg mb-8 w-max">
+              <span className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
+              <span className="text-[var(--color-primary)] font-medium text-[14px]">Process</span>
             </div>
 
-            <p className="text-[1.5rem] max-md:text-[1.2rem] font-medium leading-[1.4] text-white mb-8 border-l-4 border-accent pl-6 py-2">
-              {STEPS[activeStep].summary}
-            </p>
+            <h2 className="text-display-lg tracking-tight leading-[1.05] text-[var(--color-black)] mb-12">
+              From Idea <br />
+              to Production
+            </h2>
+
+            {/* Navigation Arrows */}
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={() => scroll('left')}
+                className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button 
+                onClick={() => scroll('right')}
+                className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
           </div>
 
-          <p className="text-[1.1rem] leading-[1.8] text-[#888] max-w-[600px]">
-            {STEPS[activeStep].details}
-          </p>
+          {/* Right Scrollable Carousel */}
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-16 pt-8 px-4 -mx-4"
+          >
+            {STEPS.map((step, idx) => (
+              <div 
+                key={idx} 
+                className="snap-start min-w-[320px] md:min-w-[360px] min-h-[480px] bg-[#f8f8f8] rounded-[40px] p-10 flex flex-col justify-between shadow-[8px_8px_24px_rgba(0,0,0,0.05),-8px_-8px_24px_rgba(255,255,255,0.8)] border border-white shrink-0"
+              >
+                
+                {/* Glowing Neon Icon */}
+                <div className="relative mb-8 w-max">
+                  {/* Icon Box */}
+                  <div className="w-12 h-12 bg-[#ff3b30] rounded-2xl flex items-center justify-center text-white relative z-10">
+                    {step.icon}
+                  </div>
+                  {/* Soft Glow */}
+                  <div className="absolute top-4 left-0 w-12 h-12 bg-[#ff3b30] rounded-2xl blur-xl opacity-60 z-0"></div>
+                </div>
+                
+                <div className="flex-1 mt-4">
+                  <h3 className="text-[26px] font-medium text-[var(--color-black)] mb-6 leading-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-[13px] text-[#9a9a9a] leading-[1.7] max-w-[280px]">
+                    {step.desc}
+                  </p>
+                </div>
+                
+                <div className="flex justify-between items-end mt-8">
+                  {/* Time Pill */}
+                  <div className="bg-transparent border border-[#d1d1d1] text-[var(--color-black)] text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-2">
+                    {step.time}
+                  </div>
+                  
+                  {/* Watermark Number */}
+                  <div className="flex items-baseline gap-1 font-[family-name:var(--font-display)] select-none pointer-events-none">
+                    <span className="text-[64px] font-medium text-[#b3b3b3] leading-none tracking-tighter">{step.number}</span>
+                    <span className="text-[28px] font-medium text-[#e0e0e0] leading-none">/ 03</span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 }
