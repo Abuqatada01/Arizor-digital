@@ -26,7 +26,7 @@ const TESTIMONIALS = [
 
 export default function Testimonial() {
   return (
-    <section className="py-[120px]" id="results">
+    <section className="py-[25px]" id="results">
       <div className="container-custom">
 
         {/* Section Header */}

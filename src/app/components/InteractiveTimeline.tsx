@@ -55,7 +55,7 @@ export default function InteractiveTimeline() {
   };
 
   return (
-    <section className="py-[120px] bg-transparent overflow-hidden" id="process">
+    <section className="py-[25px] bg-transparent overflow-hidden" id="process">
       <div className="container-custom">
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 items-center">
 

@@ -28,13 +28,13 @@ export default function Marquee() {
       {/* Marquee Track */}
       <div className="flex w-max preserve-3d will-change-transform animate-marquee">
         {duplicatedImages.map((img, idx) => (
-          <div key={idx} className="shrink-0 w-[350px] h-[450px] max-[1300px]:w-[250px] max-[1300px]:h-[300px] max-md:w-[240px] max-md:h-[300px] max-md:rounded-3xl max-sm:w-[170px] max-sm:h-[220px] max-sm:rounded-3xl mx-[0.35rem] max-md:mx-[0.25rem] max-sm:mx-[0.15rem] rounded-sm overflow-hidden relative transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_10px_35px_rgba(0,0,0,0.05)] bg-card-bg border border-card-border preserve-3d will-change-transform">
+          <div key={idx} className="shrink-0 xl:w-[350px] xl:h-[450px] w-[250px] h-[300px] max-md:w-[240px] max-md:h-[300px] max-md:rounded-3xl max-sm:w-[200px] max-sm:h-[300px] max-sm:rounded-3xl mx-[0.35rem] max-md:mx-[0.25rem] max-sm:mx-[0.15rem] rounded-sm overflow-hidden relative transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_10px_35px_rgba(0,0,0,0.05)] bg-card-bg border border-card-border preserve-3d will-change-transform">
             <div className="w-full h-full relative">
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="(max-width: 992px) 140px, 280px"
+                sizes="(max-width: 992px) 340px, 480px"
                 className="object-cover pointer-events-none"
                 priority={idx < 5}
               />

@@ -52,7 +52,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="py-[120px]" id="pricing">
+    <section className="py-[25px]" id="pricing">
       <div className="container-custom">
 
         {/* Section Header */}

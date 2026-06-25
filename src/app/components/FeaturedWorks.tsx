@@ -134,7 +134,7 @@ function FeaturedWorkCard({ work }: { work: typeof works[0] }) {
 
 export default function FeaturedWorks() {
   return (
-    <section className="py-[120px] bg-transparent" id="works">
+    <section className="py-[25px] bg-transparent" id="works">
       <div className="container-custom">
 
         {/* Header Badge */}

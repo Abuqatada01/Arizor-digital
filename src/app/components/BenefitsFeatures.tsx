@@ -4,9 +4,9 @@ import React from "react";
 
 export default function BenefitsFeatures() {
   return (
-    <section className="py-20 lg:py-[120px] bg-transparent" id="benefits">
+    <section className="py-20 lg:py-[25px] bg-transparent" id="benefits">
       <div className="container-custom">
-        
+
         {/* Header Badge & Title */}
         <div className="flex flex-col items-center mb-12 lg:mb-20 text-center">
           <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-lg mb-6 w-max">
@@ -21,15 +21,15 @@ export default function BenefitsFeatures() {
 
         {/* Masonry Grid Layout (2 columns) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          
+
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-6 lg:gap-8">
-            
+
             {/* Card 1: Outcome over Output */}
             <div className="bg-[#f4f4f5] rounded-[32px] lg:rounded-[48px] p-5 md:p-8 lg:p-12 shadow-premium-light flex flex-col justify-between min-h-0 lg:min-h-[450px]">
               {/* Graphic Area */}
               <div className="relative w-full h-auto min-h-[180px] lg:h-[220px] mb-8 flex flex-col justify-center gap-4">
-                
+
                 {/* Bar 1 */}
                 <div className="flex items-center gap-4 animate-fade-up animate-float" style={{ animationDelay: '100ms' }}>
                   <div className="h-6 w-[60%] bg-[#e0e0e0] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)]"></div>
@@ -83,7 +83,7 @@ export default function BenefitsFeatures() {
             <div className="bg-[#f4f4f5] rounded-[32px] lg:rounded-[48px] p-5 md:p-8 lg:p-12 shadow-premium-light flex flex-col justify-between min-h-0 lg:min-h-[380px]">
               {/* Graphic Area */}
               <div className="relative w-full h-[140px] lg:h-[180px] mb-8 flex justify-center items-center animate-float">
-                
+
                 {/* 3D Shield SVG */}
                 <div className="relative w-28 h-32 drop-shadow-[0_20px_30px_rgba(0,0,0,0.1)]">
                   <svg viewBox="0 0 100 120" className="w-full h-full">
@@ -120,15 +120,15 @@ export default function BenefitsFeatures() {
 
           {/* RIGHT COLUMN */}
           <div className="flex flex-col gap-6 lg:gap-8">
-            
+
             {/* Card 2: Eval-First Reliability */}
             <div className="bg-[#f4f4f5] rounded-[32px] lg:rounded-[48px] p-5 md:p-8 lg:p-12 shadow-premium-light flex flex-col justify-between min-h-0 lg:min-h-[380px]">
               {/* Graphic Area */}
               <div className="relative w-full h-[140px] lg:h-[180px] mb-8 flex justify-center items-center">
-                
+
                 {/* Horizontal Track */}
                 <div className="absolute w-[80%] h-6 bg-[#e0e0e0] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] z-0"></div>
-                
+
                 {/* Floating Checkmark Boxes */}
                 <div className="relative z-10 flex gap-6 animate-float-fast">
                   {[1, 2, 3].map((item) => (
@@ -157,7 +157,7 @@ export default function BenefitsFeatures() {
             <div className="bg-[#f4f4f5] rounded-[32px] lg:rounded-[48px] p-5 md:p-8 lg:p-12 shadow-premium-light flex flex-col justify-between min-h-0 lg:min-h-[450px]">
               {/* Graphic Area */}
               <div className="relative w-full h-[180px] lg:h-[220px] mb-8 flex justify-center items-center gap-4 lg:gap-6">
-                
+
                 {/* Floating Chat Bubble */}
                 <div className="relative w-32 h-24 bg-white rounded-3xl rounded-br-none shadow-[0_15px_30px_rgba(0,0,0,0.08)] p-5 flex flex-col justify-center gap-2 transform -rotate-2 mt-10 hover:-translate-y-2 transition-transform duration-500 animate-float-delayed">
                   <div className="w-full h-1.5 bg-gray-800 rounded-full"></div>

@@ -10,7 +10,7 @@ export default function Hero() {
         Premium Web & AI Agency
       </div>
 
-      <h1 className="text-h1 text-[var(--color-black)] uppercase mx-auto max-w-[1400px] break-words px-4 sm:px-8 animate-scale-in opacity-0" style={{ animationDelay: '800ms' }}>
+      <h1 className="text-h1 -mt-3 mb-3 text-[var(--color-black)] capitalized mx-auto max-w-[1400px] break-words px-4 sm:px-8 animate-scale-in opacity-0" style={{ animationDelay: '800ms' }}>
         We design and build AI-powered systems that drive real business growth.
       </h1>
 
@@ -18,12 +18,12 @@ export default function Hero() {
         <Marquee />
       </div>
 
-      <p className="text-body -mt-6 text-[var(--color-gray-700)] uppercase mx-auto max-w-[1000px] px-4 sm:px-8 tracking-wide animate-fade-up opacity-0" style={{ animationDelay: '1600ms' }}>
+      <p className="text-body -mt-6 text-[var(--color-gray-700)] capitalized mx-auto max-w-[1000px] px-4 sm:px-8 tracking-wide animate-fade-up opacity-0" style={{ animationDelay: '1600ms' }}>
         Combining strategy, design, and development to create websites that strengthen your brand, increase visibility, and generate measurable business results.
       </p>
 
       <div className="flex gap-6 justify-center  px-8 animate-fade-up opacity-0" style={{ animationDelay: '1800ms' }}>
-        <a href="#planner" className="btn-primary uppercase tracking-wider">
+        <a href="#planner" className="btn-primary capitalized tracking-wider">
           Build Your Website
         </a>
       </div>

@@ -51,7 +51,7 @@ export default function About() {
   }, [isInView]);
 
   return (
-    <section ref={sectionRef} className="py-[120px] bg-transparent" id="about">
+    <section ref={sectionRef} className="py-[25px] bg-transparent" id="about">
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col mb-16">

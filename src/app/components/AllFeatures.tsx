@@ -80,9 +80,9 @@ const RIGHT_FEATURES = [
 
 export default function AllFeatures() {
   return (
-    <section className="py-20 lg:py-[120px] bg-transparent overflow-hidden" id="features">
+    <section className="py-20 lg:py-[25px] bg-transparent overflow-hidden" id="features">
       <div className="container-custom">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center mb-12 lg:mb-24 text-center">
           <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-full mb-6 w-max">
@@ -96,11 +96,11 @@ export default function AllFeatures() {
 
         {/* Tree Layout Wrapper */}
         <div className="relative w-full max-w-[1100px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
-          
+
           {/* ========================================= */}
           {/* CONNECTING LINES (DESKTOP ONLY) */}
           {/* ========================================= */}
-          
+
           {/* Left Tree Connector (SVG) */}
           <div className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] left-[320px] w-[230px] z-0 pointer-events-none">
             <svg viewBox="0 0 230 360" className="w-full h-full overflow-visible" preserveAspectRatio="none">
@@ -108,12 +108,12 @@ export default function AllFeatures() {
               <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 230 180 L 0 180" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 230 180 L 40 180 Q 20 180 20 200 L 20 340 Q 20 360 0 360" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-              
+
               {/* Flowing Red Lights */}
               <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)' }} />
               <path d="M 230 180 L 0 180" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '0.8s' }} />
               <path d="M 230 180 L 40 180 Q 20 180 20 200 L 20 340 Q 20 360 0 360" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '1.6s' }} />
-              
+
               {/* Red Dot at Center */}
               <circle cx="230" cy="180" r="4" fill="#ff3b30" style={{ filter: 'drop-shadow(0 0 8px #ff3b30)' }} />
             </svg>
@@ -126,12 +126,12 @@ export default function AllFeatures() {
               <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 0 180 L 230 180" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 0 180 L 190 180 Q 210 180 210 200 L 210 340 Q 210 360 230 360" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-              
+
               {/* Flowing Red Lights */}
               <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '0.4s' }} />
               <path d="M 0 180 L 230 180" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '1.2s' }} />
               <path d="M 0 180 L 190 180 Q 210 180 210 200 L 210 340 Q 210 360 230 360" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '2.0s' }} />
-              
+
               {/* Red Dot at Center */}
               <circle cx="0" cy="180" r="4" fill="#ff3b30" style={{ filter: 'drop-shadow(0 0 8px #ff3b30)' }} />
             </svg>
