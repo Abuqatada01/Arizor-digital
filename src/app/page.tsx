@@ -28,16 +28,16 @@ export default function Home() {
       <Services />
 
       {/* Process/Approach Section */}
-      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-16 max-md:px-6 max-sm:py-12 max-sm:px-4" id="approach">
-        <div className="max-w-[700px] mb-16 max-md:mb-10 max-sm:mb-7">
-          <span className="text-xs font-bold tracking-[0.15em] text-foreground uppercase mb-4 flex items-center gap-2">
-            <span className="w-2 h-2 bg-accent rounded-full inline-block animate-pulse-custom mr-2"></span>
-            Methodology
-          </span>
-          <h2 className="font-[family-name:var(--font-display)] text-5xl max-md:text-4xl max-sm:text-3xl font-extrabold tracking-[-0.04em] leading-[1.1] uppercase mb-6">Our Approach</h2>
-          <p className="text-lg text-muted leading-relaxed">
-            How we translate your business goals into high-impact digital products.
-          </p>
+      <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-20 max-md:px-6" id="approach">
+        <div className="absolute top-1/2 left-0 w-full h-[300px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none"></div>
+        <div className="flex flex-col items-center mb-16 text-center z-10 relative">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-foreground text-background text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-2xl">
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse-custom"></span>
+            <span>Methodology</span>
+          </div>
+          <h2 className="font-[family-name:var(--font-display)] text-[4.5rem] max-[1300px]:text-[3.5rem] max-md:text-[2.5rem] font-extrabold tracking-[-0.04em] leading-[0.95] uppercase text-foreground max-w-[800px]">
+            How we translate <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/70">goals</span> into reality.
+          </h2>
         </div>
         <InteractiveTimeline />
       </section>

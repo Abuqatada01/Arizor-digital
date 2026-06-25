@@ -2,65 +2,94 @@ import React from "react";
 
 export default function Services() {
   return (
-    <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-16 max-md:px-6 max-sm:py-12 max-sm:px-4" id="services">
-      <div className="max-w-[700px] mb-16 max-md:mb-10 max-sm:mb-7">
-        <span className="text-xs font-bold tracking-[0.15em] text-foreground uppercase flex items-center gap-2 mb-4">
-          <span className="w-2 h-2 bg-accent rounded-full inline-block animate-pulse-custom mr-2"></span>
-          Expertise
-        </span>
-        <h2 className="font-[family-name:var(--font-display)] text-[3rem] font-extrabold tracking-[-0.04em] leading-[1.1] uppercase mb-6 max-md:text-[1.8rem]">
-          Digital Solutions We Create
-        </h2>
-        <p className="text-[1.1rem] text-muted leading-[1.6]">
-          We integrate development, automation, and content strategy to accelerate your business growth.
-        </p>
+    <section className="py-32 px-16 max-w-[1400px] mx-auto w-full relative max-md:py-20 max-md:px-6" id="services">
+      {/* Split Header */}
+      <div className="grid grid-cols-[1.2fr_1fr] gap-16 max-lg:grid-cols-1 items-end mb-24 max-md:mb-16 relative z-10">
+        <div className="flex flex-col">
+          <span className="text-accent font-bold text-lg tracking-wide mb-4">Core Capabilities</span>
+          <h2 className="font-[family-name:var(--font-display)] text-[4.5rem] max-xl:text-[3.5rem] max-md:text-[2.5rem] font-bold tracking-tight leading-[1.05] text-white">
+            Digital Solutions We Create
+          </h2>
+        </div>
+        
+        <div className="flex flex-col items-start gap-8 max-lg:mt-8">
+          <p className="text-[1.2rem] text-[#f5f5f5] font-medium leading-[1.6] max-w-[500px]">
+            We integrate development, automation, and content strategy to accelerate your business growth and build lasting brand authority.
+          </p>
+          <div className="flex items-center gap-6">
+            <a href="#services" className="inline-flex items-center gap-3 bg-accent text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+              Explore Our Expertise
+              <div className="w-8 h-8 bg-white text-accent rounded-full flex items-center justify-center font-bold text-lg">
+                ↓
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-8 max-[1300px]:grid-cols-1 max-[1300px]:gap-8 max-md:gap-8">
-        {/* Web Dev */}
-        <div className="bg-card-bg border border-card-border py-14 px-10 rounded-3xl flex flex-col gap-8 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_4px_15px_rgba(0,0,0,0.01)] relative hover:border-accent hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.04)] max-[1300px]:rounded-2xl max-md:py-10 max-md:px-7">
-          <div className="text-[2.2rem] text-accent">⚡</div>
-          <h3 className="font-[family-name:var(--font-display)] text-[1.6rem] font-extrabold tracking-[-0.01em] uppercase">Web Development</h3>
-          <p className="text-[0.95rem] text-muted leading-[1.6]">
-            High-performance websites built with modern frameworks to ensure speed, security, and exceptional user experience.
-          </p>
-          <ul className="flex flex-col gap-[0.8rem] list-none mt-auto border-t border-[rgba(18,18,18,0.05)] pt-6">
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Business Websites</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Landing Pages</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Website Redesigns</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Performance Improvement</li>
-          </ul>
+      <div className="grid grid-cols-12 gap-8 max-lg:flex max-lg:flex-col relative z-10">
+
+        {/* Web Dev - Huge Card */}
+        <div className="col-span-8 bg-[#111] rounded-[32px] p-16 max-xl:p-12 flex flex-col justify-between group overflow-hidden relative shadow-lg">
+          <div className="relative z-10">
+            <h3 className="font-[family-name:var(--font-display)] text-[3rem] max-md:text-[2rem] font-bold text-white tracking-tight leading-none mb-6">
+              Web Development
+            </h3>
+            <p className="text-[#a0a0a0] text-lg font-medium leading-relaxed max-w-[500px]">
+              High-performance websites built with modern frameworks to ensure speed, security, and exceptional user experience.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-16 relative z-10">
+            {["Business Websites", "Landing Pages", "Website Redesigns", "Performance Improvement"].map((tag, i) => (
+              <span key={i} className="px-5 py-2.5 rounded-full bg-white/5 text-white/80 text-sm font-semibold tracking-wide hover:bg-white/10 transition-colors cursor-default">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* AI Automation */}
-        <div className="bg-card-bg border border-card-border py-14 px-10 rounded-3xl flex flex-col gap-8 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_4px_15px_rgba(0,0,0,0.01)] relative hover:border-accent hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.04)] max-[1300px]:rounded-2xl max-md:py-10 max-md:px-7">
-          <div className="text-[2.2rem] text-accent">🤖</div>
-          <h3 className="font-[family-name:var(--font-display)] text-[1.6rem] font-extrabold tracking-[-0.01em] uppercase">AI Automation</h3>
-          <p className="text-[0.95rem] text-muted leading-[1.6]">
-            Streamline operations and elevate user experiences using custom AI solutions, automated workflows, and smart integrations.
-          </p>
-          <ul className="flex flex-col gap-[0.8rem] list-none mt-auto border-t border-[rgba(18,18,18,0.05)] pt-6">
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Custom AI Workflows</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Intelligent Chat Agents</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Database & Lead Syncs</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Conversion Optimization</li>
-          </ul>
+        {/* AI Automation - Vertical Card */}
+        <div className="col-span-4 bg-[#111] rounded-[32px] p-16 max-xl:p-12 flex flex-col group overflow-hidden relative shadow-lg">
+          <div className="relative z-10 flex-1">
+            <h3 className="font-[family-name:var(--font-display)] text-[2rem] font-bold text-white tracking-tight leading-none mb-4">
+              AI Automation
+            </h3>
+            <p className="text-[#a0a0a0] font-medium leading-relaxed">
+              Streamline operations and elevate user experiences using custom AI solutions.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-8 relative z-10">
+            {["Custom Workflows", "Intelligent Chat", "Lead Syncs", "Conversion Optimization"].map((tag, i) => (
+              <span key={i} className="px-4 py-2 rounded-full bg-white/5 text-white/70 text-xs font-bold tracking-widest hover:text-white transition-colors cursor-default">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Social Media */}
-        <div className="bg-card-bg border border-card-border py-14 px-10 rounded-3xl flex flex-col gap-8 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-[0_4px_15px_rgba(0,0,0,0.01)] relative hover:border-accent hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.04)] max-[1300px]:rounded-2xl max-md:py-10 max-md:px-7">
-          <div className="text-[2.2rem] text-accent">✨</div>
-          <h3 className="font-[family-name:var(--font-display)] text-[1.6rem] font-extrabold tracking-[-0.01em] uppercase">Social Media</h3>
-          <p className="text-[0.95rem] text-muted leading-[1.6]">
-            Build trust and authority online. We conceptualize, build, and maintain digital strategies that resonate.
-          </p>
-          <ul className="flex flex-col gap-[0.8rem] list-none mt-auto border-t border-[rgba(18,18,18,0.05)] pt-6">
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Brand Experiences</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Creative Positioning</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Content & Feed Strategy</li>
-            <li className="text-[0.9rem] text-foreground flex items-center gap-[0.6rem] font-semibold"><span className="w-1.5 h-1.5 bg-accent rounded-full"></span> Growth & Analytics</li>
-          </ul>
+        {/* Social Media - Full Width Bottom Card */}
+        <div className="col-span-12 bg-[#111] rounded-[32px] p-16 max-xl:p-12 flex items-center justify-between group overflow-hidden relative shadow-lg max-lg:flex-col max-lg:items-start max-lg:gap-10">
+          <div className="relative z-10 max-w-[600px]">
+            <h3 className="font-[family-name:var(--font-display)] text-[3rem] max-md:text-[2rem] font-bold text-white tracking-tight leading-none mb-4">
+              Social Media
+            </h3>
+            <p className="text-[#a0a0a0] text-lg font-medium leading-relaxed">
+              Build trust and authority online. We conceptualize, build, and maintain digital strategies that resonate.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 relative z-10 w-[400px] max-lg:w-full">
+            {["Brand Experiences", "Creative Positioning", "Content & Feed Strategy", "Growth & Analytics"].map((tag, i) => (
+              <div key={i} className="px-6 py-4 rounded-full bg-white/5 text-white/90 text-sm font-bold tracking-wide flex items-center justify-between transition-transform duration-500 hover:bg-white/10 cursor-default">
+                {tag}
+                <span className="w-2 h-2 rounded-full bg-accent"></span>
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );
