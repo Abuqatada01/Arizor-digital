@@ -22,16 +22,16 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer">
-          <div className=" text-[var(--color-primary)] rounded-full flex items-center justify-center font-[family-name:var(--font-display)] text-[22px] font-bold tracking-tight  font-bold">
+          <div className=" text-[var(--color-primary)] rounded-full flex items-center justify-center  text-[22px] font-bold tracking-tight  font-bold">
             LQ
           </div>
-          <span className="font-[family-name:var(--font-display)] text-[22px] font-bold tracking-tight text-[var(--color-black)]">
-            GLOBALS
+          <span className=" text-[22px] font-bold tracking-tight text-[var(--color-black)]">
+            GLOBAL
           </span>
         </div>
 
         {/* Links */}
-        <ul className="hidden md:flex items-center gap-8 text-[16px] font-medium text-[var(--color-black)]">
+        <ul className="hidden md:flex items-center gap-8 text-[16px] font-semibold text-[var(--color-black)]">
           <li><a href="#" className="hover:text-[var(--color-primary)] transition-colors">Home</a></li>
           <li><a href="#services" className="hover:text-[var(--color-primary)] transition-colors">Services</a></li>
           <li><a href="#pricing" className="hover:text-[var(--color-primary)] transition-colors">Pricing</a></li>

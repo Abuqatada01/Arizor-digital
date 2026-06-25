@@ -60,11 +60,11 @@ export default function Pricing() {
           <div className="flex items-start mb-6">
             <div className="btn-tag">Investment</div>
           </div>
-          
+
           <h2 className="text-h1 text-[var(--color-black)] mb-6">
             Simple, Transparent Pricing
           </h2>
-          
+
           <p className="text-body-lg text-[var(--color-gray-700)]">
             Choose a plan that fits your business stage, or contact us for a custom enterprise solution tailored to your specific goals.
           </p>
@@ -73,8 +73,8 @@ export default function Pricing() {
         {/* 3-Tier Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {tiers.map((tier, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`card-agency flex flex-col transition-transform duration-300 hover:-translate-y-2 ${tier.popular ? 'border-2 border-[var(--color-primary)] shadow-floating' : 'border border-[var(--color-gray-200)]'}`}
             >
               {tier.popular && (
@@ -82,13 +82,13 @@ export default function Pricing() {
                   Most Popular
                 </div>
               )}
-              
+
               <div className="mb-8">
                 <div className="text-small font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">{tier.badge}</div>
                 <h3 className="text-h3 text-[var(--color-black)] mb-2">
                   {tier.name}
                 </h3>
-                <p className="text-small text-[var(--color-gray-600)] font-medium">
+                <p className="text-small text-[var(--color-gray-600)] font-semibold">
                   {tier.desc}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function Pricing() {
 
               <ul className="flex flex-col gap-4 mb-10 flex-grow">
                 {tier.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-center gap-3 text-body text-[var(--color-black)] font-medium">
+                  <li key={fIdx} className="flex items-center gap-3 text-body text-[var(--color-black)] font-semibold">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="10" cy="10" r="10" fill="var(--color-gray-200)" />
                       <path d="M6 10L8.5 12.5L14 7" stroke="var(--color-black)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

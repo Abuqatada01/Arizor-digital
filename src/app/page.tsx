@@ -13,6 +13,7 @@ import LogoTicker from "./components/LogoTicker";
 
 import FeaturedWorks from "./components/FeaturedWorks";
 import BenefitsFeatures from "./components/BenefitsFeatures";
+import AllFeatures from "./components/AllFeatures";
 
 export default function Home() {
   return (
@@ -39,6 +40,9 @@ export default function Home() {
 
         {/* SECTION 6 — BENEFITS / FEATURES */}
         <BenefitsFeatures />
+
+        {/* SECTION 7 — ALL FEATURES TREE */}
+        <AllFeatures />
       </div>
 
       {/* SECTION 7 — PRICING */}

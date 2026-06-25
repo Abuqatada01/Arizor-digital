@@ -64,7 +64,7 @@ export default function Services() {
             {/* Badge */}
             <div className={`inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-lg mb-8 w-max transition-all duration-[1200ms] ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '100ms' }}>
               <span className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
-              <span className="text-[var(--color-primary)] font-medium text-[14px]">Services</span>
+              <span className="text-[var(--color-primary)] font-semibold text-[14px]">Services</span>
             </div>
 
             <h2
@@ -104,7 +104,7 @@ export default function Services() {
                     cursor-pointer rounded-[40px] overflow-hidden transition-all duration-500 ease-in-out relative
                     ${isExpanded
                       ? 'bg-[var(--color-black)] p-10 lg:p-12 shadow-[16px_16px_32px_#c9c9c9,-16px_-16px_32px_#ffffff]'
-                      : 'bg-[#f4f4f5] p-8 lg:p-10 shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] border border-white/40 hover:scale-[1.02]'
+                      : 'bg-[#f4f4f5] p-8 lg:p-10 shadow-premium-light hover:scale-[1.02]'
                     }
                   `}
                 >
@@ -112,7 +112,7 @@ export default function Services() {
                     <h3 className={`text-[20px] xl:text-[25px] font-bold leading-[1.1] transition-colors duration-500 ${isExpanded ? 'text-white' : 'text-[var(--color-gray-600)]'}`}>
                       {service.title}
                     </h3>
-                    <span className={`text-[16px] font-medium transition-colors duration-500 ${isExpanded ? 'text-[var(--color-gray-400)]' : 'text-[var(--color-gray-400)]'}`}>
+                    <span className={`text-[16px] font-semibold transition-colors duration-500 ${isExpanded ? 'text-[var(--color-gray-400)]' : 'text-[var(--color-gray-400)]'}`}>
                       (0{idx + 1})
                     </span>
                   </div>

@@ -20,12 +20,12 @@ export default function FeaturedWork() {
               <span className="text-[#888] font-semibold text-sm uppercase tracking-wider mb-2 block">Client</span>
               <h3 className="text-white text-3xl font-bold">HealthTech Startup</h3>
             </div>
-            
+
             <div className="mb-8">
               <span className="text-[#888] font-semibold text-sm uppercase tracking-wider mb-2 block">Services</span>
               <div className="flex gap-3">
-                <span className="bg-white/5 text-white px-4 py-2 rounded-full text-sm font-medium">UI Design</span>
-                <span className="bg-white/5 text-white px-4 py-2 rounded-full text-sm font-medium">Development</span>
+                <span className="bg-white/5 text-white px-4 py-2 rounded-full text-sm font-semibold">UI Design</span>
+                <span className="bg-white/5 text-white px-4 py-2 rounded-full text-sm font-semibold">Development</span>
               </div>
             </div>
 
@@ -34,15 +34,15 @@ export default function FeaturedWork() {
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <div className="text-accent text-3xl font-bold mb-1">+220%</div>
-                  <div className="text-white/70 text-sm font-medium">Organic Traffic</div>
+                  <div className="text-white/70 text-sm font-semibold">Organic Traffic</div>
                 </div>
                 <div>
                   <div className="text-accent text-3xl font-bold mb-1">+68%</div>
-                  <div className="text-white/70 text-sm font-medium">Conversion Rate</div>
+                  <div className="text-white/70 text-sm font-semibold">Conversion Rate</div>
                 </div>
                 <div>
                   <div className="text-accent text-3xl font-bold mb-1">+180%</div>
-                  <div className="text-white/70 text-sm font-medium">User Engagement</div>
+                  <div className="text-white/70 text-sm font-semibold">User Engagement</div>
                 </div>
               </div>
             </div>
@@ -65,22 +65,22 @@ export default function FeaturedWork() {
 
           {/* Image/Visual Side */}
           <div className="bg-[#1a1a1a] relative min-h-[400px] flex items-center justify-center p-12 overflow-hidden">
-             {/* Abstract UI representation */}
-             <div className="w-full h-full bg-[#222] rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
-               <div className="absolute top-0 left-0 w-full h-12 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
-                 <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                 <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                 <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-               </div>
-               <div className="p-8 pt-20 h-full flex flex-col gap-4">
-                 <div className="w-3/4 h-8 bg-white/10 rounded-lg"></div>
-                 <div className="w-1/2 h-4 bg-white/5 rounded-lg"></div>
-                 <div className="grid grid-cols-3 gap-4 mt-8">
-                   <div className="h-32 bg-white/5 rounded-xl"></div>
-                   <div className="h-32 bg-white/5 rounded-xl col-span-2"></div>
-                 </div>
-               </div>
-             </div>
+            {/* Abstract UI representation */}
+            <div className="w-full h-full bg-[#222] rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+              <div className="absolute top-0 left-0 w-full h-12 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+              </div>
+              <div className="p-8 pt-20 h-full flex flex-col gap-4">
+                <div className="w-3/4 h-8 bg-white/10 rounded-lg"></div>
+                <div className="w-1/2 h-4 bg-white/5 rounded-lg"></div>
+                <div className="grid grid-cols-3 gap-4 mt-8">
+                  <div className="h-32 bg-white/5 rounded-xl"></div>
+                  <div className="h-32 bg-white/5 rounded-xl col-span-2"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

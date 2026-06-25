@@ -34,11 +34,11 @@ export default function Testimonial() {
           <div className="flex items-center justify-center mb-6">
             <div className="btn-tag">Client Results</div>
           </div>
-          
+
           <h2 className="text-h1 text-[var(--color-black)] mb-6">
             Trusted by Growing Businesses
           </h2>
-          
+
           <p className="text-body-lg text-[var(--color-gray-700)]">
             See how our strategic approach to web development and AI integration drives measurable growth.
           </p>
@@ -52,17 +52,17 @@ export default function Testimonial() {
                 <div className="flex items-center gap-1 mb-6 text-[var(--color-primary)]">
                   {"★★★★★"}
                 </div>
-                <p className="text-body-lg text-[var(--color-black)] font-medium mb-8">
+                <p className="text-body-lg text-[var(--color-black)] font-semibold mb-8">
                   {t.quote}
                 </p>
               </div>
-              
+
               <div className="flex flex-col pt-8 border-t border-[var(--color-gray-200)]">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-display-lg text-[var(--color-primary)] font-bold tracking-tighter">{t.statValue}</span>
                 </div>
                 <span className="text-small text-[var(--color-gray-600)] font-bold uppercase tracking-wider mb-6">{t.statLabel}</span>
-                
+
                 <div className="flex flex-col">
                   <span className="text-body text-[var(--color-black)] font-bold">{t.role}</span>
                   <span className="text-small text-[var(--color-gray-600)]">{t.company}</span>

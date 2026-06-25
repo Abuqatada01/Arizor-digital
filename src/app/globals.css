@@ -29,31 +29,31 @@
 
   /* Typography (Sizes) */
   /* Display XL */
-  --text-display-xl: 96px;
+  --text-display-xl: clamp(30px, 8vw, 96px);
   --text-display-xl--line-height: 0.95;
   --text-display-xl--letter-spacing: -4px;
   --text-display-xl--font-weight: 600;
 
   /* Display Large */
-  --text-display-lg: 72px;
+  --text-display-lg: clamp(26px, 6vw, 48px);
   --text-display-lg--line-height: 1;
   --text-display-lg--letter-spacing: -3px;
   --text-display-lg--font-weight: 600;
 
   /* Headings */
-  --text-h1: 56px;
+  --text-h1: clamp(28px, 7vw, 64px);
   --text-h1--line-height: 1.05;
   --text-h1--font-weight: 600;
 
-  --text-h2: 40px;
+  --text-h2: clamp(26px, 5vw, 48px);
   --text-h2--line-height: 1.1;
   --text-h2--font-weight: 600;
 
-  --text-h3: 32px;
+  --text-h3: clamp(24px, 4vw, 36px);
   --text-h3--font-weight: 600;
 
   /* Body */
-  --text-body-lg: 20px;
+  --text-body-lg: 18px;
   --text-body-lg--line-height: 1.7;
   --text-body-lg--font-weight: 600;
 
@@ -87,21 +87,27 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, .08);
+  --shadow-soft: 0 8px 14px rgba(0, 0, 0, .08);
   --shadow-floating: 0 20px 40px rgba(0, 0, 0, .10);
   --shadow-premium-glow: 0 0 30px rgba(255, 77, 46, .25);
-  --shadow-card: 0 10px 20px rgba(0, 0, 0, .05), 0 2px 4px rgba(0, 0, 0, .04);
+  --shadow-premium-light:
+    inset 0 4px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -8px 0 rgba(0, 0, 0, 0.04),
+    -10px -10px 20px rgba(255, 255, 255, 0.95),
+    10px 10px 24px rgba(0, 0, 0, 0.08),
+    0 3px 3px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 8px 20px rgba(0, 0, 0, .03), 0 2px 4px rgba(0, 0, 0, .04);
 
   /* Container */
   --container-max-width: 1440px;
   --container-padding: 80px;
 
   /* Animations */
-  --animate-fade-up: fadeUp 1.5s cubic-bezier(.22,1,.36,1) forwards;
-  --animate-scale-in: scaleIn 1.2s cubic-bezier(.22,1,.36,1) forwards;
-  --animate-blur-reveal: blurReveal 1.5s cubic-bezier(.22,1,.36,1) forwards;
-  --animate-slide-in: slideIn 1.2s cubic-bezier(.22,1,.36,1) forwards;
-  --animate-slide-down: slideDown 1.2s cubic-bezier(.22,1,.36,1) forwards;
+  --animate-fade-up: fadeUp 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
+  --animate-scale-in: scaleIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
+  --animate-blur-reveal: blurReveal 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
+  --animate-slide-in: slideIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
+  --animate-slide-down: slideDown 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-marquee: marquee 30s linear infinite;
 }
 
@@ -202,7 +208,7 @@
   }
 
   .btn-tag {
-    @apply inline-flex items-center justify-center font-medium text-[14px];
+    @apply inline-flex items-center justify-center font-semibold text-[14px];
     height: 36px;
     padding: 0 16px;
     border-radius: var(--radius-full);
@@ -350,6 +356,55 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes flow-line {
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-flow-line {
+  animation: flow-line 2s linear infinite;
 }
 
 ::-webkit-scrollbar {

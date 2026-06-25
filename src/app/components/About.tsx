@@ -33,7 +33,7 @@ export default function About() {
       const end = 70;
       const duration = 2000;
       const increment = end / (duration / 16);
-      
+
       const timer = setInterval(() => {
         start += increment;
         if (start >= end) {
@@ -69,12 +69,12 @@ export default function About() {
         <div className="grid grid-cols-1 -mt-20 lg:grid-cols-[1.1fr_0.9fr] gap-6">
 
           {/* Left Large Card (Dark) */}
-          <div className={`bg-[var(--color-black)] rounded-[40px] p-12 lg:p-16 relative overflow-hidden flex flex-col items-center text-center shadow-[16px_16px_32px_#c9c9c9,-16px_-16px_32px_#ffffff] border border-white/5 min-h-[600px] transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '300ms' }}>
+          <div className={`bg-[var(--color-black)] rounded-[40px] p-5 md:p-8 lg:p-16 relative overflow-hidden flex flex-col items-center text-center shadow-[16px_16px_32px_#c9c9c9,-16px_-16px_32px_#ffffff] border border-white/5 min-h-[600px] transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '300ms' }}>
 
             {/* Top Badge */}
             <div className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] px-4 py-1.5 rounded-full mb-6 z-10 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5),inset_-2px_-2px_4px_rgba(255,255,255,0.1)]">
               <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary)]"></span>
-              <span className="text-white text-[13px] font-medium tracking-wide">Available for worldwide project</span>
+              <span className="text-white text-[13px] font-semibold tracking-wide">Available for worldwide project</span>
             </div>
 
             {/* Title */}
@@ -104,8 +104,8 @@ export default function About() {
           <div className="flex flex-col gap-6 h-full">
 
             {/* Top Right Card */}
-            <div className={`bg-[#edecec] border border-white/50 rounded-[40px] p-10 relative overflow-hidden flex flex-col justify-between shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex-1 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '400ms' }}>
-              <p className="text-[22px] text-[var(--color-black)] font-medium leading-[1.4] max-w-[400px] z-10 relative">
+            <div className={`bg-[#edecec] border border-white/50 rounded-[40px] p-5 xl:p-10 relative overflow-hidden flex flex-col justify-between shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex-1 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '400ms' }}>
+              <p className="text-[18px] text-[var(--color-black)] font-semibold leading-[1.4] max-w-[400px] z-10 relative">
                 Trusted by {count}+ businesses worldwide — <br />
                 delivering high-converting websites that drive results
               </p>
@@ -130,7 +130,7 @@ export default function About() {
             </div>
 
             {/* Bottom Right Card (Testimonial) */}
-            <div className={`bg-[#edecec] border border-white/50 rounded-[40px] p-8 lg:p-10 relative flex max-sm:flex-col items-center gap-8 shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex-1 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '500ms' }}>
+            <div className={`bg-[#edecec] border border-white/50 rounded-[40px] p-5 md:p-8 lg:p-10 relative flex max-sm:flex-col items-center gap-8 shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex-1 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '500ms' }}>
 
               {/* Portrait */}
               <div className="relative w-[160px] h-[200px] shrink-0 rounded-[24px] overflow-hidden bg-[var(--color-primary)] shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.2)]">
@@ -145,7 +145,7 @@ export default function About() {
               {/* Content */}
               <div className="flex flex-col justify-center">
                 <span className="text-[var(--color-gray-400)] text-[40px] leading-none mb-2 font-serif">"</span>
-                <p className="text-[20px] text-[var(--color-black)] font-medium leading-[1.4] mb-6">
+                <p className="text-[20px] text-[var(--color-black)] font-semibold leading-[1.4] mb-6">
                   Our new website brought in 3x more leads in the first month.
                 </p>
                 <div className="flex flex-col">

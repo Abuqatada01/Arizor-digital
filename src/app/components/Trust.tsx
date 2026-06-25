@@ -10,7 +10,7 @@ export default function Trust() {
       </div>
 
       <div className="grid grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-6">
-        
+
         {/* Stat Cards */}
         <div className="bg-[#111] p-10 rounded-[32px] flex flex-col justify-center items-center text-center border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:border-accent/30 group">
           <div className="text-accent text-[3.5rem] font-bold tracking-tighter mb-2 group-hover:scale-110 transition-transform">120+</div>
@@ -42,9 +42,9 @@ export default function Trust() {
             Recognized for excellence in design, development, and digital innovation.
           </p>
           <div className="flex gap-4 z-10 flex-wrap">
-            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-medium border border-white/10">Awwwards Nominee</div>
-            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-medium border border-white/10">AWS Certified</div>
-            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-medium border border-white/10">Next.js Experts</div>
+            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-semibold border border-white/10">Awwwards Nominee</div>
+            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-semibold border border-white/10">AWS Certified</div>
+            <div className="bg-white/5 px-6 py-3 rounded-full text-white font-semibold border border-white/10">Next.js Experts</div>
           </div>
         </div>
 
