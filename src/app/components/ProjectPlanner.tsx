@@ -53,17 +53,11 @@ export default function ProjectPlanner() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#111] to-[#0a0a0a] border border-[#222] p-16 rounded-[48px] max-w-[1000px] my-16 mx-auto relative shadow-2xl max-md:p-8 max-md:my-8 max-md:mx-4 max-md:rounded-[32px] overflow-hidden" id="planner">
-      {/* Ambient background glows */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-
+    <div className="bg-[#111] p-16 rounded-[48px] max-w-[1000px] my-16 mx-auto relative shadow-2xl max-md:p-8 max-md:my-8 max-md:mx-4 max-md:rounded-[32px] overflow-hidden" id="planner">
+      
       <div className="text-center mb-16 relative z-10">
-        <span className="font-[family-name:var(--font-body)] text-xs font-bold tracking-[0.2em] text-accent bg-accent/10 py-2 px-4 rounded-full inline-flex items-center gap-2 mb-6">
-          <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse-custom"></span>
-          START A PROJECT
-        </span>
-        <h3 className="font-[family-name:var(--font-display)] text-[4rem] max-xl:text-[3rem] max-md:text-[2rem] font-extrabold tracking-[-0.03em] leading-none mb-6 text-white uppercase">Let's Build Something <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent/70">Exceptional.</span></h3>
+        <span className="text-accent font-bold text-lg tracking-wide mb-6 inline-block">Start A Project</span>
+        <h3 className="font-[family-name:var(--font-display)] text-[4rem] max-xl:text-[3rem] max-md:text-[2rem] font-bold tracking-tight leading-none mb-6 text-white">Let's Build Something Exceptional</h3>
         <p className="text-[1.1rem] text-[#888] max-w-[500px] mx-auto leading-relaxed">
           Select your requirements below and we'll craft a customized roadmap for your business growth.
         </p>
@@ -71,10 +65,10 @@ export default function ProjectPlanner() {
 
       {status === "success" ? (
         <div className="text-center py-16 px-4 animate-[scaleUp_0.5s_cubic-bezier(0.16,1,0.3,1)_forwards] relative z-10">
-          <div className="w-[80px] h-[80px] bg-accent text-white rounded-full flex items-center justify-center text-[2.5rem] font-bold mx-auto mb-8 shadow-[0_0_30px_rgba(255,42,42,0.4)]">✓</div>
-          <h4 className="font-[family-name:var(--font-display)] text-[2.5rem] font-extrabold mb-4 text-white uppercase tracking-tight">Request Received</h4>
+          <div className="w-[80px] h-[80px] bg-accent text-white rounded-full flex items-center justify-center text-[2.5rem] font-bold mx-auto mb-8">✓</div>
+          <h4 className="font-[family-name:var(--font-display)] text-[2.5rem] font-bold mb-4 text-white tracking-tight">Request Received</h4>
           <p className="text-[#a0a0a0] text-[1.1rem] mb-10 leading-[1.6]">Thank you. We have received your inquiry and our team will reach out to you within 24 hours.</p>
-          <button className="bg-white/5 border border-white/10 text-white py-4 px-8 rounded-full cursor-pointer transition-all duration-300 font-bold uppercase tracking-widest hover:bg-white hover:text-black text-xs" onClick={() => setStatus("idle")}>
+          <button className="bg-white/5 border border-white/10 text-white py-4 px-8 rounded-full cursor-pointer transition-all duration-300 font-bold tracking-wide hover:bg-white/10" onClick={() => setStatus("idle")}>
             Submit Another Inquiry
           </button>
         </div>
@@ -84,7 +78,7 @@ export default function ProjectPlanner() {
           <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1">
             {/* Services Selector */}
             <div className="flex flex-col gap-6">
-              <label className="text-sm font-bold text-[#a0a0a0] tracking-widest uppercase flex items-center gap-4">
+              <label className="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-4">
                 <span className="text-accent text-lg">01.</span> Services needed
               </label>
               <div className="flex flex-wrap gap-3">
@@ -95,7 +89,7 @@ export default function ProjectPlanner() {
                       key={index}
                       type="button"
                       className={`py-3 px-5 rounded-full text-sm font-semibold transition-all duration-300 
-                        ${isSelected ? "bg-accent text-white shadow-[0_4px_15px_rgba(255,42,42,0.4)]" : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white"}`}
+                        ${isSelected ? "bg-accent text-white" : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"}`}
                       onClick={() => handleServiceToggle(service)}
                     >
                       {service}
@@ -107,7 +101,7 @@ export default function ProjectPlanner() {
 
             {/* Budget Selector */}
             <div className="flex flex-col gap-6">
-              <label className="text-sm font-bold text-[#a0a0a0] tracking-widest uppercase flex items-center gap-4">
+              <label className="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-4">
                 <span className="text-accent text-lg">02.</span> Project Budget
               </label>
               <div className="flex flex-wrap gap-3">
@@ -118,7 +112,7 @@ export default function ProjectPlanner() {
                       key={index}
                       type="button"
                       className={`py-3 px-5 rounded-full text-sm font-semibold transition-all duration-300 
-                        ${isSelected ? "bg-white text-black shadow-lg" : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white"}`}
+                        ${isSelected ? "bg-white text-black" : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"}`}
                       onClick={() => setSelectedBudget(budget)}
                     >
                       {budget}
@@ -133,7 +127,7 @@ export default function ProjectPlanner() {
 
           {/* Contact Details */}
           <div className="flex flex-col gap-8">
-            <label className="text-sm font-bold text-[#a0a0a0] tracking-widest uppercase flex items-center gap-4">
+            <label className="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-4">
               <span className="text-accent text-lg">03.</span> Your Details
             </label>
             <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
@@ -166,13 +160,18 @@ export default function ProjectPlanner() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-accent text-white border-none py-6 font-bold tracking-widest uppercase text-sm rounded-2xl cursor-pointer transition-all duration-500 mt-8 hover:bg-accent/80 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[0_10px_30px_rgba(255,42,42,0.3)]"
-            disabled={status === "sending"}
-          >
-            {status === "sending" ? "Processing..." : "Submit Project Brief"}
-          </button>
+          <div className="flex justify-start mt-8">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Processing..." : "Submit Project Brief"}
+              <div className="w-8 h-8 bg-white text-accent rounded-full flex items-center justify-center font-bold text-lg">
+                →
+              </div>
+            </button>
+          </div>
         </form>
       )}
     </div>
