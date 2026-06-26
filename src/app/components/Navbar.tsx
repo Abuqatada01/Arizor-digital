@@ -23,8 +23,6 @@ export default function Navbar() {
     const checkBackground = () => {
       const scrollY = window.scrollY;
       
-      // Define which sections are dark and their approximate positions
-      // You need to adjust these values based on your actual page layout
       const darkSections = [
         { id: 'about', offset: 0 },
         { id: 'works', offset: 0 },
@@ -34,7 +32,6 @@ export default function Navbar() {
       
       let isDark = false;
       
-      // Check each dark section
       for (const section of darkSections) {
         const element = document.getElementById(section.id);
         if (element) {
@@ -42,7 +39,6 @@ export default function Navbar() {
           const elementTop = rect.top + window.scrollY;
           const elementBottom = rect.bottom + window.scrollY;
           
-          // Check if navbar (70px from top) overlaps with this section
           const navbarPosition = scrollY + 70;
           
           if (navbarPosition >= elementTop && navbarPosition <= elementBottom) {
@@ -55,10 +51,8 @@ export default function Navbar() {
       setIsDarkBackground(isDark);
     };
 
-    // Initial check
     setTimeout(checkBackground, 200);
 
-    // Check on scroll
     const handleScroll = () => {
       requestAnimationFrame(checkBackground);
     };
@@ -134,14 +128,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Links - Dynamic text color */}
-          <ul className="hidden md:flex items-center gap-8 text-[16px] font-semibold">
+          {/* Desktop Links - Same hover effect as mobile */}
+          <ul className="hidden md:flex items-center gap-2 text-[16px] font-semibold">
             <li>
               <a 
                 href="#" 
-                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
-                } hover:text-[var(--color-primary)]`}
+                }`}
               >
                 Home
               </a>
@@ -149,9 +143,9 @@ export default function Navbar() {
             <li>
               <a 
                 href="#services" 
-                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
-                } hover:text-[var(--color-primary)]`}
+                }`}
               >
                 Services
               </a>
@@ -159,9 +153,9 @@ export default function Navbar() {
             <li>
               <a 
                 href="#pricing" 
-                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
-                } hover:text-[var(--color-primary)]`}
+                }`}
               >
                 Pricing
               </a>
@@ -169,9 +163,9 @@ export default function Navbar() {
             <li>
               <a 
                 href="#process" 
-                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
-                } hover:text-[var(--color-primary)]`}
+                }`}
               >
                 Process
               </a>
