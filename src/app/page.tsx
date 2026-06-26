@@ -45,8 +45,8 @@ export default function Home() {
         <AllFeatures />
       </div>
 
-      {/* SECTION 7 — PRICING */}
-      <Pricing />
+      {/* SECTION 7 — PRICING
+      <Pricing /> */}
 
       {/* SECTION 8 — RESULTS */}
       <Testimonial />
