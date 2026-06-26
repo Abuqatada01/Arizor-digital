@@ -18,80 +18,57 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Detect if navbar is over dark sections
+  // Detect background based on scroll position and sections
   useEffect(() => {
-    // List of section IDs that have dark backgrounds
-    const darkSectionIds = ['about', 'works', 'process', 'contact'];
-    
-    const checkDarkBackground = () => {
-      let isOverDark = false;
-      const navbarHeight = 70; // Height of navbar
+    const checkBackground = () => {
+      const scrollY = window.scrollY;
+      
+      // Define which sections are dark and their approximate positions
+      // You need to adjust these values based on your actual page layout
+      const darkSections = [
+        { id: 'about', offset: 0 },
+        { id: 'works', offset: 0 },
+        { id: 'process', offset: 0 },
+        { id: 'contact', offset: 0 },
+      ];
+      
+      let isDark = false;
       
       // Check each dark section
-      for (const id of darkSectionIds) {
-        const section = document.getElementById(id);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          // Check if navbar overlaps with this section
-          // More tolerant for mobile - check if any part of navbar overlaps
-          if (rect.top < navbarHeight && rect.bottom > 0) {
-            isOverDark = true;
+      for (const section of darkSections) {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementBottom = rect.bottom + window.scrollY;
+          
+          // Check if navbar (70px from top) overlaps with this section
+          const navbarPosition = scrollY + 70;
+          
+          if (navbarPosition >= elementTop && navbarPosition <= elementBottom) {
+            isDark = true;
             break;
           }
         }
       }
       
-      // Fallback: if no sections found, check by class names
-      if (!isOverDark) {
-        const darkSelectors = [
-          '.bg-black', 
-          '.bg-[#111]', 
-          '.bg-[#1a1a1a]',
-          '[data-dark="true"]'
-        ];
-        
-        for (const selector of darkSelectors) {
-          const elements = document.querySelectorAll(selector);
-          for (const element of elements) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top < navbarHeight && rect.bottom > 0) {
-              isOverDark = true;
-              break;
-            }
-          }
-          if (isOverDark) break;
-        }
-      }
-      
-      setIsDarkBackground(isOverDark);
+      setIsDarkBackground(isDark);
     };
 
-    // Check on scroll with debounce for better performance
-    let timeoutId: NodeJS.Timeout;
+    // Initial check
+    setTimeout(checkBackground, 200);
+
+    // Check on scroll
     const handleScroll = () => {
-      if (timeoutId) {
-        cancelAnimationFrame(timeoutId as unknown as number);
-      }
-      timeoutId = setTimeout(() => {
-        requestAnimationFrame(checkDarkBackground);
-      }, 50) as unknown as NodeJS.Timeout;
+      requestAnimationFrame(checkBackground);
     };
-
-    // Initial check with delay to ensure DOM is ready
-    setTimeout(checkDarkBackground, 200);
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    // Also check on orientation change for mobile
-    window.addEventListener('orientationchange', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
-      window.removeEventListener('orientationchange', handleScroll);
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
     };
   }, []);
 
@@ -106,6 +83,11 @@ export default function Navbar() {
       document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
+
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -236,22 +218,39 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Sidebar Overlay */}
+      {/* Mobile Sidebar Overlay - Liquid Glass Effect */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] transition-opacity duration-300 md:hidden ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={() => setMobileMenuOpen(false)}
+        style={{
+          background: 'rgba(255, 255, 255, 0.07)',
+          backdropFilter: 'blur(9px)',
+          WebkitBackdropFilter: 'blur(9px)',
+        }}
+        onClick={closeMobileMenu}
       >
-        {/* Dropdown Panel */}
+        {/* Dropdown Panel - Liquid Glass Card */}
         <div
-          className={`absolute top-0 left-0 right-0 w-full bg-white/95 backdrop-blur-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] p-6 rounded-b-[32px] flex flex-col gap-8 transition-transform duration-300 ease-out ${
-            mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+          className={`absolute top-0 left-0 right-0 mx-4 mt-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-6 rounded-[32px] flex flex-col gap-8 transition-all duration-500 ease-out ${
+            mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
+          style={{
+            background: 'rgba(255, 255, 255, 0.07)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+          }}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Glass reflection overlay */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
+            <div className="absolute -inset-1 bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-12 blur-sm"></div>
+          </div>
+
           {/* Header area inside menu */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center relative z-10">
             <div className="flex items-center cursor-pointer">
               <div className="relative w-48 h-12 overflow-hidden">
                 <Image
@@ -265,8 +264,8 @@ export default function Navbar() {
             </div>
 
             <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-gray-500 hover:text-black p-2 -mr-2 transition-colors"
+              onClick={closeMobileMenu}
+              className="text-gray-850 hover:text-black p-2 -mr-2 transition-colors"
               aria-label="Close Menu"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -276,16 +275,60 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Links */}
-          <ul className="flex flex-col gap-6 text-[20px] font-bold text-[var(--color-black)] mt-2">
-            <li><a href="#" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)] transition-colors border-b border-gray-100 pb-2">Home</a></li>
-            <li><a href="#services" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)] transition-colors border-b border-gray-100 pb-2">Services</a></li>
-            <li><a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)] transition-colors border-b border-gray-100 pb-2">Pricing</a></li>
-            <li><a href="#process" onClick={() => setMobileMenuOpen(false)} className="block hover:text-[var(--color-primary)] transition-colors border-b border-gray-100 pb-2">Process</a></li>
+          {/* Mobile Links - Separate border and hover effect */}
+          <ul className="flex flex-col gap-3 text-[18px] font-bold text-gray-1000 mt-0 items-center text-center tracking-[0.15em] relative z-10">
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="#" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                >
+                  Home
+                </a>
+                <div className="border-b border-white/20 mt-3"></div>
+              </div>
+            </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="#services" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                >
+                  Services
+                </a>
+                <div className="border-b border-white/20 mt-3"></div>
+              </div>
+            </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="#pricing" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                >
+                  Pricing
+                </a>
+                <div className="border-b border-white/20 mt-3"></div>
+              </div>
+            </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="#process" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                >
+                  Process
+                </a>
+                <div className="border-b border-white/20 mt-3"></div>
+              </div>
+            </li>
           </ul>
 
-          {/* Mobile CTA */}
-          <div className="mt-2 pb-2">
+          {/* Mobile CTA - closes menu on click */}
+          <div className="mt-2 pb-2 relative z-10" onClick={closeMobileMenu}>
             <GlassButton href="#contact" fullWidth variant="light">
               Book a Call
             </GlassButton>

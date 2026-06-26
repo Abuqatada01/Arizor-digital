@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import GlassButton from "./GlassButton";
 
 export default function About() {
   const [isInView, setIsInView] = useState(false);
@@ -83,9 +84,9 @@ export default function About() {
             </h3>
 
             {/* Button */}
-            <a href="#contact" className="btn-primary mb-12 z-10 text-[16px] h-[50px] px-8">
+            <GlassButton href="#contact" variant="dark" className="mb-12 z-10">
               Book a Free Call
-            </a>
+            </GlassButton>
 
             {/* Globe Graphic */}
             <div className={`absolute bottom-0 left-0 right-0 h-[60%] z-0 transition-transform duration-[1500ms] ease-out ${isInView ? 'translate-y-10' : 'translate-y-full'}`} style={{ transitionDelay: '600ms' }}>

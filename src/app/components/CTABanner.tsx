@@ -1,4 +1,5 @@
 import React from "react";
+import GlassButton from "./GlassButton";
 
 export default function CTABanner() {
   return (
@@ -18,9 +19,9 @@ export default function CTABanner() {
               Let's build a fast, high-converting website and intelligent automation system that drives real growth for your brand.
             </p>
 
-            <a href="#contact" className="btn-primary">
+            <GlassButton href="#contact" variant="dark">
               Book Your Free Strategy Call
-            </a>
+            </GlassButton>
           </div>
         </div>
       </div>

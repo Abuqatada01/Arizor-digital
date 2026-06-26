@@ -1,4 +1,5 @@
 import React from "react";
+import GlassButton from "./GlassButton";
 
 export default function Pricing() {
   const tiers = [
@@ -75,10 +76,14 @@ export default function Pricing() {
           {tiers.map((tier, idx) => (
             <div
               key={idx}
-              className={`card-agency flex flex-col transition-transform duration-300 hover:-translate-y-2 ${tier.popular ? 'border-2 border-[var(--color-primary)] shadow-floating' : 'border border-[var(--color-gray-200)]'}`}
+              className={`card-agency flex flex-col transition-transform duration-300 hover:-translate-y-2 relative ${
+                tier.popular 
+                  ? 'border-2 border-[var(--color-primary)] shadow-floating pt-12' 
+                  : 'border border-[var(--color-gray-200)]'
+              }`}
             >
               {tier.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-primary)] text-white text-[12px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-premium-glow">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-primary)] text-white text-[12px] font-bold px-6 py-2 rounded-full uppercase tracking-wider shadow-premium-glow whitespace-nowrap z-10">
                   Most Popular
                 </div>
               )}
@@ -110,9 +115,13 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button className={`w-full ${tier.popular ? 'btn-primary' : 'btn-secondary'}`}>
+              <GlassButton 
+                href={tier.cta.includes("Consultation") ? "#contact" : "#pricing"}
+                variant={tier.popular ? "primary" : "light"}
+                fullWidth
+              >
                 {tier.cta}
-              </button>
+              </GlassButton>
             </div>
           ))}
         </div>
