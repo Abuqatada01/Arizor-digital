@@ -149,12 +149,24 @@
     padding-right: var(--container-padding);
   }
 
+@media (max-width: 640px) {
+  .mobile-header-margin {
+    margin-top: -8px !important;
+  }
+}
+
   @media (max-width: 1024px) {
     .container-custom {
       padding-left: 40px;
       padding-right: 40px;
     }
   }
+
+  @media (max-width: 640px) {
+  .mobile-header-margin {
+    margin-top: -8px !important;
+  }
+}
 
   @media (max-width: 768px) {
     .container-custom {
