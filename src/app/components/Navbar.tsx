@@ -1,18 +1,98 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import GlassButton from "./GlassButton";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const navbarRef = useRef<HTMLDivElement>(null);
 
+  // Handle scroll for shadow effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Detect if navbar is over dark sections
+  useEffect(() => {
+    // List of section IDs that have dark backgrounds
+    const darkSectionIds = ['about', 'works', 'process', 'contact'];
+    
+    const checkDarkBackground = () => {
+      let isOverDark = false;
+      const navbarHeight = 70; // Height of navbar
+      
+      // Check each dark section
+      for (const id of darkSectionIds) {
+        const section = document.getElementById(id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // Check if navbar overlaps with this section
+          // More tolerant for mobile - check if any part of navbar overlaps
+          if (rect.top < navbarHeight && rect.bottom > 0) {
+            isOverDark = true;
+            break;
+          }
+        }
+      }
+      
+      // Fallback: if no sections found, check by class names
+      if (!isOverDark) {
+        const darkSelectors = [
+          '.bg-black', 
+          '.bg-[#111]', 
+          '.bg-[#1a1a1a]',
+          '[data-dark="true"]'
+        ];
+        
+        for (const selector of darkSelectors) {
+          const elements = document.querySelectorAll(selector);
+          for (const element of elements) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < navbarHeight && rect.bottom > 0) {
+              isOverDark = true;
+              break;
+            }
+          }
+          if (isOverDark) break;
+        }
+      }
+      
+      setIsDarkBackground(isOverDark);
+    };
+
+    // Check on scroll with debounce for better performance
+    let timeoutId: NodeJS.Timeout;
+    const handleScroll = () => {
+      if (timeoutId) {
+        cancelAnimationFrame(timeoutId as unknown as number);
+      }
+      timeoutId = setTimeout(() => {
+        requestAnimationFrame(checkDarkBackground);
+      }, 50) as unknown as NodeJS.Timeout;
+    };
+
+    // Initial check with delay to ensure DOM is ready
+    setTimeout(checkDarkBackground, 200);
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    // Also check on orientation change for mobile
+    window.addEventListener('orientationchange', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('orientationchange', handleScroll);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   // Prevent scroll when mobile menu is open
@@ -30,9 +110,10 @@ export default function Navbar() {
   return (
     <>
       <div
+        ref={navbarRef}
         className={`fixed top-0 left-0 right-0 w-full z-50 flex justify-center transition-all duration-300 animate-slide-down opacity-0 ${
           scrolled 
-            ? 'bg-white/30 backdrop-blur-[9px] shadow-soft h-[65px]' 
+            ? 'bg-white/0 backdrop-blur-[9px] shadow-soft h-[65px]' 
             : 'bg-transparent h-[65px]'
         }`}
         style={{ animationDelay: '1400ms' }}
@@ -46,7 +127,9 @@ export default function Navbar() {
                 src="/images/logo.png"
                 alt="LQ Global Logo"
                 fill
-                className="object-cover"
+                className={`object-cover transition-all duration-500 ${
+                  isDarkBackground ? 'invert brightness-0' : ''
+                }`}
                 sizes="192px"
                 priority
               />
@@ -60,35 +143,90 @@ export default function Navbar() {
                 src="/images/logo.png"
                 alt="LQ Global Logo"
                 fill
-                className="object-cover"
+                className={`object-cover transition-all duration-500 ${
+                  isDarkBackground ? 'invert brightness-0' : ''
+                }`}
                 sizes="144px"
                 priority
               />
             </div>
           </div>
 
-          {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-8 text-[16px] font-semibold text-[var(--color-black)]">
-            <li><a href="#" className="hover:text-[var(--color-primary)] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full">Home</a></li>
-            <li><a href="#services" className="hover:text-[var(--color-primary)] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full">Services</a></li>
-            <li><a href="#pricing" className="hover:text-[var(--color-primary)] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full">Pricing</a></li>
-            <li><a href="#process" className="hover:text-[var(--color-primary)] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full">Process</a></li>
+          {/* Desktop Links - Dynamic text color */}
+          <ul className="hidden md:flex items-center gap-8 text-[16px] font-semibold">
+            <li>
+              <a 
+                href="#" 
+                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                } hover:text-[var(--color-primary)]`}
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#services" 
+                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                } hover:text-[var(--color-primary)]`}
+              >
+                Services
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#pricing" 
+                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                } hover:text-[var(--color-primary)]`}
+              >
+                Pricing
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#process" 
+                className={`transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[var(--color-primary)] after:transition-all hover:after:w-full ${
+                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                } hover:text-[var(--color-primary)]`}
+              >
+                Process
+              </a>
+            </li>
           </ul>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
-            <GlassButton href="#contact" size="sm" variant="light">
+            <GlassButton 
+              href="#contact" 
+              size="sm" 
+              variant={isDarkBackground ? 'dark' : 'light'}
+            >
               Book a Call
             </GlassButton>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Hamburger Button - Dynamic color */}
           <button
-            className="md:hidden flex items-center justify-center text-black p-2 -mr-2"
+            className="md:hidden flex items-center justify-center p-2 -mr-2 transition-colors duration-300"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Menu"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="28" 
+              height="28" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+              className={`transition-colors duration-300 ${
+                isDarkBackground ? 'text-white' : 'text-black'
+              }`}
+            >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
