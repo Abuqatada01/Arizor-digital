@@ -128,12 +128,12 @@ export default function Navbar() {
       >
         <nav className="container-custom w-full h-full flex items-center justify-between">
 
-          {/* Logo - Desktop */}
+          {/* logo1 - Desktop */}
           <div className="hidden sm:flex items-center cursor-pointer group">
             <div className="relative w-48 h-12 overflow-hidden group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/images/logo.png"
-                alt="LQ Global Logo"
+                src="/images/logo1.png"
+                alt="LQ Global logo1"
                 fill
                 className={`object-cover transition-all duration-500 ${
                   isLightBackground ? '' : 'invert brightness-0'
@@ -144,12 +144,12 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Logo - Mobile */}
+          {/* logo1 - Mobile */}
           <div className="flex sm:hidden items-center cursor-pointer">
             <div className="relative w-36 h-10 overflow-hidden">
               <Image
-                src="/images/logo.png"
-                alt="LQ Global Logo"
+                src="/images/logo1.png"
+                alt="LQ Global logo1"
                 fill
                 className={`object-cover transition-all duration-500 ${
                   isLightBackground ? '' : 'invert brightness-0'
@@ -244,9 +244,9 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Sidebar Overlay - Lighter Blur */}
+      {/* Mobile Sidebar Overlay - Smooth slower animation */}
       <div
-        className={`fixed inset-0 z-[60] transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] transition-all duration-500 ease-in-out md:hidden ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         style={{
@@ -256,10 +256,12 @@ export default function Navbar() {
         }}
         onClick={closeMobileMenu}
       >
-        {/* Dropdown Panel - Lighter Glass */}
+        {/* Dropdown Panel - Smooth slide from top with slower animation */}
         <div
-          className={`absolute top-4 left-0 right-0 mx-4 shadow-2xl p-6 rounded-[32px] flex flex-col gap-8 transition-all duration-500 ease-out ${
-            mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+          className={`absolute top-0 left-0 right-0 mx-4 mt-3 shadow-2xl p-6 rounded-[32px] flex flex-col gap-5 transition-all duration-500 ease-out ${
+            mobileMenuOpen 
+              ? 'translate-y-0 opacity-100' 
+              : '-translate-y-full opacity-0'
           }`}
           style={{
             background: 'rgba(255, 255, 255, 0.30)',
@@ -270,39 +272,40 @@ export default function Navbar() {
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Glass reflection - Enhanced */}
+          {/* Glass reflection */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
             <div className="absolute -inset-1 bg-gradient-to-tr from-transparent via-white/30 to-transparent rotate-12 blur-md"></div>
             <div className="absolute -inset-1 bg-gradient-to-bl from-transparent via-white/10 to-transparent -rotate-12 blur-md"></div>
           </div>
 
-          {/* Header */}
-          <div className="flex justify-between items-center relative z-10">
+          {/* Header - logo1 Left, Close Button Right - More top and corner */}
+          <div className="flex justify-between items-start relative z-10 mt-1 ">
             <div className="flex items-center cursor-pointer">
-              <div className="relative w-48 h-12 overflow-hidden">
+              <div className="relative w-40 h-10 overflow-hidden">
                 <Image
-                  src="/images/logo.png"
-                  alt="LQ Global Logo"
+                  src="/images/logo1.png"
+                  alt="LQ Global logo1"
                   fill
                   className="object-cover transition-all duration-500"
-                  sizes="192px"
+                  sizes="160px"
                 />
               </div>
             </div>
 
             <button
               onClick={closeMobileMenu}
-              className="text-gray-700 hover:text-black"
+              className="text-gray-700 hover:text-black transition-colors duration-300 p-1 -mr-2 -mt-1"
+              aria-label="Close Menu"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
           </div>
 
-          {/* Mobile Links - Always Dark Text */}
-          <ul className="flex flex-col gap-3 text-[18px] font-bold mt-0 items-center text-center tracking-[0.15em] relative z-10">
+          {/* Mobile Links */}
+          <ul className="flex flex-col gap-3 text-[18px] font-bold items-center text-center tracking-[0.15em] relative z-10">
             <li className="w-full flex justify-center">
               <div className="w-full max-w-[1000px]">
                 <a 
@@ -353,8 +356,8 @@ export default function Navbar() {
             </li>
           </ul>
 
-          {/* Mobile CTA - Light Variant Always */}
-          <div className="mt-2 pb-2 relative z-10" onClick={closeMobileMenu}>
+          {/* Mobile CTA */}
+          <div className="mt-1 pb-1 relative z-10" onClick={closeMobileMenu}>
             <GlassButton href="#contact" fullWidth variant="light">
               Book a Call
             </GlassButton>
