@@ -251,8 +251,8 @@ export default function Navbar() {
         }`}
         style={{
           background: 'rgba(255, 255, 255, 0.25)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
         }}
         onClick={closeMobileMenu}
       >
@@ -265,10 +265,10 @@ export default function Navbar() {
           }`}
           style={{
             background: 'rgba(255, 255, 255, 0.30)',
-            backdropFilter: 'blur(50px)',
-            WebkitBackdropFilter: 'blur(50px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
           }}
           onClick={(e) => e.stopPropagation()}
         >
@@ -311,7 +311,7 @@ export default function Navbar() {
                 <a 
                   href="#" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/50 hover:text-black hover:scale-105 text-black"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
                 >
                   Home
                 </a>
@@ -321,21 +321,9 @@ export default function Navbar() {
             <li className="w-full flex justify-center">
               <div className="w-full max-w-[1000px]">
                 <a 
-                  href="#services" 
-                  onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/50 hover:text-black hover:scale-105 text-black"
-                >
-                  Services
-                </a>
-                <div className="border-b border-black/10 mt-3"></div>
-              </div>
-            </li>
-            <li className="w-full flex justify-center">
-              <div className="w-full max-w-[1000px]">
-                <a 
                   href="#pricing" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/50 hover:text-black hover:scale-105 text-black"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
                 >
                   Pricing
                 </a>
@@ -347,9 +335,21 @@ export default function Navbar() {
                 <a 
                   href="#process" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/50 hover:text-black hover:scale-105 text-black"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
                 >
                   Process
+                </a>
+                <div className="border-b border-black/10 mt-3"></div>
+              </div>
+            </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="#services" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
+                >
+                  Services
                 </a>
                 <div className="border-b border-black/10 mt-3"></div>
               </div>
