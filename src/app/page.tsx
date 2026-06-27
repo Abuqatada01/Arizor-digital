@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
-import Pricing from "./components/Pricing";
 import Testimonial from "./components/Testimonial";
 import InteractiveTimeline from "./components/InteractiveTimeline";
 import CTABanner from "./components/CTABanner";
@@ -17,7 +16,7 @@ import AllFeatures from "./components/AllFeatures";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-20">
+    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-16">
       <Navbar />
 
       {/* SECTION 1 — HERO */}

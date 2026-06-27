@@ -6,7 +6,7 @@ import GlassButton from "./GlassButton";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const [isLightBackground, setIsLightBackground] = useState(false);
   const navbarRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll for shadow effect
@@ -18,40 +18,70 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Detect background based on scroll position and sections
+  // Check background color
   useEffect(() => {
     const checkBackground = () => {
       const scrollY = window.scrollY;
       
-      const darkSections = [
-        { id: 'about', offset: 0 },
-        { id: 'works', offset: 0 },
-        { id: 'process', offset: 0 },
-        { id: 'contact', offset: 0 },
+      if (scrollY < 100) {
+        setIsLightBackground(false);
+        return;
+      }
+      
+      const sections = [
+        { id: 'hero', isLight: false },
+        { id: 'about', isLight: false },
+        { id: 'services', isLight: true },
+        { id: 'works', isLight: false },
+        { id: 'process', isLight: false },
+        { id: 'benefits', isLight: true },
+        { id: 'features', isLight: true },
+        { id: 'pricing', isLight: true },
+        { id: 'results', isLight: true },
+        { id: 'contact', isLight: false },
       ];
       
-      let isDark = false;
+      let isLight = false;
+      let found = false;
       
-      for (const section of darkSections) {
+      for (const section of sections) {
         const element = document.getElementById(section.id);
         if (element) {
           const rect = element.getBoundingClientRect();
           const elementTop = rect.top + window.scrollY;
           const elementBottom = rect.bottom + window.scrollY;
-          
-          const navbarPosition = scrollY + 70;
+          const navbarPosition = scrollY + 75;
           
           if (navbarPosition >= elementTop && navbarPosition <= elementBottom) {
-            isDark = true;
+            isLight = section.isLight;
+            found = true;
             break;
           }
         }
       }
       
-      setIsDarkBackground(isDark);
+      if (!found && navbarRef.current) {
+        const rect = navbarRef.current.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.bottom + 10;
+        const element = document.elementFromPoint(x, y);
+        
+        if (element) {
+          const bgColor = window.getComputedStyle(element).backgroundColor;
+          const rgb = bgColor.match(/\d+/g);
+          if (rgb) {
+            const [r, g, b] = rgb.map(Number);
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            isLight = luminance > 0.5;
+          }
+        }
+      }
+      
+      setIsLightBackground(isLight);
     };
 
-    setTimeout(checkBackground, 200);
+    setIsLightBackground(false);
+    setTimeout(checkBackground, 300);
 
     const handleScroll = () => {
       requestAnimationFrame(checkBackground);
@@ -78,7 +108,6 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Function to close mobile menu
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
   };
@@ -87,16 +116,19 @@ export default function Navbar() {
     <>
       <div
         ref={navbarRef}
-        className={`fixed top-0 left-0 right-0 w-full z-50 flex justify-center transition-all duration-300 animate-slide-down opacity-0 ${
+        className={`fixed top-0  left-0 right-0 w-full z-50 flex justify-center transition-all duration-300 animate-slide-down opacity-0 ${
           scrolled 
             ? 'bg-white/0 backdrop-blur-[9px] shadow-soft h-[65px]' 
             : 'bg-transparent h-[65px]'
         }`}
-        style={{ animationDelay: '1400ms' }}
+        style={{ 
+          animationDelay: '1100ms',
+          background: 'transparent !important'
+        }}
       >
         <nav className="container-custom w-full h-full flex items-center justify-between">
 
-          {/* Logo with Image - Desktop */}
+          {/* Logo - Desktop */}
           <div className="hidden sm:flex items-center cursor-pointer group">
             <div className="relative w-48 h-12 overflow-hidden group-hover:scale-105 transition-transform duration-300">
               <Image
@@ -104,7 +136,7 @@ export default function Navbar() {
                 alt="LQ Global Logo"
                 fill
                 className={`object-cover transition-all duration-500 ${
-                  isDarkBackground ? 'invert brightness-0' : ''
+                  isLightBackground ? '' : 'invert brightness-0'
                 }`}
                 sizes="192px"
                 priority
@@ -112,7 +144,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Logo with Image - Mobile */}
+          {/* Logo - Mobile */}
           <div className="flex sm:hidden items-center cursor-pointer">
             <div className="relative w-36 h-10 overflow-hidden">
               <Image
@@ -120,7 +152,7 @@ export default function Navbar() {
                 alt="LQ Global Logo"
                 fill
                 className={`object-cover transition-all duration-500 ${
-                  isDarkBackground ? 'invert brightness-0' : ''
+                  isLightBackground ? '' : 'invert brightness-0'
                 }`}
                 sizes="144px"
                 priority
@@ -128,13 +160,13 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Links - Same hover effect as mobile */}
+          {/* Desktop Links */}
           <ul className="hidden md:flex items-center gap-2 text-[16px] font-semibold">
             <li>
               <a 
                 href="#" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
-                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                  isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
                 Home
@@ -144,7 +176,7 @@ export default function Navbar() {
               <a 
                 href="#services" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
-                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                  isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
                 Services
@@ -154,7 +186,7 @@ export default function Navbar() {
               <a 
                 href="#pricing" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
-                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                  isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
                 Pricing
@@ -164,7 +196,7 @@ export default function Navbar() {
               <a 
                 href="#process" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
-                  isDarkBackground ? 'text-white' : 'text-[var(--color-black)]'
+                  isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
                 Process
@@ -177,13 +209,13 @@ export default function Navbar() {
             <GlassButton 
               href="#contact" 
               size="sm" 
-              variant={isDarkBackground ? 'dark' : 'light'}
+              variant={isLightBackground ? 'light' : 'dark'}
             >
               Book a Call
             </GlassButton>
           </div>
 
-          {/* Mobile Hamburger Button - Dynamic color */}
+          {/* Mobile Hamburger */}
           <button
             className="md:hidden flex items-center justify-center p-2 -mr-2 transition-colors duration-300"
             onClick={() => setMobileMenuOpen(true)}
@@ -200,7 +232,7 @@ export default function Navbar() {
               strokeLinecap="round" 
               strokeLinejoin="round"
               className={`transition-colors duration-300 ${
-                isDarkBackground ? 'text-white' : 'text-black'
+                isLightBackground ? 'text-black' : 'text-white'
               }`}
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -212,38 +244,46 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Sidebar Overlay - Liquid Glass Effect */}
+      {/* Mobile Sidebar Overlay */}
       <div
         className={`fixed inset-0 z-[60] transition-opacity duration-300 md:hidden ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         style={{
-          background: 'rgba(255, 255, 255, 0.07)',
-          backdropFilter: 'blur(9px)',
-          WebkitBackdropFilter: 'blur(9px)',
+          background: isLightBackground ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
         }}
         onClick={closeMobileMenu}
       >
-        {/* Dropdown Panel - Liquid Glass Card */}
+        {/* Dropdown Panel */}
         <div
-          className={`absolute top-0 left-0 right-0 mx-4 mt-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] p-6 rounded-[32px] flex flex-col gap-8 transition-all duration-500 ease-out ${
+          className={`absolute top-4 left-0 right-0 mx-4 shadow-2xl p-6 rounded-[32px] flex flex-col gap-8 transition-all duration-500 ease-out ${
             mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{
-            background: 'rgba(255, 255, 255, 0.07)',
-            backdropFilter: 'blur(30px)',
-            WebkitBackdropFilter: 'blur(30px)',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+            background: isLightBackground 
+              ? 'rgba(255, 255, 255, 0.85)' 
+              : 'rgba(20, 20, 20, 0.85)',
+            backdropFilter: 'blur(40px)',
+            WebkitBackdropFilter: 'blur(40px)',
+            border: isLightBackground 
+              ? '1px solid rgba(0, 0, 0, 0.08)' 
+              : '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: isLightBackground 
+              ? '0 25px 50px rgba(0, 0, 0, 0.1)' 
+              : '0 25px 50px rgba(0, 0, 0, 0.5)',
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Glass reflection overlay */}
+          {/* Glass reflection */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
-            <div className="absolute -inset-1 bg-gradient-to-tr from-transparent via-white/20 to-transparent rotate-12 blur-sm"></div>
+            <div className={`absolute -inset-1 bg-gradient-to-tr from-transparent via-${
+              isLightBackground ? 'black' : 'white'
+            }/10 to-transparent rotate-12 blur-sm`}></div>
           </div>
 
-          {/* Header area inside menu */}
+          {/* Header */}
           <div className="flex justify-between items-center relative z-10">
             <div className="flex items-center cursor-pointer">
               <div className="relative w-48 h-12 overflow-hidden">
@@ -251,7 +291,9 @@ export default function Navbar() {
                   src="/images/logo.png"
                   alt="LQ Global Logo"
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-all duration-500 ${
+                    isLightBackground ? '' : 'invert brightness-0'
+                  }`}
                   sizes="192px"
                 />
               </div>
@@ -259,8 +301,7 @@ export default function Navbar() {
 
             <button
               onClick={closeMobileMenu}
-              className="text-gray-850 hover:text-black p-2 -mr-2 transition-colors"
-              aria-label="Close Menu"
+              className={isLightBackground ? 'text-gray-700 hover:text-black' : 'text-white/70 hover:text-white'}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -269,18 +310,20 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Links - Separate border and hover effect */}
-          <ul className="flex flex-col gap-3 text-[18px] font-bold text-gray-1000 mt-0 items-center text-center tracking-[0.15em] relative z-10">
+          {/* Mobile Links */}
+          <ul className="flex flex-col gap-3 text-[18px] font-bold mt-0 items-center text-center tracking-[0.15em] relative z-10">
             <li className="w-full flex justify-center">
               <div className="w-full max-w-[1000px]">
                 <a 
                   href="#" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                    isLightBackground ? 'text-black' : 'text-white'
+                  }`}
                 >
                   Home
                 </a>
-                <div className="border-b border-white/20 mt-3"></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -288,11 +331,13 @@ export default function Navbar() {
                 <a 
                   href="#services" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                    isLightBackground ? 'text-black' : 'text-white'
+                  }`}
                 >
                   Services
                 </a>
-                <div className="border-b border-white/20 mt-3"></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -300,11 +345,13 @@ export default function Navbar() {
                 <a 
                   href="#pricing" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                    isLightBackground ? 'text-black' : 'text-white'
+                  }`}
                 >
                   Pricing
                 </a>
-                <div className="border-b border-white/20 mt-3"></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -312,18 +359,20 @@ export default function Navbar() {
                 <a 
                   href="#process" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105"
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                    isLightBackground ? 'text-black' : 'text-white'
+                  }`}
                 >
                   Process
                 </a>
-                <div className="border-b border-white/20 mt-3"></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
               </div>
             </li>
           </ul>
 
-          {/* Mobile CTA - closes menu on click */}
+          {/* Mobile CTA */}
           <div className="mt-2 pb-2 relative z-10" onClick={closeMobileMenu}>
-            <GlassButton href="#contact" fullWidth variant="light">
+            <GlassButton href="#contact" fullWidth variant={isLightBackground ? 'light' : 'dark'}>
               Book a Call
             </GlassButton>
           </div>
