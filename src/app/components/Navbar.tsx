@@ -6,7 +6,7 @@ import GlassButton from "./GlassButton";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isLightBackground, setIsLightBackground] = useState(false);
+  const [isLightBackground, setIsLightBackground] = useState(true);
   const navbarRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll for shadow effect
@@ -24,7 +24,7 @@ export default function Navbar() {
       const scrollY = window.scrollY;
       
       if (scrollY < 100) {
-        setIsLightBackground(false);
+        setIsLightBackground(true);
         return;
       }
       
@@ -80,7 +80,7 @@ export default function Navbar() {
       setIsLightBackground(isLight);
     };
 
-    setIsLightBackground(false);
+    setIsLightBackground(true);
     setTimeout(checkBackground, 300);
 
     const handleScroll = () => {
