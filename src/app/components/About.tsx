@@ -61,8 +61,8 @@ export default function About() {
             About Us
           </div>
           <h2 className={`text-display-lg tracking-tight leading-[1.05] transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
-            <span className="text-[var(--color-black)] block">Websites That Convert,</span>
-            <span className="text-[var(--color-gray-400)] block">Built for Growth</span>
+            <span className="text-[var(--color-black)] block">Websites That Convert, Built for Growth</span>
+            <span className="text-[var(--color-gray-400)] block">.</span>
           </h2>
         </div>
 

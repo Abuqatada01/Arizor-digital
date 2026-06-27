@@ -244,43 +244,46 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile Sidebar Overlay */}
+      {/* Mobile Sidebar Overlay - More Blur */}
       <div
         className={`fixed inset-0 z-[60] transition-opacity duration-300 md:hidden ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         style={{
-          background: isLightBackground ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.3)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
+          background: isLightBackground ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.2)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
         }}
         onClick={closeMobileMenu}
       >
-        {/* Dropdown Panel */}
+        {/* Dropdown Panel - More Blur */}
         <div
           className={`absolute top-4 left-0 right-0 mx-4 shadow-2xl p-6 rounded-[32px] flex flex-col gap-8 transition-all duration-500 ease-out ${
             mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
           style={{
             background: isLightBackground 
-              ? 'rgba(255, 255, 255, 0.85)' 
-              : 'rgba(20, 20, 20, 0.85)',
-            backdropFilter: 'blur(40px)',
-            WebkitBackdropFilter: 'blur(40px)',
+              ? 'rgba(255, 255, 255, 0.20)' 
+              : 'rgba(20, 20, 20, 0.75)',
+            backdropFilter: 'blur(50px)',
+            WebkitBackdropFilter: 'blur(50px)',
             border: isLightBackground 
-              ? '1px solid rgba(0, 0, 0, 0.08)' 
-              : '1px solid rgba(255, 255, 255, 0.08)',
+              ? '1px solid rgba(255, 255, 255, 0.3)' 
+              : '1px solid rgba(255, 255, 255, 0.1)',
             boxShadow: isLightBackground 
-              ? '0 25px 50px rgba(0, 0, 0, 0.1)' 
-              : '0 25px 50px rgba(0, 0, 0, 0.5)',
+              ? '0 25px 50px rgba(0, 0, 0, 0.15)' 
+              : '0 25px 50px rgba(0, 0, 0, 0.6)',
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Glass reflection */}
+          {/* Glass reflection - Enhanced */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[32px]">
             <div className={`absolute -inset-1 bg-gradient-to-tr from-transparent via-${
+              isLightBackground ? 'white' : 'white'
+            }/15 to-transparent rotate-12 blur-md`}></div>
+            <div className="absolute -inset-1 bg-gradient-to-bl from-transparent via-${
               isLightBackground ? 'black' : 'white'
-            }/10 to-transparent rotate-12 blur-sm`}></div>
+            }/5 to-transparent -rotate-12 blur-md"></div>
           </div>
 
           {/* Header */}
@@ -301,7 +304,7 @@ export default function Navbar() {
 
             <button
               onClick={closeMobileMenu}
-              className={isLightBackground ? 'text-gray-700 hover:text-black' : 'text-white/70 hover:text-white'}
+              className={isLightBackground ? 'text-gray-700 hover:text-black' : 'text-white/80 hover:text-white'}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -317,13 +320,13 @@ export default function Navbar() {
                 <a 
                   href="#" 
                   onClick={closeMobileMenu} 
-                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/30 hover:text-black hover:scale-105 ${
                     isLightBackground ? 'text-black' : 'text-white'
                   }`}
                 >
                   Home
                 </a>
-                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/15' : 'border-white/15'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -331,13 +334,13 @@ export default function Navbar() {
                 <a 
                   href="#services" 
                   onClick={closeMobileMenu} 
-                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/30 hover:text-black hover:scale-105 ${
                     isLightBackground ? 'text-black' : 'text-white'
                   }`}
                 >
                   Services
                 </a>
-                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/15' : 'border-white/15'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -345,13 +348,13 @@ export default function Navbar() {
                 <a 
                   href="#pricing" 
                   onClick={closeMobileMenu} 
-                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/30 hover:text-black hover:scale-105 ${
                     isLightBackground ? 'text-black' : 'text-white'
                   }`}
                 >
                   Pricing
                 </a>
-                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/15' : 'border-white/15'}`}></div>
               </div>
             </li>
             <li className="w-full flex justify-center">
@@ -359,13 +362,13 @@ export default function Navbar() {
                 <a 
                   href="#process" 
                   onClick={closeMobileMenu} 
-                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
+                  className={`block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/30 hover:text-black hover:scale-105 ${
                     isLightBackground ? 'text-black' : 'text-white'
                   }`}
                 >
                   Process
                 </a>
-                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/20' : 'border-white/20'}`}></div>
+                <div className={`border-b mt-3 ${isLightBackground ? 'border-black/15' : 'border-white/15'}`}></div>
               </div>
             </li>
           </ul>

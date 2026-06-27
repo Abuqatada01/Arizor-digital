@@ -30,7 +30,7 @@ export default function Hero() {
           style={{ animationDelay: '600ms' }}
         >
           <span className="font-medium block">Your growth is our business.</span>
-          <span className="font-medium text-white/90 block mt-1 sm:mt-0">AI integration, Web design, Automation.</span>
+          <span className="font-medium text-white/90 block mt-1 sm:mt-0">Design, AI-Automation, Worldwide</span>
         </h1>
 
        
@@ -117,7 +117,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Client Logo Strip - with pop hover effect */}
+        {/* Client Logo Strip - with pop hover effect
         <div className="w-full max-w-[900px] mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/5 animate-fade-up opacity-0" style={{ animationDelay: '1600ms' }}>
           <p className="text-[10px] sm:text-[11px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-white/30 mb-4 sm:mb-6 font-light">Trusted by industry leaders</p>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-10">
@@ -134,7 +134,7 @@ export default function Hero() {
               SHOPIFY
             </span>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </header>

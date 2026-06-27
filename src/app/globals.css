@@ -28,19 +28,16 @@
   --font-body: var(--font-urbanist), sans-serif;
 
   /* Typography (Sizes) */
-  /* Display XL */
   --text-display-xl: clamp(30px, 8vw, 96px);
   --text-display-xl--line-height: 0.95;
   --text-display-xl--letter-spacing: -4px;
   --text-display-xl--font-weight: 600;
 
-  /* Display Large */
   --text-display-lg: clamp(26px, 6vw, 48px);
   --text-display-lg--line-height: 1;
   --text-display-lg--letter-spacing: -3px;
   --text-display-lg--font-weight: 600;
 
-  /* Headings */
   --text-h1: clamp(28px, 7vw, 64px);
   --text-h1--line-height: 1.05;
   --text-h1--font-weight: 600;
@@ -52,7 +49,6 @@
   --text-h3: clamp(24px, 4vw, 36px);
   --text-h3--font-weight: 600;
 
-  /* Body */
   --text-body-lg: 18px;
   --text-body-lg--line-height: 1.7;
   --text-body-lg--font-weight: 600;
@@ -61,12 +57,10 @@
   --text-body--line-height: 1.7;
   --text-body--font-weight: 600;
 
-  /* Small Text */
   --text-small: 14px;
   --text-small--line-height: 1.5;
   --text-small--font-weight: 500;
 
-  /* Spacing */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -79,14 +73,12 @@
   --spacing-30: 120px;
   --spacing-40: 160px;
 
-  /* Border Radius */
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 28px;
   --radius-xl: 40px;
   --radius-full: 9999px;
 
-  /* Shadows */
   --shadow-soft: 0 8px 14px rgba(0, 0, 0, .08);
   --shadow-floating: 0 20px 40px rgba(0, 0, 0, .10);
   --shadow-premium-glow: 0 0 30px rgba(255, 77, 46, .25);
@@ -98,18 +90,25 @@
     0 3px 3px rgba(0, 0, 0, 0.04);
   --shadow-card: 0 8px 20px rgba(0, 0, 0, .03), 0 2px 4px rgba(0, 0, 0, .04);
 
-  /* Container */
   --container-max-width: 1440px;
   --container-padding: 80px;
 
-  /* Animations */
+  /* Animations - Already set to 40s */
   --animate-fade-up: fadeUp 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-scale-in: scaleIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-blur-reveal: blurReveal 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-slide-in: slideIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-slide-down: slideDown 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
-  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee: marquee 40s linear infinite; /* ← Already 40s */
 }
+
+/* ❌ REMOVE THIS DUPLICATE SECTION - It's overriding the theme */
+/* .animate-marquee {
+  animation: marquee 30s linear infinite;
+} */
+
+/* ✅ Instead, just use the theme variable */
+/* The animation is already set to 40s in the theme above */
 
 @layer base {
   :root {
@@ -129,7 +128,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography utilities for base elements */
   h1,
   h2,
   h3,
@@ -149,11 +147,11 @@
     padding-right: var(--container-padding);
   }
 
-@media (max-width: 640px) {
-  .mobile-header-margin {
-    margin-top: -8px !important;
+  @media (max-width: 640px) {
+    .mobile-header-margin {
+      margin-top: -8px !important;
+    }
   }
-}
 
   @media (max-width: 1024px) {
     .container-custom {
@@ -162,12 +160,6 @@
     }
   }
 
-  @media (max-width: 640px) {
-  .mobile-header-margin {
-    margin-top: -8px !important;
-  }
-}
-
   @media (max-width: 768px) {
     .container-custom {
       padding-left: 24px;
@@ -175,7 +167,6 @@
     }
   }
 
-  /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center font-bold transition-all duration-300;
     background: linear-gradient(135deg, rgba(60, 60, 60, 0.85), rgba(30, 30, 30, 0.75));
@@ -230,7 +221,6 @@
     box-shadow: var(--shadow-soft);
   }
 
-  /* Typography Classes */
   .text-display-xl {
     font-family: var(--font-display);
     font-size: var(--text-display-xl);
@@ -288,7 +278,6 @@
     font-weight: var(--text-small--font-weight);
   }
 
-  /* Cards */
   .card-agency {
     background: var(--color-white);
     border-radius: 32px;
@@ -305,7 +294,6 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -317,7 +305,6 @@
     opacity: 0;
     transform: scale(0.95);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
@@ -329,7 +316,6 @@
     opacity: 0;
     filter: blur(10px);
   }
-
   to {
     opacity: 1;
     filter: blur(0);
@@ -341,7 +327,6 @@
     opacity: 0;
     transform: translateX(-20px);
   }
-
   to {
     opacity: 1;
     transform: translateX(0);
@@ -353,7 +338,6 @@
     opacity: 0;
     transform: translateY(-30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -364,7 +348,6 @@
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
@@ -373,20 +356,16 @@
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
 @keyframes float {
   0% {
     transform: translateY(0px);
   }
-
   50% {
     transform: translateY(-10px);
   }
-
   100% {
     transform: translateY(0px);
   }
@@ -409,7 +388,6 @@
   from {
     stroke-dashoffset: 100;
   }
-
   to {
     stroke-dashoffset: 0;
   }
