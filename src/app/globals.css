@@ -413,3 +413,33 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gray-500);
 }
+
+/* Add to globals.css */
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 5s ease-in-out infinite;
+}
+
+.animate-float-glow {
+  animation: floatGlow 6s ease-in-out infinite;
+}

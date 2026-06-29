@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import About from "./components/About"; // ✅ Original About component
 import LogoTicker from "./components/LogoTicker";
 import Footer from "./components/Footer";
 
@@ -23,25 +23,18 @@ export default function Home() {
       {/* SECTION 1 — HERO */}
       <Hero />
 
-      {/* SECTION 2 — ABOUT & LOGOS */}
+      {/* SECTION 2 — ABOUT (Original - "Serious Work, Serious Businesses") */}
       <About />
+      
+      {/* SECTION 3 — LOGO TICKER */}
       <LogoTicker />
 
       {/* MASSIVE WHITE WRAPPER */}
       <div className="bg-[#ffffff] rounded-[64px] overflow-hidden max-w-[1440px] my-20 mx-8 md:mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
-        {/* SECTION 3 — SERVICES */}
         <Services />
-
-        {/* SECTION 4 — FEATURED WORKS */}
         <FeaturedWorks />
-
-        {/* SECTION 5 — PROCESS */}
         <InteractiveTimeline />
-
-        {/* SECTION 6 — BENEFITS / FEATURES */}
         <BenefitsFeatures />
-
-        {/* SECTION 7 — ALL FEATURES TREE */}
         <AllFeatures />
       </div>
 
@@ -51,7 +44,7 @@ export default function Home() {
       {/* SECTION 9 — FINAL CTA */}
       <CTABanner />
 
-      {/* SEO Content to improve word count and text-to-HTML ratio */}
+      {/* SEO Content */}
       <section className="sr-only">
         <h2>Frequently Asked Questions about L&Q Global</h2>
         <div>

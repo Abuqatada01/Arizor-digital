@@ -65,7 +65,6 @@ export default function About() {
     }
   }, [isInView]);
 
-  // Auto-scroll founders
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
@@ -82,8 +81,7 @@ export default function About() {
   const currentFounder = founders[currentFounderIndex];
 
   return (
-    <section ref={sectionRef} className="py-[25px] bg-transparent" id="about" aria-label="About Us">
-      {/* SEO text */}
+    <section ref={sectionRef} className="py-[25px] bg-transparent" id="about">
       <h2 className="sr-only">About L&Q Global - Web Development and AI Automation Agency</h2>
       
       <div className="container-custom">
@@ -118,7 +116,7 @@ export default function About() {
 
             {/* Description */}
             <p className="text-white/70 text-[16px] leading-relaxed max-w-[380px] mb-8 z-10">
-              <strong className="text-white">L&Q GLOBAL</strong> builds websites that sell, AI systems that work, and digital experiences that grow businesses. We don't just create online presence—we engineer growth through web development, AI automation, and performance-driven solutions.
+              <strong className="text-white">L&Q GLOBAL</strong> builds websites that sell, AI systems that work, and digital experiences that grow businesses. We don't just create online presence, we engineer growth through web development, AI automation, and performance-driven solutions.
             </p>
 
             {/* Button */}
@@ -136,7 +134,6 @@ export default function About() {
                 className="object-cover object-top opacity-80"
                 loading="lazy"
               />
-              {/* Fade out mask */}
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[rgba(17,17,17,0.5)] to-[var(--color-black)]"></div>
             </div>
           </article>
@@ -147,7 +144,7 @@ export default function About() {
             {/* Top Right Card */}
             <article className={`bg-[#edecec] border border-white/50 rounded-[40px] p-5 xl:p-10 relative overflow-hidden flex flex-col justify-between shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex-1 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '400ms' }}>
               <p className="text-[18px] text-[var(--color-black)] font-semibold leading-[1.4] max-w-[400px] z-10 relative">
-                Trusted by {count}+ leading brands worldwide — <br />
+                Trusted by {count}+ leading brands worldwide... <br />
                 delivering high-converting websites and AI-driven solutions that drive measurable growth.
               </p>
 
@@ -174,11 +171,9 @@ export default function About() {
             {/* Bottom Right Card - Founders Section */}
             <article className={`bg-[#edecec] border border-white/50 rounded-[40px] p-5 md:p-8 lg:p-10 relative shadow-[12px_12px_24px_#c9c9c9,-12px_-12px_24px_#ffffff] flex flex-col transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '500ms' }}>
 
-              {/* Founders Section */}
               <div className="flex flex-col items-center w-full">
                 <h4 className="text-[14px] font-semibold text-[var(--color-gray-500)] uppercase tracking-wider mb-4">Meet the Founders</h4>
                 
-                {/* Founder Card - Wider with More Padding */}
                 <div className="relative w-full max-w-[320px]" aria-live="polite">
                   <div className="bg-white/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-700 border border-white/30">
                     <div className="relative w-full h-[280px] p-4 bg-[var(--color-primary)]/5">
@@ -194,7 +189,6 @@ export default function About() {
                       </div>
                     </div>
                     
-                    {/* Content */}
                     <div className="p-5 text-center">
                       <span className="text-[18px] font-bold text-[var(--color-black)] block">{currentFounder.name}</span>
                       <span className="text-[13px] text-[var(--color-primary)] font-semibold block">{currentFounder.role}</span>
@@ -205,7 +199,6 @@ export default function About() {
                   </div>
                 </div>
 
-                {/* Dots Navigation - Minimal */}
                 <nav aria-label="Founders navigation" className="flex justify-center gap-2 mt-4">
                   {founders.map((founder, index) => (
                     <button
