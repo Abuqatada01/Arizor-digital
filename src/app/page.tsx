@@ -7,13 +7,13 @@ import LogoTicker from "./components/LogoTicker";
 import Footer from "./components/Footer";
 
 // Lazy-load below-the-fold heavy components
-const Services = dynamic(() => import("./components/Services"), { ssr: false });
-const FeaturedWorks = dynamic(() => import("./components/FeaturedWorks"), { ssr: false });
-const InteractiveTimeline = dynamic(() => import("./components/InteractiveTimeline"), { ssr: false });
-const BenefitsFeatures = dynamic(() => import("./components/BenefitsFeatures"), { ssr: false });
-const AllFeatures = dynamic(() => import("./components/AllFeatures"), { ssr: false });
-const Testimonial = dynamic(() => import("./components/Testimonial"), { ssr: false });
-const CTABanner = dynamic(() => import("./components/CTABanner"), { ssr: false });
+const Services = dynamic(() => import("./components/Services"));
+const FeaturedWorks = dynamic(() => import("./components/FeaturedWorks"));
+const InteractiveTimeline = dynamic(() => import("./components/InteractiveTimeline"));
+const BenefitsFeatures = dynamic(() => import("./components/BenefitsFeatures"));
+const AllFeatures = dynamic(() => import("./components/AllFeatures"));
+const Testimonial = dynamic(() => import("./components/Testimonial"));
+const CTABanner = dynamic(() => import("./components/CTABanner"));
 
 export default function Home() {
   return (
