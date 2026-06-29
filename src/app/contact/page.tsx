@@ -1,10 +1,23 @@
 import React from "react";
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://lqglobal.vercel.app/contact",
+    languages: {
+      "en": "https://lqglobal.vercel.app/contact",
+      "en-IN": "https://lqglobal.vercel.app/contact",
+      "x-default": "https://lqglobal.vercel.app/contact",
+    },
+  },
+};
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--background)] pt-[80px]">
+      <h1 className="sr-only">Contact L&Q Global | Get a Free Quote</h1>
       <Navbar />
       
       <main className="flex-1 flex justify-center items-center py-12 px-4 sm:px-8">
@@ -25,9 +38,9 @@ export default function ContactPage() {
                         <div className="w-2 h-2 rounded-full bg-red-500"></div>
                         <span className="text-sm font-bold text-gray-700 tracking-wide">Contact</span>
                     </div>
-                    <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight">
+                    <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-[1.1] tracking-tight">
                         Let's Build<br/>Intelligent Things
-                    </h1>
+                    </h2>
                 </div>
 
                 <div className="flex flex-col gap-8 mt-16 md:mt-24">

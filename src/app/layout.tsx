@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "Premium websites, ecommerce stores and AI automation for modern businesses in Mumbai.",
     images: [
       {
-        url: "/lqglobal-cover.jpg",
+        url: "/images/home1.jpg",
         width: 1200,
         height: 630,
         alt: "L&Q Global — Web Development Agency Mumbai",
@@ -94,13 +94,13 @@ export const metadata: Metadata = {
     title: "Web Development & AI Solutions Mumbai | L&Q Global",
     description:
       "Premium Web Development, SEO & AI Automation Agency in Mumbai, India.",
-    images: ["/lqglobal-cover.jpg"],
+    images: ["/images/home1.jpg"],
   },
 
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/images/logo1.png",
   },
 
   manifest: "/site.webmanifest",
@@ -116,8 +116,8 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     name: "L&Q Global",
     url: "https://lqglobal.vercel.app",
-    logo: "https://lqglobal.vercel.app/logo.png",
-    image: "https://lqglobal.vercel.app/lqglobal-cover.jpg",
+    logo: "https://lqglobal.vercel.app/images/logo1.png",
+    image: "https://lqglobal.vercel.app/images/home1.jpg",
     description:
       "L&Q Global builds SEO-friendly websites, ecommerce stores and AI-powered web solutions for businesses in Mumbai, India.",
 
@@ -147,19 +147,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="alternate" hrefLang="en" href="https://lqglobal.vercel.app" />
-        <link rel="alternate" hrefLang="en-IN" href="https://lqglobal.vercel.app" />
-        <link rel="alternate" hrefLang="x-default" href="https://lqglobal.vercel.app" />
-
+        <meta name="format-detection" content="telephone=no" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-
       <body className={`${urbanist.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-black)] min-h-screen flex flex-col`}>
         {children}
       </body>

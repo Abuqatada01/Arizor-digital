@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const url = "https://yourdomain.com";
+    const url = "https://lqglobal.vercel.app";
 
     return [
         {

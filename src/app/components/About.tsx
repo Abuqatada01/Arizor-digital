@@ -14,14 +14,14 @@ export default function About() {
     {
       name: "Abu Qatada",
       role: "Founder",
-      image: "/images/abu_qatada.jpg",
+      image: "/images/founder_portrait.png",
       initials: "AQ",
       description: "Visionary founder"
     },
     {
       name: "Lateef Shaikh",
       role: "Founder",
-      image: "/images/lateef_shaikh.jpg",
+      image: "/images/founder_portrait.png",
       initials: "LS",
       description: "Hello World"
     }

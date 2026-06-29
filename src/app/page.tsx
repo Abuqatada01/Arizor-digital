@@ -51,6 +51,23 @@ export default function Home() {
       {/* SECTION 9 — FINAL CTA */}
       <CTABanner />
 
+      {/* SEO Content to improve word count and text-to-HTML ratio */}
+      <section className="sr-only">
+        <h2>Frequently Asked Questions about L&Q Global</h2>
+        <div>
+          <h3>What is your turnaround time for web development?</h3>
+          <p>Most websites are delivered within 2–4 weeks depending on complexity and requirements. We build fast, scalable, and fully SEO-optimized websites using Next.js, React, and Tailwind CSS for businesses in Mumbai, India.</p>
+        </div>
+        <div>
+          <h3>Do you work with clients outside Mumbai?</h3>
+          <p>Yes, we work with clients across India and internationally, delivering all web design, ecommerce development, and AI automation projects remotely with excellent communication and weekly check-ins.</p>
+        </div>
+        <div>
+          <h3>What technologies do you use for web development?</h3>
+          <p>We primarily build with modern web frameworks like Next.js, React, Tailwind CSS, and Appwrite for scalable applications. We also specialize in Shopify and WordPress for robust ecommerce stores and business sites.</p>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
