@@ -42,10 +42,10 @@ export default function AboutStory() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             
-            {/* Floating Badge */}
+            {/* Floating Badge - Meta Purple */}
             <div className="absolute bottom-8 left-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 max-w-[250px]">
               <p className="text-white text-sm font-semibold leading-relaxed">
-                <span className="text-[var(--color-primary)]">+20</span> successful projects delivered
+                <span className="text-[#7C3AED]">+20</span> successful projects delivered
               </p>
             </div>
           </div>
@@ -53,10 +53,10 @@ export default function AboutStory() {
           {/* Right - Content */}
           <div className="flex flex-col gap-6">
             <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`} style={{ transitionDelay: '200ms' }}>
-              <span className="text-[var(--color-primary)] font-bold text-sm tracking-wider uppercase">Our Story</span>
+              <span className="text-[#7C3AED] font-bold text-sm tracking-wider uppercase">Our Story</span>
               <h2 className="text-display-lg tracking-tight leading-[1.1] text-[var(--color-black)] mt-4">
                 Born in Mumbai,<br />
-                <span className="text-[var(--color-primary)]">Built for the World.</span>
+                <span className="text-[#7C3AED]">Built for the World.</span>
               </h2>
             </div>
 
@@ -80,21 +80,21 @@ export default function AboutStory() {
               </p>
             </div>
 
-            {/* Milestones */}
+            {/* Milestones - Meta Purple */}
             <div 
               className={`grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-[var(--color-gray-200)] transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: '600ms' }}
             >
               <div>
-                <p className="text-3xl font-bold text-[var(--color-primary)]">2022</p>
+                <p className="text-3xl font-bold text-[#7C3AED]">2022</p>
                 <p className="text-sm text-[var(--color-gray-500)] font-semibold">Founded in Mumbai</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-[var(--color-primary)]">50+</p>
+                <p className="text-3xl font-bold text-[#7C3AED]">50+</p>
                 <p className="text-sm text-[var(--color-gray-500)] font-semibold">Projects Delivered</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-[var(--color-primary)]">98%</p>
+                <p className="text-3xl font-bold text-[#7C3AED]">98%</p>
                 <p className="text-sm text-[var(--color-gray-500)] font-semibold">Client Retention</p>
               </div>
             </div>

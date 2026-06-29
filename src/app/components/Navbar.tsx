@@ -47,8 +47,8 @@ export default function Navbar() {
         style={{ 
           animationDelay: '1100ms',
           background: isLightBackground 
-            ? 'rgba(237, 236, 236, 0)' 
-            : 'rgba(17, 17, 17, 0.85)',
+            ? 'rgba(255, 255, 255, 0.06)' 
+            : 'rgba(15, 15, 15, 0.16)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: isLightBackground 
@@ -199,8 +199,8 @@ export default function Navbar() {
               : '-translate-y-full opacity-0'
           }`}
           style={{
-            background: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(30px)',
+            background: 'rgba(255, 255, 255, 0.80)',
+            backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(30px)',
             border: '1px solid rgba(255, 255, 255, 0.2)',
             boxShadow: '0 25px 50px rgba(0, 0, 0, 0.2)',
@@ -246,7 +246,7 @@ export default function Navbar() {
                 <a 
                   href="/" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-black/5 hover:scale-105 text-black/70"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/70 hover:scale-105 text-black/70"
                 >
                   Home
                 </a>
@@ -258,7 +258,7 @@ export default function Navbar() {
                 <a 
                   href="/services" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-black/5 hover:scale-105 text-black/70"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/70 hover:scale-105 text-black/70"
                 >
                   Services
                 </a>
@@ -270,7 +270,7 @@ export default function Navbar() {
                 <a 
                   href="/our-work" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-black/5 hover:scale-105 text-black/70"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/70 hover:scale-105 text-black/70"
                 >
                   Our Work
                 </a>
@@ -282,7 +282,7 @@ export default function Navbar() {
                 <a 
                   href="/about" 
                   onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-black/5 hover:scale-105 text-black/70"
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/70 hover:scale-105 text-black/70"
                 >
                   About
                 </a>

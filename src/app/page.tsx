@@ -1,10 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About"; // ✅ Original About component
+import About from "./components/About";
 import LogoTicker from "./components/LogoTicker";
-import Footer from "./components/Footer";
 
 // Lazy-load below-the-fold heavy components
 const Services = dynamic(() => import("./components/Services"));
@@ -17,8 +15,10 @@ const CTABanner = dynamic(() => import("./components/CTABanner"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-16">
-      <Navbar />
+    <>
+      {/* ❌ REMOVED: Navbar - Already in layout.tsx */}
+      {/* ❌ REMOVED: Footer - Already in layout.tsx */}
+      {/* ❌ REMOVED: main wrapper with pt-16 - Already in layout.tsx */}
 
       {/* SECTION 1 — HERO */}
       <Hero />
@@ -60,8 +60,6 @@ export default function Home() {
           <p>We primarily build with modern web frameworks like Next.js, React, Tailwind CSS, and Appwrite for scalable applications. We also specialize in Shopify and WordPress for robust ecommerce stores and business sites.</p>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

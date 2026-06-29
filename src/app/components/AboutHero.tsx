@@ -29,11 +29,11 @@ export default function AboutHero() {
       id="about-hero"
     >
       {/* ============================================== */}
-      {/* NEW COLOR SCHEME - PURPLE/BLUE GLOWS */}
+      {/* META/PURPLE BACKGROUND GLOWS */}
       {/* ============================================== */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         
-        {/* MAIN OVAL - Center - Purple with blinking effect */}
+        {/* MAIN OVAL - Center - Purple */}
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
                      w-[1000px] h-[350px] 
@@ -44,7 +44,7 @@ export default function AboutHero() {
                      animate-gentle-pulse"
         />
         
-        {/* OVAL 2 - Top Right - Blue with floating effect */}
+        {/* OVAL 2 - Top Right - Blue */}
         <div 
           className="absolute -top-[50px] -right-[50px] 
                      w-[700px] h-[250px] 
@@ -55,7 +55,7 @@ export default function AboutHero() {
                      animate-float-glow"
         />
         
-        {/* OVAL 3 - Bottom Left - Pink/Purple */}
+        {/* OVAL 3 - Bottom Left - Pink */}
         <div 
           className="absolute -bottom-[50px] -left-[50px] 
                      w-[600px] h-[220px] 
@@ -87,16 +87,6 @@ export default function AboutHero() {
                      opacity-10"
         />
 
-        {/* OVAL 6 - New - Cyan accent */}
-        <div 
-          className="absolute top-2/3 left-1/2 
-                     w-[300px] h-[120px] 
-                     bg-[#06B6D4] 
-                     rounded-[50%] 
-                     blur-[100px] 
-                     opacity-8"
-        />
-
         {/* Subtle Grid Pattern Overlay */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="w-full h-full" style={{
@@ -112,22 +102,22 @@ export default function AboutHero() {
       {/* Content */}
       <div className="container-custom relative z-10 py-20">
         <div className="max-w-[900px]">
-          {/* Badge - Updated with purple pulse */}
+          {/* Badge - Meta Purple */}
           <div className={`inline-flex items-center gap-2 bg-white/10 border border-white/10 px-4 py-2 rounded-full mb-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
             <span className="text-white/80 text-sm font-semibold tracking-wider">About L&Q Global</span>
           </div>
 
-          {/* Main Heading - Updated color */}
+          {/* Main Heading - Meta Purple Text */}
           <h1 
             className={`text-display-xl text-white leading-[0.95] tracking-tight mb-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             style={{ transitionDelay: '200ms' }}
           >
             We build digital
             <br />
-            <span className="bg-gradient-to-r from-[#7C3AED] via-[#4F46E5] to-[#3B82F6] bg-clip-text text-transparent">experiences that</span>
+            <span className="text-[#7C3AED]">experiences that</span>
             <br />
-            <span className="bg-gradient-to-r from-[#7C3AED] via-[#4F46E5] to-[#3B82F6] bg-clip-text text-transparent">drive growth.</span>
+            <span className="text-[#7C3AED]">drive growth.</span>
           </h1>
 
           {/* Description */}
@@ -140,7 +130,7 @@ export default function AboutHero() {
             and performance-driven solutions.
           </p>
 
-          {/* CTA */}
+          {/* CTA - Changed to transparent variant */}
           <div 
             className={`flex flex-wrap gap-4 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             style={{ transitionDelay: '600ms' }}
@@ -162,13 +152,20 @@ export default function AboutHero() {
         </div>
       </div>
 
-      {/* Bottom Curve */}
-      <div className="absolute bottom-0 left-0 right-0 w-full" aria-hidden="true">
+      {/* ============================================== */}
+      {/* BOTTOM CURVE - FIXED FOR MOBILE */}
+      {/* ============================================== */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden" aria-hidden="true">
         <svg 
           viewBox="0 0 1440 120" 
           className="w-full h-auto" 
           preserveAspectRatio="none"
-          style={{ display: 'block', width: '100%' }}
+          style={{ 
+            display: 'block', 
+            width: '100%',
+            height: 'auto',
+            minHeight: '40px',
+          }}
         >
           <path 
             d="M0,120 L1440,120 L1440,0 C1200,80 800,120 400,80 C200,50 80,30 0,0 Z" 

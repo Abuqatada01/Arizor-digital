@@ -43,28 +43,28 @@ export default function GlassButton({
       hoverBoxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(255, 255, 255, 0.3)'
     },
     dark: {
-      background: 'rgba(0, 0, 0, 0.2)',
-      border: '1px solid rgba(255, 255, 255, 0.12)',
+      background: 'rgba(255, 255, 255, 0.05)', // More transparent
+      border: '1px solid rgba(255, 255, 255, 0.15)',
       color: 'var(--color-white)',
-      boxShadow: '0 4px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-      hoverBackground: 'rgba(0, 0, 0, 0.35)',
-      hoverBoxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25)'
+      boxShadow: '0 4px 24px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+      hoverBackground: 'rgba(255, 255, 255, 0.12)',
+      hoverBoxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
     },
     primary: {
-      background: 'rgba(255, 77, 46, 0.15)',
-      border: '1px solid rgba(255, 77, 46, 0.3)',
-      color: 'var(--color-primary)',
-      boxShadow: '0 4px 24px rgba(255, 77, 46, 0.1), inset 0 1px 0 rgba(255, 77, 46, 0.2)',
-      hoverBackground: 'rgba(255, 77, 46, 0.25)',
-      hoverBoxShadow: '0 8px 32px rgba(255, 77, 46, 0.2), inset 0 1px 0 rgba(255, 77, 46, 0.3)'
+      background: 'rgba(124, 58, 237, 0.15)',
+      border: '1px solid rgba(124, 58, 237, 0.3)',
+      color: '#7C3AED',
+      boxShadow: '0 4px 24px rgba(124, 58, 237, 0.1), inset 0 1px 0 rgba(124, 58, 237, 0.2)',
+      hoverBackground: 'rgba(124, 58, 237, 0.25)',
+      hoverBoxShadow: '0 8px 32px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(124, 58, 237, 0.3)'
     },
     gradient: {
-      background: 'linear-gradient(135deg, rgba(255, 77, 46, 0.15), rgba(255, 107, 74, 0.15))',
-      border: '1px solid rgba(255, 77, 46, 0.25)',
-      color: 'var(--color-primary)',
-      boxShadow: '0 4px 24px rgba(255, 77, 46, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-      hoverBackground: 'linear-gradient(135deg, rgba(255, 77, 46, 0.25), rgba(255, 107, 74, 0.25))',
-      hoverBoxShadow: '0 8px 32px rgba(255, 77, 46, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+      background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(79, 70, 229, 0.15))',
+      border: '1px solid rgba(124, 58, 237, 0.25)',
+      color: '#7C3AED',
+      boxShadow: '0 4px 24px rgba(124, 58, 237, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+      hoverBackground: 'linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(79, 70, 229, 0.25))',
+      hoverBoxShadow: '0 8px 32px rgba(124, 58, 237, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
     }
   };
 
@@ -120,8 +120,8 @@ export default function GlassButton({
           strokeLinejoin="round"
           className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
         >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
         </svg>
       </span>
     </>

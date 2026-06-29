@@ -1,7 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import AboutHero from "../components/AboutHero";
 import AboutStory from "../components/AboutStory";
 import AboutTeam from "../components/AboutTeam";
@@ -37,11 +35,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-16">
+    <>
       <h1 className="sr-only">About L&Q Global — Mumbai Web Agency</h1>
-      
-      {/* Navbar */}
-      <Navbar />
       
       <main className="flex-1">
         <AboutHero />
@@ -69,9 +64,6 @@ export default function AboutPage() {
       </section>
 
       <CTABanner />
-      
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 }

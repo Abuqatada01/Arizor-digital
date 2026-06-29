@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 const LEFT_FEATURES = [
@@ -84,7 +86,7 @@ export default function AllFeatures() {
         {/* Header */}
         <div className="flex flex-col items-center mb-12 lg:mb-24 text-center">
           <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-full mb-6 w-max">
-            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
+            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
             <span className="text-[var(--color-primary)] font-semibold text-[14px]">Features</span>
           </div>
           <h2 className="text-display-lg tracking-tight leading-[1.05] text-[var(--color-black)] max-w-[800px]">
@@ -95,49 +97,31 @@ export default function AllFeatures() {
         {/* Tree Layout Wrapper */}
         <div className="relative w-full max-w-[1100px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
-          {/* ========================================= */}
-          {/* CONNECTING LINES (DESKTOP ONLY) */}
-          {/* ========================================= */}
-
           {/* Left Tree Connector (SVG) */}
           <div aria-hidden="true" className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] left-[320px] w-[230px] z-0 pointer-events-none">
             <svg viewBox="0 0 230 360" className="w-full h-full overflow-visible" preserveAspectRatio="none">
-              {/* Base Gray Lines */}
               <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 230 180 L 0 180" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 230 180 L 40 180 Q 20 180 20 200 L 20 340 Q 20 360 0 360" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-
-              {/* Flowing Red Lights */}
-              <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)' }} />
-              <path d="M 230 180 L 0 180" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '0.8s' }} />
-              <path d="M 230 180 L 40 180 Q 20 180 20 200 L 20 340 Q 20 360 0 360" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '1.6s' }} />
-
-              {/* Red Dot at Center */}
-              <circle cx="230" cy="180" r="4" fill="#ff3b30" style={{ filter: 'drop-shadow(0 0 8px #ff3b30)' }} />
+              <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)' }} />
+              <path d="M 230 180 L 0 180" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)', animationDelay: '0.8s' }} />
+              <path d="M 230 180 L 40 180 Q 20 180 20 200 L 20 340 Q 20 360 0 360" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)', animationDelay: '1.6s' }} />
+              <circle cx="230" cy="180" r="4" fill="#FF4D2E" style={{ filter: 'drop-shadow(0 0 8px #FF4D2E)' }} />
             </svg>
           </div>
 
           {/* Right Tree Connector (SVG) */}
           <div aria-hidden="true" className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] right-[320px] w-[230px] z-0 pointer-events-none">
             <svg viewBox="0 0 230 360" className="w-full h-full overflow-visible" preserveAspectRatio="none">
-              {/* Base Gray Lines */}
               <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 0 180 L 230 180" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
               <path d="M 0 180 L 190 180 Q 210 180 210 200 L 210 340 Q 210 360 230 360" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-
-              {/* Flowing Red Lights */}
-              <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '0.4s' }} />
-              <path d="M 0 180 L 230 180" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '1.2s' }} />
-              <path d="M 0 180 L 190 180 Q 210 180 210 200 L 210 340 Q 210 360 230 360" fill="none" stroke="#ff3b30" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #ff3b30)', animationDelay: '2.0s' }} />
-
-              {/* Red Dot at Center */}
-              <circle cx="0" cy="180" r="4" fill="#ff3b30" style={{ filter: 'drop-shadow(0 0 8px #ff3b30)' }} />
+              <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)', animationDelay: '0.4s' }} />
+              <path d="M 0 180 L 230 180" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)', animationDelay: '1.2s' }} />
+              <path d="M 0 180 L 190 180 Q 210 180 210 200 L 210 340 Q 210 360 230 360" fill="none" stroke="#FF4D2E" strokeWidth="2.5" vectorEffect="non-scaling-stroke" strokeLinecap="round" pathLength="100" strokeDasharray="15 85" className="animate-flow-line" style={{ filter: 'drop-shadow(0 0 6px #FF4D2E)', animationDelay: '2.0s' }} />
+              <circle cx="0" cy="180" r="4" fill="#FF4D2E" style={{ filter: 'drop-shadow(0 0 8px #FF4D2E)' }} />
             </svg>
           </div>
-
-          {/* ========================================= */}
-          {/* CONTENT CARDS */}
-          {/* ========================================= */}
 
           {/* Left Cards */}
           <div className="flex flex-col gap-6 lg:gap-10 w-full max-w-[320px] z-10">
@@ -156,20 +140,18 @@ export default function AllFeatures() {
             ))}
           </div>
 
-          {/* Center Glowing Node */}
+          {/* Center Glowing Node - Orange */}
           <div className="relative z-10 flex flex-col items-center justify-center my-4 lg:my-0">
-            <div className="relative w-28 h-28 lg:w-40 lg:h-40 bg-[#ff3b30] rounded-[24px] lg:rounded-[32px] shadow-[0_20px_40px_rgba(255,59,48,0.4),inset_2px_2px_4px_rgba(255,255,255,0.4),inset_-2px_-2px_4px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-1 lg:gap-2 hover:scale-105 transition-transform duration-500 cursor-default" aria-label="AgenAI Central Node">
-              {/* Overlapping Circles Icon */}
+            <div className="relative w-28 h-28 lg:w-40 lg:h-40 bg-[var(--color-primary)] rounded-[24px] lg:rounded-[32px] shadow-[0_20px_40px_rgba(255,77,46,0.4),inset_2px_2px_4px_rgba(255,255,255,0.4),inset_-2px_-2px_4px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-1 lg:gap-2 hover:scale-105 transition-transform duration-500 cursor-default" aria-label="AgenAI Central Node">
               <div aria-hidden="true" className="flex -space-x-3 lg:-space-x-4 mb-1">
                 <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-white"></div>
                 <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white bg-opacity-90 flex items-center justify-center">
-                  <div className="w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 border-[#ff3b30]"></div>
+                  <div className="w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 border-[var(--color-primary)]"></div>
                 </div>
               </div>
               <span className="text-white font-bold text-[14px] lg:text-[18px] tracking-wide">AgenAI</span>
             </div>
-            {/* Huge Glow Behind Node */}
-            <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-48 lg:h-48 bg-[#ff3b30] rounded-full blur-[40px] lg:blur-[60px] opacity-40 -z-10 pointer-events-none"></div>
+            <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-48 lg:h-48 bg-[var(--color-primary)] rounded-full blur-[40px] lg:blur-[60px] opacity-40 -z-10 pointer-events-none"></div>
           </div>
 
           {/* Right Cards */}

@@ -74,10 +74,10 @@ export default function AboutValues() {
     <section ref={sectionRef} className="py-24 bg-transparent">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <span className="text-[var(--color-primary)] font-bold text-sm tracking-wider uppercase">Our Values</span>
+          <span className="text-[#7C3AED] font-bold text-sm tracking-wider uppercase">Our Values</span>
           <h2 className="text-display-lg text-[var(--color-black)] tracking-tight leading-[1.1] mt-4">
             What Drives Us,<br />
-            <span className="text-[var(--color-primary)]">What Defines Us.</span>
+            <span className="text-[#7C3AED]">What Defines Us.</span>
           </h2>
         </div>
 
@@ -91,13 +91,13 @@ export default function AboutValues() {
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               <div className="flex items-start gap-6">
-                <div className="min-w-[48px] h-12 bg-[var(--color-primary)]/10 rounded-2xl flex items-center justify-center text-[var(--color-primary)] font-bold text-sm">
+                <div className="min-w-[48px] h-12 bg-[#7C3AED]/10 rounded-2xl flex items-center justify-center text-[#7C3AED] font-bold text-sm">
                   {value.number}
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-[var(--color-black)] mb-2 flex items-center gap-2">
                     {value.title}
-                    <span className="text-[var(--color-primary)]">{value.icon}</span>
+                    <span className="text-[#7C3AED]">{value.icon}</span>
                   </h3>
                   <p className="text-[var(--color-gray-600)] leading-relaxed">
                     {value.description}

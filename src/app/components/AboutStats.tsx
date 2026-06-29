@@ -70,10 +70,10 @@ export default function AboutStats() {
     <section ref={sectionRef} className="py-24 bg-[var(--color-black)]">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <span className="text-[var(--color-primary)] font-bold text-sm tracking-wider uppercase">By The Numbers</span>
+          <span className="text-[#7C3AED] font-bold text-sm tracking-wider uppercase">By The Numbers</span>
           <h2 className="text-display-lg text-white tracking-tight leading-[1.1] mt-4">
             Building Digital Success,<br />
-            <span className="text-[var(--color-primary)]">One Project at a Time.</span>
+            <span className="text-[#7C3AED]">One Project at a Time.</span>
           </h2>
         </div>
 
@@ -86,7 +86,7 @@ export default function AboutStats() {
               }`}
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
-              <div className="text-[var(--color-primary)] mb-4 flex justify-center">
+              <div className="text-[#7C3AED] mb-4 flex justify-center">
                 {stat.icon}
               </div>
               <p className="text-4xl lg:text-5xl font-bold text-white mb-2">{stat.value}</p>

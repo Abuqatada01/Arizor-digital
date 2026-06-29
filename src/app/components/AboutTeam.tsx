@@ -6,10 +6,10 @@ import Image from "next/image";
 const TEAM_MEMBERS = [
   {
     name: "Abu Qatada",
-    role: "Founder & CEO",
+    role: "Founder",
     image: "/images/founder_portrait.png",
     bio: "Abu is a visionary leader with a passion for building digital experiences that drive business growth. With years of experience in web development and AI strategy, he leads the company's vision and growth.",
-    expertise: ["Web Strategy", "AI Innovation", "Growth Hacking"],
+    expertise: ["Full Stack Development", "AI Automation", "Cloud Architecture"],
     social: {
       linkedin: "#",
       twitter: "#",
@@ -17,10 +17,10 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Lateef Shaikh",
-    role: "Founder & CEO",
+    role: "Founder",
     image: "/images/founder_portrait.png",
     bio: "Lateef is a technical mastermind who brings complex ideas to life. With deep expertise in modern web technologies and AI systems, he ensures every project is built to the highest technical standards.",
-    expertise: ["Full Stack Development", "AI Automation", "Cloud Architecture"],
+    expertise: ["Full Stack Development", "AI Innovation", "Growth Hacking"],
     social: {
       linkedin: "#",
       twitter: "#",
@@ -51,10 +51,10 @@ export default function AboutTeam() {
     <section ref={sectionRef} className="py-24 bg-[#f8f8f8]">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <span className="text-[var(--color-primary)] font-bold text-sm tracking-wider uppercase">Meet The Team</span>
+          <span className="text-[#7C3AED] font-bold text-sm tracking-wider uppercase">Meet The Team</span>
           <h2 className="text-display-lg text-[var(--color-black)] tracking-tight leading-[1.1] mt-4">
             The Minds Behind<br />
-            <span className="text-[var(--color-primary)]">The Magic.</span>
+            <span className="text-[#7C3AED]">The Magic.</span>
           </h2>
           <p className="text-body-lg text-[var(--color-gray-600)] max-w-[600px] mx-auto mt-4">
             We're a team of passionate creators, engineers, and strategists who believe in building digital experiences that make a difference.
@@ -70,7 +70,7 @@ export default function AboutTeam() {
               }`}
               style={{ transitionDelay: `${idx * 200}ms` }}
             >
-              <div className="relative h-[300px] bg-[var(--color-primary)]/5">
+              <div className="relative h-[300px] bg-[#7C3AED]/5">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -82,14 +82,14 @@ export default function AboutTeam() {
               
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-[var(--color-black)]">{member.name}</h3>
-                <p className="text-[var(--color-primary)] font-semibold text-sm mb-3">{member.role}</p>
+                <p className="text-[#7C3AED] font-semibold text-sm mb-3">{member.role}</p>
                 <p className="text-[var(--color-gray-600)] text-sm leading-relaxed mb-6">
                   {member.bio}
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {member.expertise.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-[var(--color-primary)]/5 text-[var(--color-primary)] text-xs font-semibold rounded-full">
+                    <span key={i} className="px-3 py-1 bg-[#7C3AED]/5 text-[#7C3AED] text-xs font-semibold rounded-full">
                       {tag}
                     </span>
                   ))}
@@ -98,7 +98,7 @@ export default function AboutTeam() {
                 <div className="flex gap-3">
                   <a 
                     href={member.social.linkedin} 
-                    className="p-2 bg-[var(--color-gray-100)] rounded-xl hover:bg-[var(--color-primary)]/10 transition-colors"
+                    className="p-2 bg-[var(--color-gray-100)] rounded-xl hover:bg-[#7C3AED]/10 transition-colors"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <svg className="w-5 h-5 text-[var(--color-gray-600)]" viewBox="0 0 24 24" fill="currentColor">
@@ -107,7 +107,7 @@ export default function AboutTeam() {
                   </a>
                   <a 
                     href={member.social.twitter} 
-                    className="p-2 bg-[var(--color-gray-100)] rounded-xl hover:bg-[var(--color-primary)]/10 transition-colors"
+                    className="p-2 bg-[var(--color-gray-100)] rounded-xl hover:bg-[#7C3AED]/10 transition-colors"
                     aria-label={`${member.name} on Twitter`}
                   >
                     <svg className="w-5 h-5 text-[var(--color-gray-600)]" viewBox="0 0 24 24" fill="currentColor">

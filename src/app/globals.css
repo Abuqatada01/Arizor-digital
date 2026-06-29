@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* Colors - Back to Orange */
   --color-primary: #FF4D2E;
   --color-primary-hover: #FF3B1F;
   --color-primary-light: #FFE8E3;
@@ -93,22 +93,14 @@
   --container-max-width: 1440px;
   --container-padding: 80px;
 
-  /* Animations - Already set to 40s */
+  /* Animations */
   --animate-fade-up: fadeUp 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-scale-in: scaleIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-blur-reveal: blurReveal 1.5s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-slide-in: slideIn 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
   --animate-slide-down: slideDown 1.2s cubic-bezier(.22, 1, .36, 1) forwards;
-  --animate-marquee: marquee 40s linear infinite; /* ← Already 40s */
+  --animate-marquee: marquee 40s linear infinite;
 }
-
-/* ❌ REMOVE THIS DUPLICATE SECTION - It's overriding the theme */
-/* .animate-marquee {
-  animation: marquee 30s linear infinite;
-} */
-
-/* ✅ Instead, just use the theme variable */
-/* The animation is already set to 40s in the theme above */
 
 @layer base {
   :root {
@@ -414,25 +406,48 @@
   background: var(--color-gray-500);
 }
 
-/* Add to globals.css */
+/* ============================================================ */
+/* ANIMATIONS FOR ABOUT HERO */
+/* ============================================================ */
 
 @keyframes gentlePulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.2;
+    opacity: 0.25;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.4;
   }
 }
 
 @keyframes floatGlow {
   0%, 100% {
-    transform: translate(-50%, -50%) translateY(0px);
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-20px);
+    transform: translate(-30px, 20px) scale(1.05);
+    opacity: 0.25;
+  }
+}
+
+@keyframes blinkingOval {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.25;
+    transform: scale(1.02);
+  }
+  50% {
+    opacity: 0.08;
+    transform: scale(0.98);
+  }
+  75% {
+    opacity: 0.3;
+    transform: scale(1.04);
   }
 }
 
@@ -441,5 +456,34 @@
 }
 
 .animate-float-glow {
-  animation: floatGlow 6s ease-in-out infinite;
+  animation: floatGlow 7s ease-in-out infinite;
+}
+
+.animate-blinking-oval {
+  animation: blinkingOval 3s ease-in-out infinite;
+}
+
+/* ============================================================ */
+/* FIX FOR MOBILE CURVE LINE ISSUE */
+/* ============================================================ */
+
+/* Fix the curve on mobile screens */
+@media (max-width: 768px) {
+  .absolute.bottom-0 svg {
+    min-height: 40px;
+    height: 40px !important;
+  }
+  
+  /* Ensure the curve path fills properly on mobile */
+  .absolute.bottom-0 svg path {
+    d: path("M0,120 L1440,120 L1440,0 C1200,80 800,120 400,80 C200,50 80,30 0,0 Z");
+  }
+}
+
+/* Alternative - simpler curve for mobile */
+@media (max-width: 480px) {
+  .absolute.bottom-0 svg {
+    min-height: 30px;
+    height: 30px !important;
+  }
 }

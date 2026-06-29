@@ -119,7 +119,7 @@ export default function About() {
               <strong className="text-white">L&Q GLOBAL</strong> builds websites that sell, AI systems that work, and digital experiences that grow businesses. We don't just create online presence, we engineer growth through web development, AI automation, and performance-driven solutions.
             </p>
 
-            {/* Button */}
+            {/* Button - KEEP AS IS */}
             <GlassButton href="#contact" variant="dark" className="mb-12 z-10" aria-label="Book a Free Call">
               Book a Free Call
             </GlassButton>
@@ -150,12 +150,12 @@ export default function About() {
 
               <div className="mt-16 flex flex-wrap items-center gap-4 z-10 relative">
                 <span className="text-[18px] font-bold text-[var(--color-black)] flex items-center gap-1" aria-label="Clutch 5 Star Rating">
-                  <span aria-hidden="true" className="text-[#00B67A] text-[24px]">★</span> Clutch
+                  <span aria-hidden="true" className="text-[var(--color-primary)] text-[24px]">★</span> Clutch
                 </span>
                 <div className="flex gap-1" aria-hidden="true">
                   {[1, 2, 3, 4, 5].map(i => (
                     <div key={i} className="w-6 h-6 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] rounded-sm flex items-center justify-center">
-                      <span className="text-[#00B67A] text-[14px]">★</span>
+                      <span className="text-[var(--color-primary)] text-[14px]">★</span>
                     </div>
                   ))}
                 </div>

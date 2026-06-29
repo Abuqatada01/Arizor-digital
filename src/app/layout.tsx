@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -154,7 +156,24 @@ export default function RootLayout({
         />
       </head>
       <body className={`${urbanist.variable} font-sans antialiased bg-[var(--color-background)] text-[var(--color-black)] min-h-screen flex flex-col`}>
-        {children}
+        
+        {/* ============================================== */}
+        {/* NAVBAR - GLOBAL (Appears on ALL pages) */}
+        {/* ============================================== */}
+        <Navbar />
+        
+        {/* ============================================== */}
+        {/* PAGE CONTENT */}
+        {/* ============================================== */}
+        <main className="flex-1 pt-16">
+          {children}
+        </main>
+        
+        {/* ============================================== */}
+        {/* FOOTER - GLOBAL (Appears on ALL pages) */}
+        {/* ============================================== */}
+        <Footer />
+        
       </body>
     </html>
   );

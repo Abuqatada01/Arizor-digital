@@ -50,6 +50,10 @@ export default function Services() {
     }
   ];
 
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(index);
+  };
+
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center bg-transparent py-20" id="services" aria-label="Our Services">
       <div className="container-custom w-full">
@@ -59,12 +63,12 @@ export default function Services() {
           <div className="flex flex-col">
             {/* Badge */}
             <div className={`inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-lg mb-8 w-max transition-all duration-[1200ms] ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '100ms' }}>
-              <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
+              <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
               <span className="text-[var(--color-primary)] font-semibold text-[14px]">Services</span>
             </div>
 
             <h2
-              className={`text-display-lg tracking-tight leading-[1.05] mb-6 transition-all duration-[1500ms] ease-out bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-gray-200)] via-[var(--color-gray-800)] to-[var(--color-black)] bg-[length:250%_100%] ${isInView ? 'opacity-100 translate-x-0 bg-[position:100%_0%]' : 'opacity-0 translate-x-10 bg-[position:0%_0%]'}`}
+              className={`text-display-lg tracking-tight leading-[1.05] mb-6 transition-all duration-[1500ms] ease-out bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-gray-200)] via-[var(--color-primary)] to-[var(--color-primary)] bg-[length:250%_100%] ${isInView ? 'opacity-100 translate-x-0 bg-[position:100%_0%]' : 'opacity-0 translate-x-10 bg-[position:0%_0%]'}`}
               style={{ transitionDelay: '300ms' }}
             >
               End-to-End <br />
@@ -97,33 +101,26 @@ export default function Services() {
               return (
                 <article
                   key={idx}
+                  onClick={() => handleCardClick(idx)}
                   className={`
-                    rounded-[40px] overflow-hidden transition-all duration-500 ease-in-out relative
+                    rounded-[40px] overflow-hidden transition-all duration-500 ease-in-out relative cursor-pointer
                     ${isExpanded
                       ? 'bg-[var(--color-black)] p-10 lg:p-12 shadow-[16px_16px_32px_#c9c9c9,-16px_-16px_32px_#ffffff]'
                       : 'bg-[#f4f4f5] p-8 lg:p-10 shadow-premium-light hover:scale-[1.02]'
                     }
                   `}
                 >
-                  <button
-                    onClick={() => setExpandedIndex(idx)}
-                    aria-expanded={isExpanded}
-                    aria-controls={`service-content-${idx}`}
-                    className="w-full flex justify-between items-start text-left focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] rounded-xl"
-                  >
+                  <div className="w-full flex justify-between items-start text-left">
                     <h3 className={`text-[20px] xl:text-[25px] font-bold leading-[1.1] transition-colors duration-500 ${isExpanded ? 'text-white' : 'text-[var(--color-gray-600)]'}`}>
                       {service.title}
                     </h3>
-                    <span aria-hidden="true" className={`text-[16px] font-semibold transition-colors duration-500 ${isExpanded ? 'text-[var(--color-gray-400)]' : 'text-[var(--color-gray-400)]'}`}>
+                    <span aria-hidden="true" className={`text-[16px] font-semibold transition-colors duration-500 ${isExpanded ? 'text-[var(--color-primary)]' : 'text-[var(--color-gray-400)]'}`}>
                       (0{idx + 1})
                     </span>
-                  </button>
+                  </div>
 
                   {/* Expanded Content Wrapper */}
                   <div 
-                    id={`service-content-${idx}`}
-                    role="region"
-                    aria-labelledby={`service-title-${idx}`}
                     className={`grid transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                   >
                     <div className="overflow-hidden">
