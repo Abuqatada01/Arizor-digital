@@ -164,7 +164,7 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-2 text-[16px] font-semibold">
             <li>
               <a 
-                href="#" 
+                href="/" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
@@ -174,7 +174,7 @@ export default function Navbar() {
             </li>
             <li>
               <a 
-                href="#services" 
+                href="/services" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
@@ -184,22 +184,22 @@ export default function Navbar() {
             </li>
             <li>
               <a 
-                href="#pricing" 
+                href="/our-work" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
-                Pricing
+                Our Work
               </a>
             </li>
             <li>
               <a 
-                href="#process" 
+                href="/about" 
                 className={`block transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/55 hover:text-black hover:scale-105 ${
                   isLightBackground ? 'text-[var(--color-black)]' : 'text-white'
                 }`}
               >
-                Process
+                About
               </a>
             </li>
           </ul>
@@ -207,7 +207,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center">
             <GlassButton 
-              href="#contact" 
+              href="/contact" 
               size="sm" 
               variant={isLightBackground ? 'light' : 'dark'}
             >
@@ -309,7 +309,7 @@ export default function Navbar() {
             <li className="w-full flex justify-center">
               <div className="w-full max-w-[1000px]">
                 <a 
-                  href="#" 
+                  href="/" 
                   onClick={closeMobileMenu} 
                   className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
                 >
@@ -321,31 +321,7 @@ export default function Navbar() {
             <li className="w-full flex justify-center">
               <div className="w-full max-w-[1000px]">
                 <a 
-                  href="#pricing" 
-                  onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
-                >
-                  Pricing
-                </a>
-                <div className="border-b border-black/10 mt-3"></div>
-              </div>
-            </li>
-            <li className="w-full flex justify-center">
-              <div className="w-full max-w-[1000px]">
-                <a 
-                  href="#process" 
-                  onClick={closeMobileMenu} 
-                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
-                >
-                  Process
-                </a>
-                <div className="border-b border-black/10 mt-3"></div>
-              </div>
-            </li>
-            <li className="w-full flex justify-center">
-              <div className="w-full max-w-[1000px]">
-                <a 
-                  href="#services" 
+                  href="/services" 
                   onClick={closeMobileMenu} 
                   className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
                 >
@@ -354,11 +330,35 @@ export default function Navbar() {
                 <div className="border-b border-black/10 mt-3"></div>
               </div>
             </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="/our-work" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
+                >
+                  Our Work
+                </a>
+                <div className="border-b border-black/10 mt-3"></div>
+              </div>
+            </li>
+            <li className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px]">
+                <a 
+                  href="/about" 
+                  onClick={closeMobileMenu} 
+                  className="block transition-all duration-300 py-2 px-6 rounded-xl hover:bg-white/40 hover:text-black hover:scale-105 text-black/70"
+                >
+                  About
+                </a>
+                <div className="border-b border-black/10 mt-3"></div>
+              </div>
+            </li>
           </ul>
 
           {/* Mobile CTA */}
           <div className="mt-1 pb-1 relative z-10" onClick={closeMobileMenu}>
-            <GlassButton href="#contact" fullWidth variant="light">
+            <GlassButton href="/contact" fullWidth variant="light">
               Book a Call
             </GlassButton>
           </div>

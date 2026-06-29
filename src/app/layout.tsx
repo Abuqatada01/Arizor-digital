@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter, Urbanist } from "next/font/google";
 import "./globals.css";
 
@@ -20,17 +20,27 @@ const urbanist = Urbanist({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1E293B",
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://lqglobal.vercel.app"),
 
   title: {
-    default:
-      "Web Development Company in Mumbai | AI Websites, SEO & Automation | L&Q Global",
+    default: "Web Development Company Mumbai | L&Q Global",
     template: "%s | L&Q Global",
   },
 
   description:
-    "L&Q Global is a premium web development agency in Mumbai specializing in custom websites, AI automation, SEO-friendly development, ecommerce solutions, landing pages, and high-performance web applications.",
+    "L&Q Global builds SEO-friendly websites, ecommerce stores and AI-powered web solutions for businesses in Mumbai.",
+
+  applicationName: "L&Q Global",
+
+  referrer: "origin-when-cross-origin",
 
   keywords: [
     "Web Development Company Mumbai",
@@ -41,37 +51,40 @@ export const metadata: Metadata = {
     "Custom Website Development",
     "Next.js Development",
     "React Development",
-    "Business Website Development",
-    "Landing Page Development",
     "SEO Friendly Website",
+    "Landing Page Development",
     "Shopify Development",
     "WordPress Development",
     "AI Website Development",
-    "Website Redesign",
     "Ecommerce Website Development",
-    "Web Development India",
+    "Business Website Development",
+    "Website Redesign",
   ],
 
   authors: [
     {
       name: "L&Q Global",
-      url: "https://yourdomain.com",
+      url: "https://lqglobal.vercel.app",
     },
   ],
 
   creator: "L&Q Global",
+
   publisher: "L&Q Global",
 
+  category: "Technology",
+
   alternates: {
-    canonical: "/",
+    canonical: "https://lqglobal.vercel.app",
     languages: {
-      "en-IN": "/",
+      "en-IN": "https://lqglobal.vercel.app",
     },
   },
 
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -82,13 +95,16 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Web Development Company in Mumbai | L&Q Global",
-    description:
-      "We build premium websites that help businesses rank higher on Google, generate more leads, and grow online.",
-    url: "https://lqglobal.vercel.app",
-    siteName: "L&Q Global",
-    locale: "en_IN",
     type: "website",
+    locale: "en_IN",
+    url: "https://lqglobal.vercel.app",
+
+    siteName: "L&Q Global",
+
+    title: "Web Development Company Mumbai | L&Q Global",
+
+    description:
+      "Premium websites, ecommerce stores and AI automation for modern businesses.",
 
     images: [
       {
@@ -102,22 +118,29 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     title: "L&Q Global",
+
     description:
       "Premium Web Development, SEO & AI Automation Agency in Mumbai.",
-    images: ["/og-image.jpg"],
+
+    images: ["/lqglobal-cover.jpg"],
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/favicon.ico",
+      },
+    ],
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
 
-  category: "Technology",
+  manifest: "/site.webmanifest",
 
   verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
+    google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
   },
 };
 
@@ -129,26 +152,44 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+
+    "@id": "https://lqglobal.vercel.app/#organization",
+
     name: "L&Q Global",
-    image: "https://lqglobal.vercel.app/og-image.jpg",
+
     url: "https://lqglobal.vercel.app",
+
+    logo: "https://lqglobal.vercel.app/logo.png",
+
+    image: "https://lqglobal.vercel.app/lqglobal-cover.jpg",
+
     telephone: "+91-8433639947",
+
     email: "lqglobal.in@gmail.com",
+
+    priceRange: "$$",
+
+    areaServed: "India",
+
     address: {
       "@type": "PostalAddress",
       addressLocality: "Mumbai",
       addressRegion: "Maharashtra",
-      postalCode: "4000095",
+      postalCode: "400095",
       addressCountry: "IN",
     },
-    areaServed: "India",
-    priceRange: "$$",
+
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+91-8433639947",
+      contactType: "Customer Service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
+
     sameAs: [
       "https://www.linkedin.com/company/lq-global-solutions/",
       "https://www.instagram.com/lqglobal.in/",
-      "https://x.com/yourcompany",
-      "https://www.facebook.com/yourcompany",
-      "https://www.youtube.com/@yourcompany",
     ],
   };
 
@@ -158,7 +199,6 @@ export default function RootLayout({
       className={`${jakarta.variable} ${inter.variable} ${urbanist.variable}`}
     >
       <head>
-        <meta name="theme-color" content="#1E293B" />
         <meta name="format-detection" content="telephone=no" />
 
         <script
