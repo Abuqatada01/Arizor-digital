@@ -140,6 +140,7 @@ export default function Navbar() {
                 }`}
                 sizes="192px"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -156,6 +157,7 @@ export default function Navbar() {
                 }`}
                 sizes="144px"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>
