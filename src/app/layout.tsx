@@ -31,11 +31,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lqglobal.vercel.app"),
 
   title: {
-    default: "L&Q Global | Web Development Agency Mumbai",
+    default: "Web Development & AI Solutions Mumbai | L&Q Global",
     template: "%s | L&Q Global",
   },
 
-  // ✅ 118 characters — within 100–130 limit
   description:
     "L&Q Global builds SEO-friendly websites, ecommerce stores and AI-powered web solutions for businesses in Mumbai, India.",
 
@@ -76,7 +75,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://lqglobal.vercel.app",
     languages: {
-      // ✅ Added both generic en and en-IN for hreflang coverage
       "en": "https://lqglobal.vercel.app",
       "en-IN": "https://lqglobal.vercel.app",
       "x-default": "https://lqglobal.vercel.app",
@@ -101,9 +99,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://lqglobal.vercel.app",
     siteName: "L&Q Global",
-    // ✅ 44 chars
-    title: "L&Q Global | Web Development Agency Mumbai",
-    // ✅ 77 chars
+    title: "Web Development & AI Solutions Mumbai | L&Q Global",
     description:
       "Premium websites, ecommerce stores and AI automation for modern businesses in Mumbai.",
     images: [
@@ -118,11 +114,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "L&Q Global | Web Development Agency Mumbai",
+    title: "Web Development & AI Solutions Mumbai | L&Q Global",
     description:
       "Premium Web Development, SEO & AI Automation Agency in Mumbai, India.",
     images: ["/lqglobal-cover.jpg"],
-    // ✅ Add your X handle when you create one
     // creator: "@lqglobal",
   },
 
@@ -134,7 +129,6 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 
-  // ✅ Replace with your actual code from Google Search Console
   // verification: {
   //   google: "YOUR_ACTUAL_CODE_HERE",
   // },
@@ -178,10 +172,10 @@ export default function RootLayout({
       availableLanguage: ["English", "Hindi"],
     },
 
-    // ✅ Add your real social URLs here as you create them
+    // ✅ Updated with correct social URLs
     sameAs: [
-      "https://www.linkedin.com/company/lq-global-solutions/",
       "https://www.instagram.com/lqglobal.in/",
+      "https://www.linkedin.com/in/lq-global-4b29b1419/",
       // "https://www.youtube.com/@lqglobal",
       // "https://x.com/lqglobal",
       // "https://www.facebook.com/lqglobal",
@@ -196,7 +190,6 @@ export default function RootLayout({
       <head>
         <meta name="format-detection" content="telephone=no" />
 
-        {/* ✅ Self-referencing hreflang tags */}
         <link rel="alternate" hrefLang="en" href="https://lqglobal.vercel.app" />
         <link rel="alternate" hrefLang="en-IN" href="https://lqglobal.vercel.app" />
         <link rel="alternate" hrefLang="x-default" href="https://lqglobal.vercel.app" />

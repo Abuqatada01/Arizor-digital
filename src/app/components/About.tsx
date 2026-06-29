@@ -130,7 +130,7 @@ export default function About() {
             <div aria-hidden="true" className={`absolute bottom-0 left-0 right-0 h-[60%] z-0 transition-transform duration-[1500ms] ease-out ${isInView ? 'translate-y-10' : 'translate-y-full'}`} style={{ transitionDelay: '600ms' }}>
               <Image
                 src="/images/globe_dots.png"
-                alt=""
+                alt="Global network and worldwide presence illustration"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-top opacity-80"
