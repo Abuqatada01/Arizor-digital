@@ -1,22 +1,23 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Testimonial from "./components/Testimonial";
-import InteractiveTimeline from "./components/InteractiveTimeline";
-import CTABanner from "./components/CTABanner";
-import Footer from "./components/Footer";
-
 import About from "./components/About";
 import LogoTicker from "./components/LogoTicker";
+import Footer from "./components/Footer";
 
-import FeaturedWorks from "./components/FeaturedWorks";
-import BenefitsFeatures from "./components/BenefitsFeatures";
-import AllFeatures from "./components/AllFeatures";
+// Lazy-load below-the-fold heavy components
+const Services = dynamic(() => import("./components/Services"), { ssr: true });
+const FeaturedWorks = dynamic(() => import("./components/FeaturedWorks"), { ssr: true });
+const InteractiveTimeline = dynamic(() => import("./components/InteractiveTimeline"), { ssr: true });
+const BenefitsFeatures = dynamic(() => import("./components/BenefitsFeatures"), { ssr: true });
+const AllFeatures = dynamic(() => import("./components/AllFeatures"), { ssr: true });
+const Testimonial = dynamic(() => import("./components/Testimonial"), { ssr: true });
+const CTABanner = dynamic(() => import("./components/CTABanner"), { ssr: true });
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-16">
+    <main className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] pt-16">
       <Navbar />
 
       {/* SECTION 1 — HERO */}
@@ -27,7 +28,7 @@ export default function Home() {
       <LogoTicker />
 
       {/* MASSIVE WHITE WRAPPER */}
-      <div className="bg-[#ffffff] rounded-[64px] overflow-hidden max-w-[1440px] my-20 mx-8 mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+      <div className="bg-[#ffffff] rounded-[64px] overflow-hidden max-w-[1440px] my-20 mx-8 md:mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
         {/* SECTION 3 — SERVICES */}
         <Services />
 
@@ -44,9 +45,6 @@ export default function Home() {
         <AllFeatures />
       </div>
 
-      {/* SECTION 7 — PRICING
-      <Pricing /> */}
-
       {/* SECTION 8 — RESULTS */}
       <Testimonial />
 
@@ -54,6 +52,6 @@ export default function Home() {
       <CTABanner />
 
       <Footer />
-    </div>
+    </main>
   );
 }

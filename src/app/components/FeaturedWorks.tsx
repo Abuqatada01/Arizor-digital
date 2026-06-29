@@ -56,13 +56,13 @@ export default function FeaturedWorks() {
   const currentWork = works[currentIndex];
 
   return (
-    <section className="py-[25px] bg-transparent" id="works">
+    <section className="py-[25px] bg-transparent" id="works" aria-label="Featured Works">
       <div className="container-custom">
 
         {/* Header Badge */}
         <div className="flex justify-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-5 py-2.5 rounded-full w-max">
-            <span className="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
+            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[var(--color-primary)]"></span>
             <span className="text-[var(--color-primary)] font-semibold text-[14px]">Featured Works</span>
           </div>
         </div>
@@ -70,30 +70,34 @@ export default function FeaturedWorks() {
         {/* Single Card with Navigation */}
         <div className="flex flex-col items-center">
           {/* Card */}
-          <div className="w-full bg-[#f4f4f5] rounded-[48px] p-4 lg:p-6 shadow-premium-light transition-all duration-500">
+          <article className="w-full bg-[#f4f4f5] rounded-[48px] p-4 lg:p-6 shadow-premium-light transition-all duration-500" aria-live="polite">
             {/* Featured Image */}
             <div className="relative w-full aspect-[16/10] lg:aspect-[21/9] rounded-[32px] lg:rounded-[40px] overflow-hidden mb-8">
               <Image
                 src={currentWork.image}
                 alt={currentWork.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 80vw"
                 className="object-cover transition-transform duration-[2000ms] hover:scale-105"
+                loading="lazy"
               />
             </div>
 
             <div className="px-4 lg:px-8 pb-4 overflow-hidden">
               {/* Dot Indicators */}
-              <div className="flex gap-2 mb-8">
-                {works.map((_, idx) => (
+              <nav aria-label="Work navigation dots" className="flex gap-2 mb-8">
+                {works.map((work, idx) => (
                   <button
-                    key={idx}
+                    key={work.id}
                     onClick={() => goToWork(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    aria-label={`View ${work.title}`}
+                    aria-current={currentIndex === idx ? "true" : "false"}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] ${
                       currentIndex === idx ? 'bg-[var(--color-primary)] w-6' : 'bg-[#d1d1d1]'
                     }`}
                   />
                 ))}
-              </div>
+              </nav>
 
               {/* Content Grid */}
               <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_0.5fr] gap-8 lg:gap-12 pt-8 border-t border-[#d1d1d1]/50">
@@ -135,30 +139,32 @@ export default function FeaturedWorks() {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
           {/* Navigation Arrows */}
-          <div className="flex gap-4 mt-8">
+          <nav aria-label="Work navigation arrows" className="flex gap-4 mt-8">
             <button
               onClick={goToPrev}
-              className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform"
+              aria-label="Previous work"
+              className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
             <button
               onClick={goToNext}
-              className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform"
+              aria-label="Next work"
+              className="w-12 h-12 rounded-full bg-[#f4f4f5] flex items-center justify-center text-[var(--color-gray-500)] shadow-[8px_8px_16px_#d1d1d1,-8px_-8px_16px_#ffffff] hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
-          </div>
+          </nav>
 
           {/* Work Counter */}
-          <div className="text-center mt-4 text-[14px] font-semibold text-[var(--color-gray-500)]">
+          <div aria-hidden="true" className="text-center mt-4 text-[14px] font-semibold text-[var(--color-gray-500)]">
             {currentIndex + 1} / {works.length}
           </div>
         </div>

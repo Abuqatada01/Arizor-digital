@@ -11,7 +11,7 @@ export default function LogoTicker() {
   ];
 
   return (
-    <section className="py-10 border-y border-[rgba(0,0,0,0.05)] bg-[var(--color-background)] overflow-hidden">
+    <section className="py-10 border-y border-[rgba(0,0,0,0.05)] bg-[var(--color-background)] overflow-hidden" aria-label="Trusted Brands">
       <div className="container-custom flex items-center">
 
         <div className="shrink-0 mr-12 lg:mr-24 relative z-10 bg-[var(--color-background)] pr-4">
@@ -22,10 +22,10 @@ export default function LogoTicker() {
         </div>
 
         {/* Marquee Track */}
-        <div className="flex-1 overflow-hidden relative flex items-center">
+        <div className="flex-1 overflow-hidden relative flex items-center" aria-hidden="true">
           {/* Fade masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[var(--color-background)] to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[var(--color-background)] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none"></div>
 
           <div className="flex w-max animate-marquee items-center gap-16 pr-16 opacity-50 grayscale mix-blend-multiply">
             {[...logos, ...logos, ...logos].map((logo, idx) => (
@@ -34,7 +34,9 @@ export default function LogoTicker() {
                   src={logo.src}
                   alt={logo.alt}
                   fill
+                  sizes="120px"
                   className="object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}

@@ -26,7 +26,7 @@ const TESTIMONIALS = [
 
 export default function Testimonial() {
   return (
-    <section className="py-[25px]" id="results">
+    <section className="py-[25px]" id="results" aria-label="Client Testimonials">
       <div className="container-custom">
 
         {/* Section Header */}
@@ -47,14 +47,14 @@ export default function Testimonial() {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t, idx) => (
-            <div key={idx} className="card-agency flex flex-col justify-between min-h-[400px] hover:-translate-y-2 transition-transform duration-300">
+            <article key={idx} className="card-agency flex flex-col justify-between min-h-[400px] hover:-translate-y-2 transition-transform duration-300">
               <div>
-                <div className="flex items-center gap-1 mb-6 text-[var(--color-primary)]">
+                <div aria-hidden="true" className="flex items-center gap-1 mb-6 text-[var(--color-primary)]">
                   {"★★★★★"}
                 </div>
-                <p className="text-body-lg text-[var(--color-black)] font-semibold mb-8">
+                <blockquote className="text-body-lg text-[var(--color-black)] font-semibold mb-8">
                   {t.quote}
-                </p>
+                </blockquote>
               </div>
 
               <div className="flex flex-col pt-8 border-t border-[var(--color-gray-200)]">
@@ -68,7 +68,7 @@ export default function Testimonial() {
                   <span className="text-small text-[var(--color-gray-600)]">{t.company}</span>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 

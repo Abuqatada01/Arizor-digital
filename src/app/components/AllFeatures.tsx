@@ -1,11 +1,9 @@
-"use client";
-
 import React from "react";
 
 const LEFT_FEATURES = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <rect x="3" y="11" width="18" height="10" rx="2"></rect>
         <circle cx="12" cy="5" r="2"></circle>
         <path d="M12 7v4"></path>
@@ -18,7 +16,7 @@ const LEFT_FEATURES = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
         <polyline points="14 2 14 8 20 8"></polyline>
         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -31,7 +29,7 @@ const LEFT_FEATURES = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
         <path d="M8 7h6"></path>
         <path d="M8 11h8"></path>
@@ -45,7 +43,7 @@ const LEFT_FEATURES = [
 const RIGHT_FEATURES = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <circle cx="12" cy="12" r="10"></circle>
         <circle cx="12" cy="12" r="4"></circle>
         <line x1="21.17" y1="8" x2="12" y2="8"></line>
@@ -58,7 +56,7 @@ const RIGHT_FEATURES = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         <polyline points="9 12 11 14 15 10"></polyline>
       </svg>
@@ -68,7 +66,7 @@ const RIGHT_FEATURES = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
       </svg>
@@ -80,13 +78,13 @@ const RIGHT_FEATURES = [
 
 export default function AllFeatures() {
   return (
-    <section className="py-20 lg:py-[25px] bg-transparent overflow-hidden" id="features">
+    <section className="py-20 lg:py-[25px] bg-transparent overflow-hidden" id="features" aria-label="All Features">
       <div className="container-custom">
 
         {/* Header */}
         <div className="flex flex-col items-center mb-12 lg:mb-24 text-center">
           <div className="inline-flex items-center gap-2 bg-[#edecec] shadow-[inset_2px_2px_4px_#c9c9c9,inset_-2px_-2px_4px_#ffffff] px-4 py-2 rounded-full mb-6 w-max">
-            <span className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
+            <span aria-hidden="true" className="w-2 h-2 rounded-full bg-[#ff3b30]"></span>
             <span className="text-[var(--color-primary)] font-semibold text-[14px]">Features</span>
           </div>
           <h2 className="text-display-lg tracking-tight leading-[1.05] text-[var(--color-black)] max-w-[800px]">
@@ -102,7 +100,7 @@ export default function AllFeatures() {
           {/* ========================================= */}
 
           {/* Left Tree Connector (SVG) */}
-          <div className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] left-[320px] w-[230px] z-0 pointer-events-none">
+          <div aria-hidden="true" className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] left-[320px] w-[230px] z-0 pointer-events-none">
             <svg viewBox="0 0 230 360" className="w-full h-full overflow-visible" preserveAspectRatio="none">
               {/* Base Gray Lines */}
               <path d="M 230 180 L 40 180 Q 20 180 20 160 L 20 20 Q 20 0 0 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
@@ -120,7 +118,7 @@ export default function AllFeatures() {
           </div>
 
           {/* Right Tree Connector (SVG) */}
-          <div className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] right-[320px] w-[230px] z-0 pointer-events-none">
+          <div aria-hidden="true" className="hidden lg:block absolute top-[18.5%] bottom-[18.5%] right-[320px] w-[230px] z-0 pointer-events-none">
             <svg viewBox="0 0 230 360" className="w-full h-full overflow-visible" preserveAspectRatio="none">
               {/* Base Gray Lines */}
               <path d="M 0 180 L 190 180 Q 210 180 210 160 L 210 20 Q 210 0 230 0" fill="none" stroke="#d1d1d1" strokeWidth="1" vectorEffect="non-scaling-stroke" />
@@ -144,8 +142,8 @@ export default function AllFeatures() {
           {/* Left Cards */}
           <div className="flex flex-col gap-6 lg:gap-10 w-full max-w-[320px] z-10">
             {LEFT_FEATURES.map((feature, idx) => (
-              <div key={idx} className="bg-[#f4f4f5] rounded-[24px] lg:rounded-[32px] p-5 lg:p-6 shadow-premium-light hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#2A2A2A] rounded-[12px] lg:rounded-[14px] flex items-center justify-center text-white mb-4 lg:mb-6 shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
+              <article key={idx} className="bg-[#f4f4f5] rounded-[24px] lg:rounded-[32px] p-5 lg:p-6 shadow-premium-light hover:-translate-y-1 transition-transform duration-300">
+                <div aria-hidden="true" className="w-10 h-10 lg:w-12 lg:h-12 bg-[#2A2A2A] rounded-[12px] lg:rounded-[14px] flex items-center justify-center text-white mb-4 lg:mb-6 shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
                   {feature.icon}
                 </div>
                 <h3 className="text-[18px] font-bold text-[var(--color-black)] mb-3 leading-tight">
@@ -154,15 +152,15 @@ export default function AllFeatures() {
                 <p className="text-[12px] font-semibold text-[#8e8e8e] leading-[1.6]">
                   {feature.desc}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
 
           {/* Center Glowing Node */}
           <div className="relative z-10 flex flex-col items-center justify-center my-4 lg:my-0">
-            <div className="relative w-28 h-28 lg:w-40 lg:h-40 bg-[#ff3b30] rounded-[24px] lg:rounded-[32px] shadow-[0_20px_40px_rgba(255,59,48,0.4),inset_2px_2px_4px_rgba(255,255,255,0.4),inset_-2px_-2px_4px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-1 lg:gap-2 hover:scale-105 transition-transform duration-500 cursor-pointer">
+            <div className="relative w-28 h-28 lg:w-40 lg:h-40 bg-[#ff3b30] rounded-[24px] lg:rounded-[32px] shadow-[0_20px_40px_rgba(255,59,48,0.4),inset_2px_2px_4px_rgba(255,255,255,0.4),inset_-2px_-2px_4px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-1 lg:gap-2 hover:scale-105 transition-transform duration-500 cursor-default" aria-label="AgenAI Central Node">
               {/* Overlapping Circles Icon */}
-              <div className="flex -space-x-3 lg:-space-x-4 mb-1">
+              <div aria-hidden="true" className="flex -space-x-3 lg:-space-x-4 mb-1">
                 <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full border-2 lg:border-4 border-white"></div>
                 <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white bg-opacity-90 flex items-center justify-center">
                   <div className="w-4 h-4 lg:w-6 lg:h-6 rounded-full border-2 border-[#ff3b30]"></div>
@@ -171,14 +169,14 @@ export default function AllFeatures() {
               <span className="text-white font-bold text-[14px] lg:text-[18px] tracking-wide">AgenAI</span>
             </div>
             {/* Huge Glow Behind Node */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-48 lg:h-48 bg-[#ff3b30] rounded-full blur-[40px] lg:blur-[60px] opacity-40 -z-10 pointer-events-none"></div>
+            <div aria-hidden="true" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-48 lg:h-48 bg-[#ff3b30] rounded-full blur-[40px] lg:blur-[60px] opacity-40 -z-10 pointer-events-none"></div>
           </div>
 
           {/* Right Cards */}
           <div className="flex flex-col gap-6 lg:gap-10 w-full max-w-[320px] z-10">
             {RIGHT_FEATURES.map((feature, idx) => (
-              <div key={idx} className="bg-[#f4f4f5] rounded-[24px] lg:rounded-[32px] p-5 lg:p-6 shadow-premium-light hover:-translate-y-1 transition-transform duration-300">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#2A2A2A] rounded-[12px] lg:rounded-[14px] flex items-center justify-center text-white mb-4 lg:mb-6 shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
+              <article key={idx} className="bg-[#f4f4f5] rounded-[24px] lg:rounded-[32px] p-5 lg:p-6 shadow-premium-light hover:-translate-y-1 transition-transform duration-300">
+                <div aria-hidden="true" className="w-10 h-10 lg:w-12 lg:h-12 bg-[#2A2A2A] rounded-[12px] lg:rounded-[14px] flex items-center justify-center text-white mb-4 lg:mb-6 shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
                   {feature.icon}
                 </div>
                 <h3 className="text-[18px] font-bold text-[var(--color-black)] mb-3 leading-tight">
@@ -187,7 +185,7 @@ export default function AllFeatures() {
                 <p className="text-[12px] font-semibold text-[#8e8e8e] leading-[1.6]">
                   {feature.desc}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
 
